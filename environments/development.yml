@@ -1,0 +1,18 @@
+version: "3"
+
+networks:
+  breeze-bb:
+    driver: bridge
+services:
+  mongo:
+    image: mongo:3.4.10
+    networks:
+      - breeze-bb
+    ports:
+      - 27017:27017
+  redis:
+    image: redis:3.2.10-alpine
+    networks:
+      - breeze-bb
+    ports:
+      - 6379:6379

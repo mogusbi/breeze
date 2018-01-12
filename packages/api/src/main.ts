@@ -1,0 +1,32 @@
+import {INestApplication} from '@nestjs/common';
+import {NestFactory} from '@nestjs/core';
+import {SwaggerModule, DocumentBuilder} from '@nestjs/swagger';
+import {SwaggerBaseConfig, SwaggerDocument} from '@nestjs/swagger/interfaces';
+import {AppModule} from 'app';
+import {json} from 'body-parser';
+import * as morgan from 'morgan';
+
+async function bootstrap (): Promise<void> {
+  const app: INestApplication = await NestFactory.create(AppModule);
+  const prefix: string = '/api/1.0';
+  const port: number = parseInt(process.env.PORT, 10) || 8080;
+  const {version} = require('../../../package.json');
+
+  app.use(morgan('dev'));
+  app.use(json());
+  app.setGlobalPrefix(prefix);
+
+  const options: SwaggerBaseConfig = new DocumentBuilder()
+    .setTitle('Breeze BB')
+    .setBasePath(prefix)
+    .setVersion(version)
+    .build();
+
+  const document: SwaggerDocument = SwaggerModule.createDocument(app, options);
+
+  SwaggerModule.setup('/docs', app, document);
+
+  await app.listen(port);
+}
+
+bootstrap();
