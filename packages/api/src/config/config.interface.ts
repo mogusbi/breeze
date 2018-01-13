@@ -1,7 +1,14 @@
 export interface IConfig {
-  database: IConfigDatabase;
+  database: IDatabaseConfig;
+  pagination: IPaginationConfig;
 }
 
-export interface IConfigDatabase {
+export interface IDatabaseConfig {
   connectionString: string;
+}
+
+export interface IPaginationConfig {
+  max: number;
+  min: number;
+  size: number;
 }

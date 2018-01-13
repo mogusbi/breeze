@@ -1,7 +1,9 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
-import {ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
+import {ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {swagger, swaggerWithType} from 'constants/swagger';
+import {Pagination, pagination, PaginationOptions} from 'shared/pagination';
 import {RoleDto} from './role.dto';
-import {IRole} from './role.interface';
+import {Role, Roles} from './role.model';
 import {RoleService} from './role.service';
 
 @ApiUseTags('Role')
@@ -12,21 +14,55 @@ export class RoleController {
   ) {}
 
   @Get()
-  public async httpGet (): Promise<IRole[]> {
-    const docs: IRole[] = await this.roleService.readAll();
+  @ApiImplicitQuery(pagination.limit)
+  @ApiImplicitQuery(pagination.page)
+  @ApiResponse(swagger.NOCONTENT)
+  @ApiResponse(swaggerWithType(swagger.OK, Roles)) // TODO: Pagination type
+  public async httpGetAll (
+    @Pagination() pagination: PaginationOptions
+  ): Promise<Roles> {
+    return this.roleService.readAll(pagination);
+  }
 
-    console.log(docs);
-    return docs;
+  @Get(':id')
+  @ApiResponse(swagger.FORBIDDEN)
+  @ApiResponse(swagger.NOTFOUND)
+  @ApiResponse(swaggerWithType(swagger.OK, Role))
+  @ApiResponse(swagger.UNAUTHORISED)
+  public async httpGetOne (
+    @Param('id') id: string
+  ): Promise<Role> {
+    return this.roleService.readOne(id);
   }
 
   @Post()
-  @ApiResponse({
-    status: 201,
-    description: 'The record has been successfully created.'
-  })
+  @ApiResponse(swagger.CREATED)
+  @ApiResponse(swagger.FORBIDDEN)
+  @ApiResponse(swagger.UNAUTHORISED)
   public async httpPost (
     @Body() props: RoleDto
+  ): Promise<Role> {
+    return this.roleService.create(props);
+  }
+
+  @Put(':id')
+  @ApiResponse(swagger.FORBIDDEN)
+  @ApiResponse(swaggerWithType(swagger.OK, Role))
+  @ApiResponse(swagger.UNAUTHORISED)
+  public async httpPut (
+    @Param('id') id: string,
+    @Body() props: RoleDto
+  ): Promise<Role> {
+    return this.roleService.update(id, props);
+  }
+
+  @Delete(':id')
+  @ApiResponse(swagger.FORBIDDEN)
+  @ApiResponse(swagger.OK)
+  @ApiResponse(swagger.UNAUTHORISED)
+  public async httpDelete (
+    @Param('id') id: string
   ): Promise<void> {
-    this.roleService.create(props);
+    await this.roleService.drop(id);
   }
 }

@@ -1,6 +1,7 @@
 import {Schema} from 'mongoose';
+import * as paginate from 'mongoose-paginate';
 
-export const RoleSchema: Schema = new Schema({
+const RoleSchema: Schema = new Schema({
   name: {
     required: true,
     type: String,
@@ -10,4 +11,10 @@ export const RoleSchema: Schema = new Schema({
     default: false,
     type: Boolean
   }
+}, {
+  timestamps: true
 });
+
+RoleSchema.plugin(paginate);
+
+export {RoleSchema};
