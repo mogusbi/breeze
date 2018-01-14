@@ -31,8 +31,7 @@
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.9.0",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.5.6",
-    "typescript": "^2.6.2"
+    "rxjs": "^5.5.6"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
@@ -47,6 +46,7 @@
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^4.1.1",
-    "tslint-microsoft-contrib": "^5.0.1"
+    "tslint-microsoft-contrib": "^5.0.1",
+    "typescript": "^2.6.2"
   }
 }
