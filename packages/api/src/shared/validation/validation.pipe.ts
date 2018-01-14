@@ -4,7 +4,7 @@ import {ClassTransformOptions, plainToClass} from 'class-transformer';
 import {status} from 'shared/status';
 
 @Pipe()
-export class ValidationPipe implements PipeTransform<any> {
+export class ValidationPipe implements PipeTransform<string> {
   public async transform(value: string, {metatype}: ArgumentMetadata) {
     if (!metatype || !this.toValidate(metatype)) {
       return value;
