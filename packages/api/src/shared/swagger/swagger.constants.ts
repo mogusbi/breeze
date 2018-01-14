@@ -15,13 +15,13 @@ export const swagger: ISwagger = {
     description: status.FORBIDDEN,
     status: HttpStatus.FORBIDDEN
   },
-  NO_CONTENT: {
-    description: status.NO_CONTENT,
-    status: HttpStatus.NO_CONTENT
-  },
   NOT_FOUND: {
     description: status.NOT_FOUND,
     status: HttpStatus.NOT_FOUND
+  },
+  NO_CONTENT: {
+    description: status.NO_CONTENT,
+    status: HttpStatus.NO_CONTENT
   },
   OK: {
     description: status.OK,
@@ -33,15 +33,10 @@ export const swagger: ISwagger = {
   }
 };
 
-export function swaggerWithType<T> (
-  prop: ISwaggerProp,
-  type: T,
-  isArray: boolean = false
-) {
+export function swaggerWithType<T> (prop: ISwaggerProp, type: T, isArray: boolean = false): ISwaggerProp {
   return {
     ...prop,
     isArray,
     type
-  }
+  };
 }
-

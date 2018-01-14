@@ -1,6 +1,6 @@
 import {INestApplication} from '@nestjs/common';
 import {NestFactory} from '@nestjs/core';
-import {SwaggerModule, DocumentBuilder} from '@nestjs/swagger';
+import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {SwaggerBaseConfig, SwaggerDocument} from '@nestjs/swagger/interfaces';
 import {AppModule} from 'app';
 import {json} from 'body-parser';

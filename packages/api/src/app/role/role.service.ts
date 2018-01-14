@@ -1,10 +1,10 @@
-import {Component, HttpException, HttpStatus} from '@nestjs/common';
+import {Component, NotFoundException} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
 import {PaginateModel} from 'mongoose';
+import {NoContentException} from 'shared/exceptions';
 import {PaginationOptions} from 'shared/pagination';
-import {status} from 'shared/status';
-import {Role, RoleCreateDto, Roles, RoleUpdateDto} from './role.model';
 import {IRole} from './role.interface';
+import {Role, RoleCreateDto, Roles, RoleUpdateDto} from './role.model';
 import {RoleSchema} from './role.schema';
 
 @Component()
@@ -40,7 +40,7 @@ export class RoleService {
     });
 
     if (results.docs.length === 0) {
-      throw new HttpException(status.NO_CONTENT, HttpStatus.NO_CONTENT);
+      throw new NoContentException();
     }
 
     return results;
@@ -55,7 +55,7 @@ export class RoleService {
       .exec();
 
     if (!result) {
-      throw new HttpException(status.NOT_FOUND, HttpStatus.NOT_FOUND);
+      throw new NotFoundException();
     }
 
     return result;
@@ -63,19 +63,23 @@ export class RoleService {
 
   public async update (_id: string, {name, protect}: RoleUpdateDto): Promise<Role> {
     const result: Role = await this.model
-      .findByIdAndUpdate({
-        _id
-      }, {
-        name,
-        protect
-      }, {
-        new: true
-      })
+      .findByIdAndUpdate(
+        {
+          _id
+        },
+        {
+          name,
+          protect
+        },
+        {
+          new: true
+        }
+      )
       .select('name protect')
       .exec();
 
     if (!result) {
-      throw new HttpException(status.NOT_FOUND, HttpStatus.NOT_FOUND);
+      throw new NotFoundException();
     }
 
     return result;

@@ -1,11 +1,11 @@
 import {IStatus} from './status.interface';
 
 export const status: IStatus = {
-  BAD_REQUEST: 'Bad request',
+  BAD_REQUEST: 'Bad Request',
   CREATED: 'Created',
   FORBIDDEN: 'Forbidden',
-  NO_CONTENT: 'No content',
-  NOT_FOUND: 'Not found',
-  OK: 'Successful operation',
+  NOT_FOUND: 'Not Found',
+  NO_CONTENT: 'No Content',
+  OK: 'OK',
   UNAUTHORISED: 'Unauthorised'
 };

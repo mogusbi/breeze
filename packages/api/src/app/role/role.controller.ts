@@ -1,15 +1,15 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
 import {Pagination, pagination, PaginationOptions} from 'shared/pagination';
-import {ValidationPipe} from 'shared/validation';
 import {swagger, swaggerWithType} from 'shared/swagger';
+import {ValidationPipe} from 'shared/validation';
 import {Role, RoleCreateDto, Roles, RoleUpdateDto} from './role.model';
 import {RoleService} from './role.service';
 
 @ApiUseTags('Role')
 @Controller('role')
 export class RoleController {
-  constructor(
+  constructor (
     private readonly roleService: RoleService
   ) {}
 
@@ -17,7 +17,7 @@ export class RoleController {
   @ApiImplicitQuery(pagination.limit)
   @ApiImplicitQuery(pagination.page)
   @ApiResponse(swagger.NO_CONTENT)
-  @ApiResponse(swaggerWithType(swagger.OK, Roles)) // TODO: Pagination type
+  @ApiResponse(swaggerWithType(swagger.OK, Roles))
   public async httpGetAll (
     @Pagination() options: PaginationOptions
   ): Promise<Roles> {
