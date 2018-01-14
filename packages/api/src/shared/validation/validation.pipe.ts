@@ -1,6 +1,7 @@
 import {ArgumentMetadata, HttpException, HttpStatus, Pipe, PipeTransform} from '@nestjs/common';
 import {validate, ValidationError} from 'class-validator';
 import {ClassTransformOptions, plainToClass} from 'class-transformer';
+import {status} from 'shared/status';
 
 @Pipe()
 export class ValidationPipe implements PipeTransform<any> {
@@ -14,7 +15,7 @@ export class ValidationPipe implements PipeTransform<any> {
 
     // TODO: Iterate errors and return them in response
     if (errors.length > 0) {
-      throw new HttpException('Validation failed', HttpStatus.BAD_REQUEST);
+      throw new HttpException(status.BAD_REQUEST, HttpStatus.BAD_REQUEST);
     }
 
     return value;
