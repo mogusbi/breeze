@@ -1,12 +1,9 @@
 import {ApiModelProperty} from '@nestjs/swagger';
 
-export class PaginationResult<T> {
-  @ApiModelProperty({
-    isArray: true
-  }) public readonly docs: T;
+export class PaginationResult {
   @ApiModelProperty() public readonly limit: number;
-  @ApiModelProperty() public readonly page: number;
-  @ApiModelProperty() public readonly pages: number;
+  @ApiModelProperty() public readonly page?: number;
+  @ApiModelProperty() public readonly pages?: number;
   @ApiModelProperty() public readonly total: number;
 }
 

@@ -1,8 +1,9 @@
-import {Component} from '@nestjs/common';
+import {Component, HttpException, HttpStatus} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
 import {PaginateModel} from 'mongoose';
-import {PaginationOptions, PaginationResult} from 'shared/pagination';
-import {RoleDto} from './role.dto';
+import {PaginationOptions} from 'shared/pagination';
+import {status} from 'shared/status';
+import {Role, RoleCreateDto, Roles, RoleUpdateDto} from './role.model';
 import {IRole} from './role.interface';
 import {RoleSchema} from './role.schema';
 
@@ -12,8 +13,11 @@ export class RoleService {
     @InjectModel(RoleSchema) private readonly model: PaginateModel<IRole>
   ) {}
 
-  public async create (props: RoleDto): Promise<IRole> {
-    const {_id}: IRole = await new this.model(props).save();
+  public async create ({name, protect}: RoleCreateDto): Promise<Role> {
+    const {_id}: IRole = await new this.model({
+      name,
+      protect
+    }).save();
 
     return this.readOne(_id);
   }
@@ -27,31 +31,53 @@ export class RoleService {
       .exec();
   }
 
-  public async readAll (pagination: PaginationOptions): Promise<PaginationResult<IRole>> {
-    return this.model.paginate({}, {
-      ...pagination,
+  public async readAll ({limit, page}: PaginationOptions): Promise<Roles> {
+    const results: Roles = await this.model.paginate({}, {
+      limit,
+      page,
       select: 'name protect',
       sort: 'name'
-    }) as Promise<PaginationResult<IRole>>;
+    });
+
+    if (results.docs.length === 0) {
+      throw new HttpException(status.NO_CONTENT, HttpStatus.NO_CONTENT);
+    }
+
+    return results;
   }
 
-  public async readOne (_id: string): Promise<IRole> {
-    return this.model
+  public async readOne (_id: string): Promise<Role> {
+    const result: Role = await this.model
       .findById({
         _id
       })
       .select('name protect')
       .exec();
+
+    if (!result) {
+      throw new HttpException(status.NOT_FOUND, HttpStatus.NOT_FOUND);
+    }
+
+    return result;
   }
 
-  public async update (_id: string, props: RoleDto): Promise<IRole> {
-    return this.model
+  public async update (_id: string, {name, protect}: RoleUpdateDto): Promise<Role> {
+    const result: Role = await this.model
       .findByIdAndUpdate({
         _id
-      }, props, {
+      }, {
+        name,
+        protect
+      }, {
         new: true
       })
       .select('name protect')
       .exec();
+
+    if (!result) {
+      throw new HttpException(status.NOT_FOUND, HttpStatus.NOT_FOUND);
+    }
+
+    return result;
   }
 }

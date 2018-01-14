@@ -1,5 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Server: start" type="NodeJSConfigurationType" factoryName="Node.js" node-parameters="node_modules/.bin/nodemon --inspect --require ts-node/register" path-to-js-file="packages/api/src/main.ts" working-dir="$PROJECT_DIR$">
-    <method />
-  </configuration>
-</component>
