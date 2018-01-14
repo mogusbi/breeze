@@ -1,0 +1,19 @@
+{
+  "collectCoverageFrom" : [
+    "packages/api/src/**/*.ts",
+    "!**/node_modules/**"
+  ],
+  "coverageDirectory": "reports",
+  "coverageReporters": [
+    "json",
+    "lcov"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": "../",
+  "testEnvironment": "node",
+  "testRegex": "/src/.*\\.spec.ts$"
+}

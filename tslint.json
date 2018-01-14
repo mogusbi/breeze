@@ -1,6 +1,7 @@
 {
   "extends": "tslint-microsoft-contrib",
   "rules": {
+    "completed-docs": false,
     "export-name": false,
     "function-name": [
       true,
@@ -12,6 +13,7 @@
         "function-regex": "^[A-Za-z][\\w\\d]+$"
       }
     ],
+    "max-classes-per-file": false,
     "max-func-body-length": false,
     "max-line-length": false,
     "missing-jsdoc": false,
