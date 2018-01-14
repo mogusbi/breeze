@@ -8,6 +8,15 @@
     "json",
     "lcov"
   ],
+  "globals": {
+    "ts-jest": {
+      "tsConfigFile": "packages/api/tsconfig.json"
+    }
+  },
+  "moduleDirectories": [
+    "../../node_modules",
+    "../src"
+  ],
   "moduleFileExtensions": [
     "js",
     "json",
@@ -15,5 +24,8 @@
   ],
   "rootDir": "../",
   "testEnvironment": "node",
-  "testRegex": "/src/.*\\.spec.ts$"
+  "testRegex": "/src/.*\\.spec.ts$",
+  "transform": {
+    "^.+\\.tsx?$": "../../node_modules/ts-jest/preprocessor.js"
+  }
 }
