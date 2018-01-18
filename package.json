@@ -2,7 +2,7 @@
   "name": "breeze-bb",
   "version": "1.0.0",
   "private": true,
-  "description": "NodeJS powered bulletin board",
+  "description": "Node JS powered bulletin board",
   "scripts": {
     "api:e2e": "jest --config=packages/api/config/e2e-config.json --forceExit",
     "api:e2e:watch": "jest --config=packages/api/config/e2e-config.json --watch",

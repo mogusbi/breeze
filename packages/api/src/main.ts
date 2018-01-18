@@ -10,7 +10,7 @@ async function bootstrap (): Promise<void> {
   const app: INestApplication = await NestFactory.create(AppModule);
   const prefix: string = '/api/1.0';
   const port: number = parseInt(process.env.PORT, 10) || 8080;
-  const {version} = require('../../../package.json');
+  const {description, version} = require('../../../package.json');
 
   app.use(morgan('dev'));
   app.use(json());
@@ -18,6 +18,7 @@ async function bootstrap (): Promise<void> {
 
   const options: SwaggerBaseConfig = new DocumentBuilder()
     .setTitle('Breeze BB')
+    .setDescription(description)
     .setBasePath(prefix)
     .setVersion(version)
     .build();

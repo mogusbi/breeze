@@ -3,11 +3,6 @@
     "packages/api/src/**/*.ts",
     "!**/node_modules/**"
   ],
-  "coverageDirectory": "reports",
-  "coverageReporters": [
-    "json",
-    "lcov"
-  ],
   "globals": {
     "ts-jest": {
       "tsConfigFile": "packages/api/tsconfig.json"
