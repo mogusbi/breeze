@@ -1,6 +1,8 @@
+import {MongooseModule} from '@nestjs/mongoose';
 import {Test} from '@nestjs/testing';
 import {TestingModule} from '@nestjs/testing/testing-module';
 import {RoleController} from './role.controller';
+import {RoleSchema} from './role.schema';
 import {RoleService} from './role.service';
 
 describe('Role controller', () => {
@@ -15,6 +17,14 @@ describe('Role controller', () => {
         ],
         controllers: [
           RoleController
+        ],
+        imports: [
+          MongooseModule.forFeature([
+            {
+              name: 'Role',
+              schema: RoleSchema
+            }
+          ])
         ]
       })
       .compile();
