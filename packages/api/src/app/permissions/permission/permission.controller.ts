@@ -49,10 +49,11 @@ export class PermissionController {
 
   @Delete(':id')
   @ApiResponse(swagger.FORBIDDEN)
+  @ApiResponse(swagger.NOT_FOUND)
   @ApiResponse(swagger.OK)
   @ApiResponse(swagger.UNAUTHORISED)
   public async httpDelete (
-    @Param('id') id: string
+    @Param('id', new ObjectIdPipe()) id: string
   ): Promise<void> {
     await this.permissionService.drop(id);
   }

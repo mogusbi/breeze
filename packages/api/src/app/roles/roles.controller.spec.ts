@@ -1,12 +1,11 @@
 import {MongooseModule} from '@nestjs/mongoose';
 import {Test} from '@nestjs/testing';
 import {TestingModule} from '@nestjs/testing/testing-module';
-import {RoleController} from './role.controller';
-import {RoleSchema} from './role.schema';
-import {RoleService} from './role.service';
+import {RolesController} from './roles.controller';
+import {RoleSchema, RoleService} from './shared';
 
-describe('Role controller', () => {
-  let controller: RoleController;
+describe('Roles controller', () => {
+  let controller: RolesController;
   let service: RoleService;
 
   beforeEach(async () => {
@@ -16,7 +15,7 @@ describe('Role controller', () => {
           RoleService
         ],
         controllers: [
-          RoleController
+          RolesController
         ],
         imports: [
           MongooseModule.forFeature([
@@ -29,11 +28,12 @@ describe('Role controller', () => {
       })
       .compile();
 
-    controller = mod.get<RoleController>(RoleController);
+    controller = mod.get<RolesController>(RolesController);
     service = mod.get<RoleService>(RoleService);
   });
 
   it('should be true', () => {
+    console.log(controller, service);
     expect(true).toBe(true);
   });
 });

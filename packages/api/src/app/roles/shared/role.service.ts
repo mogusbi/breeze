@@ -46,6 +46,19 @@ export class RoleService {
     return results;
   }
 
+  public async readList (): Promise<Role[]> {
+    const results: Role[] = await this.model
+      .find({})
+      .select('name protect')
+      .exec();
+
+    if (results.length === 0) {
+      throw new NoContentException();
+    }
+
+    return results;
+  }
+
   public async readOne (_id: string): Promise<Role> {
     const result: Role = await this.model
       .findById({

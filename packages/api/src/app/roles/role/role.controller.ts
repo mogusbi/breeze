@@ -1,10 +1,9 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
-import {ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
-import {Pagination, pagination, PaginationOptions} from 'shared/pagination';
+import {ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {ObjectIdPipe} from 'shared/object-id';
 import {swagger, swaggerWithType} from 'shared/swagger';
 import {ValidationPipe} from 'shared/validation';
-import {Role, RoleCreateDto, Roles, RoleUpdateDto} from './role.model';
-import {RoleService} from './role.service';
+import {Role, RoleCreateDto, RoleService, RoleUpdateDto} from '../shared';
 
 @ApiUseTags('Role')
 @Controller('role')
@@ -13,24 +12,13 @@ export class RoleController {
     private readonly roleService: RoleService
   ) {}
 
-  @Get()
-  @ApiImplicitQuery(pagination.limit)
-  @ApiImplicitQuery(pagination.page)
-  @ApiResponse(swagger.NO_CONTENT)
-  @ApiResponse(swaggerWithType(swagger.OK, Roles))
-  public async httpGetAll (
-    @Pagination() options: PaginationOptions
-  ): Promise<Roles> {
-    return this.roleService.readAll(options);
-  }
-
   @Get(':id')
   @ApiResponse(swagger.FORBIDDEN)
   @ApiResponse(swagger.NOT_FOUND)
   @ApiResponse(swaggerWithType(swagger.OK, Role))
   @ApiResponse(swagger.UNAUTHORISED)
   public async httpGetOne (
-    @Param('id') id: string
+    @Param('id', new ObjectIdPipe()) id: string
   ): Promise<Role> {
     return this.roleService.readOne(id);
   }
@@ -53,7 +41,7 @@ export class RoleController {
   @ApiResponse(swaggerWithType(swagger.OK, Role))
   @ApiResponse(swagger.UNAUTHORISED)
   public async httpPut (
-    @Param('id') id: string,
+    @Param('id', new ObjectIdPipe()) id: string,
     @Body(new ValidationPipe()) props: RoleUpdateDto
   ): Promise<Role> {
     return this.roleService.update(id, props);
@@ -61,10 +49,11 @@ export class RoleController {
 
   @Delete(':id')
   @ApiResponse(swagger.FORBIDDEN)
+  @ApiResponse(swagger.NOT_FOUND)
   @ApiResponse(swagger.OK)
   @ApiResponse(swagger.UNAUTHORISED)
   public async httpDelete (
-    @Param('id') id: string
+    @Param('id', new ObjectIdPipe()) id: string
   ): Promise<void> {
     await this.roleService.drop(id);
   }
