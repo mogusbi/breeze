@@ -1,10 +1,9 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
-import {ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
-import {Pagination, pagination, PaginationOptions} from 'shared/pagination';
+import {ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {ObjectIdPipe} from 'shared/object-id';
 import {swagger, swaggerWithType} from 'shared/swagger';
 import {ValidationPipe} from 'shared/validation';
-import {Permission, PermissionCreateDto, Permissions, PermissionUpdateDto} from './permission.model';
-import {PermissionService} from './permission.service';
+import {Permission, PermissionCreateDto, PermissionService, PermissionUpdateDto} from '../shared';
 
 @ApiUseTags('Permission')
 @Controller('permission')
@@ -13,24 +12,13 @@ export class PermissionController {
     private readonly permissionService: PermissionService
   ) {}
 
-  @Get()
-  @ApiImplicitQuery(pagination.limit)
-  @ApiImplicitQuery(pagination.page)
-  @ApiResponse(swagger.NO_CONTENT)
-  @ApiResponse(swaggerWithType(swagger.OK, Permissions))
-  public async httpGetAll (
-    @Pagination() options: PaginationOptions
-  ): Promise<Permissions> {
-    return this.permissionService.readAll(options);
-  }
-
   @Get(':id')
   @ApiResponse(swagger.FORBIDDEN)
   @ApiResponse(swagger.NOT_FOUND)
   @ApiResponse(swaggerWithType(swagger.OK, Permission))
   @ApiResponse(swagger.UNAUTHORISED)
   public async httpGetOne (
-    @Param('id') id: string
+    @Param('id', new ObjectIdPipe()) id: string
   ): Promise<Permission> {
     return this.permissionService.readOne(id);
   }
@@ -53,7 +41,7 @@ export class PermissionController {
   @ApiResponse(swaggerWithType(swagger.OK, Permission))
   @ApiResponse(swagger.UNAUTHORISED)
   public async httpPut (
-    @Param('id') id: string,
+    @Param( 'id', new ObjectIdPipe()) id: string,
     @Body(new ValidationPipe()) props: PermissionUpdateDto
   ): Promise<Permission> {
     return this.permissionService.update(id, props);

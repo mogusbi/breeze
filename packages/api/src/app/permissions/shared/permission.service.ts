@@ -46,6 +46,19 @@ export class PermissionService {
     return results;
   }
 
+  public async readList (): Promise<Permission[]> {
+    const results: Permission[] = await this.model
+      .find({})
+      .select('name protect')
+      .exec();
+
+    if (results.length === 0) {
+      throw new NoContentException();
+    }
+
+    return results;
+  }
+
   public async readOne (_id: string): Promise<Permission> {
     const result: Permission = await this.model
       .findById({
