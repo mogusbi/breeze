@@ -1,8 +1,9 @@
 import {Controller, Get} from '@nestjs/common';
-import {ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {ApiBearerAuth, ApiResponse, ApiUseTags} from '@nestjs/swagger';
 import {swagger, swaggerWithType} from 'shared/swagger';
 import {Role, RoleService} from '../shared';
 
+@ApiBearerAuth()
 @ApiUseTags('List', 'Role')
 @Controller('roles/list')
 export class RolesListController {

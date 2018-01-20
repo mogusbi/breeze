@@ -1,10 +1,11 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
-import {ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {ApiBearerAuth, ApiResponse, ApiUseTags} from '@nestjs/swagger';
 import {ObjectIdPipe} from 'shared/object-id';
 import {swagger, swaggerWithType} from 'shared/swagger';
 import {ValidationPipe} from 'shared/validation';
 import {Role, RoleCreateDto, RoleService, RoleUpdateDto} from '../shared';
 
+@ApiBearerAuth()
 @ApiUseTags('Role')
 @Controller('role')
 export class RoleController {

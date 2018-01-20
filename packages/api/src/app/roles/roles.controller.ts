@@ -1,9 +1,10 @@
 import {Controller, Get} from '@nestjs/common';
-import {ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {ApiBearerAuth, ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
 import {Pagination, pagination, PaginationOptions} from 'shared/pagination';
 import {swagger, swaggerWithType} from 'shared/swagger';
 import {Roles, RoleService} from './shared';
 
+@ApiBearerAuth()
 @ApiUseTags('Role')
 @Controller('roles')
 export class RolesController {

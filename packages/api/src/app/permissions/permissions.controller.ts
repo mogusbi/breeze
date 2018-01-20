@@ -1,9 +1,10 @@
 import {Controller, Get} from '@nestjs/common';
-import {ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {ApiBearerAuth, ApiImplicitQuery, ApiResponse, ApiUseTags} from '@nestjs/swagger';
 import {Pagination, pagination, PaginationOptions} from 'shared/pagination';
 import {swagger, swaggerWithType} from 'shared/swagger';
 import {Permissions, PermissionService} from './shared';
 
+@ApiBearerAuth()
 @ApiUseTags('Permission')
 @Controller('permissions')
 export class PermissionsController {

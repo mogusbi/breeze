@@ -1,10 +1,11 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
-import {ApiResponse, ApiUseTags} from '@nestjs/swagger';
+import {ApiBearerAuth, ApiResponse, ApiUseTags} from '@nestjs/swagger';
 import {ObjectIdPipe} from 'shared/object-id';
 import {swagger, swaggerWithType} from 'shared/swagger';
 import {ValidationPipe} from 'shared/validation';
 import {Permission, PermissionCreateDto, PermissionService, PermissionUpdateDto} from '../shared';
 
+@ApiBearerAuth()
 @ApiUseTags('Permission')
 @Controller('permission')
 export class PermissionController {
