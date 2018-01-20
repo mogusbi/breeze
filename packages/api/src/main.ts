@@ -5,6 +5,7 @@ import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {SwaggerBaseConfig, SwaggerDocument} from '@nestjs/swagger/interfaces';
 import {AppModule} from 'app';
 import {json} from 'body-parser';
+import * as helmet from 'helmet';
 import * as morgan from 'morgan';
 
 async function bootstrap (): Promise<void> {
@@ -14,6 +15,7 @@ async function bootstrap (): Promise<void> {
   const {description, version} = require('../../../package.json');
 
   app.use(morgan('dev'));
+  app.use(helmet());
   app.use(json());
   app.setGlobalPrefix(prefix);
 

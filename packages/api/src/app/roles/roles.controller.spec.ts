@@ -1,8 +1,7 @@
-import {MongooseModule} from '@nestjs/mongoose';
 import {Test} from '@nestjs/testing';
 import {TestingModule} from '@nestjs/testing/testing-module';
 import {RolesController} from './roles.controller';
-import {RoleSchema, RoleService} from './shared';
+import {RoleService} from './shared';
 
 describe('Roles controller', () => {
   let controller: RolesController;
@@ -18,12 +17,10 @@ describe('Roles controller', () => {
           RolesController
         ],
         imports: [
-          MongooseModule.forFeature([
-            {
-              name: 'Role',
-              schema: RoleSchema
-            }
-          ])
+          {
+            provide: 'RoleSchemaModel',
+            useValue: {}
+          }
         ]
       })
       .compile();
@@ -32,8 +29,8 @@ describe('Roles controller', () => {
     service = mod.get<RoleService>(RoleService);
   });
 
-  it('should be true', () => {
-    console.log(controller, service);
-    expect(true).toBe(true);
+  it('should all be true', () => {
+    expect(controller).toBeDefined();
+    expect(service).toBeDefined();
   });
 });
