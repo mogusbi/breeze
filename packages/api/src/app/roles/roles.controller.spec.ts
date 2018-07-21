@@ -1,7 +1,9 @@
 import {Test} from '@nestjs/testing';
 import {TestingModule} from '@nestjs/testing/testing-module';
+// import {PaginateModel} from 'mongoose';
 import {RolesController} from './roles.controller';
 import {RoleService} from './shared';
+// import {IRole} from './shared';
 
 describe('Roles controller', () => {
   let controller: RolesController;
@@ -11,6 +13,10 @@ describe('Roles controller', () => {
     const mod: TestingModule = await Test
       .createTestingModule({
         components: [
+          // {
+          //   provide: 'RoleSchemaModel',
+          //   useValue: RoleSchema
+          // },
           RoleService
         ],
         controllers: [
@@ -19,7 +25,7 @@ describe('Roles controller', () => {
         imports: [
           {
             provide: 'RoleSchemaModel',
-            useValue: {}
+            useClass: null
           }
         ]
       })

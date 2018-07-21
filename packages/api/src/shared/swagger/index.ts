@@ -1,2 +1,2 @@
-export * from './swagger.constants';
+export * from './swagger.constant';
 export * from './swagger.interface';

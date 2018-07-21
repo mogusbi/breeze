@@ -1,2 +1,2 @@
-export * from './status.constants';
+export * from './status.constant';
 export * from './status.interface';
