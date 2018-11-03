@@ -1,0 +1,6 @@
+{
+  "extends": "../core/tslint.json",
+  "rulesDirectory": [
+    "../../node_modules/tslint-microsoft-contrib"
+  ]
+}

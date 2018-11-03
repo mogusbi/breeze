@@ -1,0 +1,30 @@
+{
+  "name": "@breeze-bb/user",
+  "version": "0.0.0",
+  "description": "Breeze BB user module",
+  "author": "Mo Gusbi <me@mogusbi.co.uk>",
+  "homepage": "https://bitbucket.org/mogusbi/breeze-bb#readme",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/mogusbi/breeze-bb.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nestjs/common": "^5.4.0",
+    "@nestjs/core": "^5.4.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3"
+  }
+}

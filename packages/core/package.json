@@ -1,0 +1,13 @@
+{
+  "name": "@breeze-bb/core",
+  "version": "0.0.0",
+  "description": "Breeze BB core",
+  "author": "Mo Gusbi <me@mogusbi.co.uk>",
+  "homepage": "https://bitbucket.org/mogusbi/breeze-bb#readme",
+  "license": "UNLICENSED",
+  "main": "lib/core.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/mogusbi/breeze-bb.git"
+  }
+}
