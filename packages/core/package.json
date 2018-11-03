@@ -5,9 +5,23 @@
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://bitbucket.org/mogusbi/breeze-bb#readme",
   "license": "UNLICENSED",
-  "main": "lib/core.js",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://bitbucket.org/mogusbi/breeze-bb.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3"
   }
 }
