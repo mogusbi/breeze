@@ -1,5 +1,5 @@
 {
-  "extends": "../core/tslint.json",
+  "extends": "../../tslint.json",
   "rulesDirectory": [
     "../../node_modules/tslint-microsoft-contrib"
   ]

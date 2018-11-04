@@ -1,10 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="API: environment" type="js.build_tools.npm" factoryName="npm">
+  <configuration default="false" name="Test" type="js.build_tools.npm" factoryName="npm">
     <package-json value="$PROJECT_DIR$/package.json" />
-    <command value="run" />
-    <scripts>
-      <script value="api:environment" />
-    </scripts>
+    <command value="test" />
     <node-interpreter value="project" />
     <envs />
     <method />
