@@ -1,10 +1,11 @@
+/**
+ * @file Dynamo DB mapper client
+ * @author Mo Gusbi <me@mogusbi.co.uk>
+ */
 import {DataMapper} from '@aws/dynamodb-data-mapper';
 import {Injectable} from '@nestjs/common';
 import {DynamoDB} from 'aws-sdk';
 
-/**
- * Dynamo DB mapper client
- */
 @Injectable()
 export class DynamoDb {
   private readonly dataMapper: DataMapper;
@@ -22,6 +23,7 @@ export class DynamoDb {
 
   /**
    * Inserts entity into the database
+   * @async
    * @param {T} data - The data to insert
    * @returns {Promise<T>} - The inserted entity
    */
