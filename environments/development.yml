@@ -1,0 +1,13 @@
+version: "3"
+
+networks:
+  breeze-bb:
+    driver: bridge
+
+services:
+  dynamo:
+    image: amazon/dynamodb-local
+    networks:
+      - breeze-bb
+    ports:
+      - 8000:8000

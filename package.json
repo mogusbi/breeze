@@ -9,6 +9,7 @@
     "build": "lerna run build",
     "clean": "lerna clean",
     "create": "lerna create",
+    "environment": "docker-compose -f environments/development.yml up",
     "lerna": "lerna",
     "ls": "lerna ls",
     "test": "lerna run test"

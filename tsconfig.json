@@ -12,8 +12,9 @@
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "sourceMap": true,
+    "removeComments": true,
     "skipLibCheck": true,
+    "sourceMap": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "types": [

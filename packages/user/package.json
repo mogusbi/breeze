@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "start": "ts-node --project tsconfig.json src/main.ts",
     "test": "jest"
   },
   "dependencies": {
@@ -26,7 +27,11 @@
     "@breeze-bb/core": "0.0.0",
     "@nestjs/common": "^5.4.0",
     "@nestjs/core": "^5.4.0",
+    "class-validator": "^0.9.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
+  },
+  "devDependencies": {
+    "ts-node": "^7.0.1"
   }
 }
