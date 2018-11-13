@@ -20,6 +20,12 @@
     "url": "git+https://bitbucket.org/mogusbi/breeze-bb.git"
   },
   "license": "UNLICENSED",
+  "dependencies": {
+    "@nestjs/common": "^5.4.0",
+    "@nestjs/core": "^5.4.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/node": "^8.10.0",
