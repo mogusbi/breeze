@@ -1,5 +1,6 @@
 /**
- * @file Dynamo DB mapper client
+ * @fileOverview Dynamo DB mapper client
+ *
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {DataMapper} from '@aws/dynamodb-data-mapper';
@@ -23,9 +24,10 @@ export class DynamoDb {
 
   /**
    * Inserts entity into the database
-   * @async
-   * @param {T} data - The data to insert
-   * @returns {Promise<T>} - The inserted entity
+   *
+   * @param data - The data to insert
+   *
+   * @returns The inserted entity
    */
   public async insert <T> (data: T): Promise<T> {
     return this.dataMapper.put<T>(data);

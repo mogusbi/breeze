@@ -1,5 +1,6 @@
 /**
- * @file Dynamo DB mapper client unit test
+ * @fileOverview Dynamo DB mapper client unit test
+ *
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {DataMapper} from '@aws/dynamodb-data-mapper';

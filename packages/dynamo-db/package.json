@@ -20,6 +20,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
     "test": "jest --coverage"
   },
   "dependencies": {
