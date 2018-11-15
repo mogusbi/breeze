@@ -5,10 +5,10 @@ import {DataMapper} from '@aws/dynamodb-data-mapper';
 import {Injectable} from '@nestjs/common';
 import {DynamoDB} from 'aws-sdk';
 
-@Injectable()
 /**
  * Dynamo DB mapper client service
  */
+@Injectable()
 export class DynamoDb {
   private readonly dataMapper: DataMapper;
 
