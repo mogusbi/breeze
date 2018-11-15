@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/sql/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/user/lib" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />

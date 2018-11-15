@@ -1,6 +1,4 @@
 /**
- * @fileOverview Dynamo DB mapper client
- *
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {DataMapper} from '@aws/dynamodb-data-mapper';
@@ -8,6 +6,9 @@ import {Injectable} from '@nestjs/common';
 import {DynamoDB} from 'aws-sdk';
 
 @Injectable()
+/**
+ * Dynamo DB mapper client service
+ */
 export class DynamoDb {
   private readonly dataMapper: DataMapper;
 

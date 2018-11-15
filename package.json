@@ -12,6 +12,7 @@
     "docs": "lerna run docs",
     "environment": "docker-compose -f environments/development.yml up",
     "lerna": "lerna",
+    "lint": "lerna run lint",
     "ls": "lerna ls",
     "test": "lerna run test"
   },
