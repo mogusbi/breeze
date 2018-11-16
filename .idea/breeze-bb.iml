@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/packages/api/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/core/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/docs" />
