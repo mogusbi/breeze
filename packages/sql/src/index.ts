@@ -1,7 +1,6 @@
 /**
- * Breeze BB SQL adaptor
+ * Breeze BB SQL adaptor and base entity
  * @module breeze-bb/sql
  */
-export * from './sql.enum';
-export * from './sql.module';
-export * from './sql.providers';
+export * from './base';
+export * from './sql';

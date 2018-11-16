@@ -1,16 +1,14 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {Base} from '@breeze-bb/sql';
+import {Column, Entity} from 'typeorm';
 
 /**
  * Team entity
  */
 @Entity()
-export class Team {
-  @PrimaryGeneratedColumn('uuid')
-  public id: string;
-
+export class Team extends Base {
   @Column()
   public name: string;
 }
