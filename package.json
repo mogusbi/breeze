@@ -25,6 +25,7 @@
   "dependencies": {
     "@nestjs/common": "^5.4.0",
     "@nestjs/core": "^5.4.0",
+    "class-validator": "^0.9.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
   },
@@ -35,6 +36,7 @@
     "jest": "^23.6.0",
     "lerna": "^3.4.3",
     "ts-jest": "^23.10.4",
+    "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-microsoft-contrib": "^5.2.1",
     "typedoc": "^0.13.0",
