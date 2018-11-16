@@ -27,6 +27,17 @@ export class TeamService {
    * @returns The new team entity
    */
   public async create (dto: TeamDto): Promise<Team> {
-    return this.team.create(dto);
+    const team: Team = this.team.create(dto);
+
+    return this.team.save(team);
+  }
+
+  /**
+   * List all teams in a paginated list
+   *
+   * @returns A paginated list of teams
+   */
+  public async listAll (): Promise<Team[]> {
+    return this.team.find();
   }
 }

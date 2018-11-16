@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Body, Controller, Post} from '@nestjs/common';
+import {Body, Controller, Get, Post} from '@nestjs/common';
 import {TeamDto} from './team.dto';
 import {Team} from './team.entity';
 import {TeamService} from './team.service';
@@ -30,5 +30,15 @@ export class TeamController {
     @Body() dto: TeamDto
   ): Promise<Team> {
     return this.teamService.create(dto);
+  }
+
+  /**
+   * [GET] A paginated list of teams
+   *
+   * @returns List of team entities
+   */
+  @Get()
+  public async listAll (): Promise<Team[]> {
+    return this.teamService.listAll();
   }
 }

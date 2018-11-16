@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {INestApplication} from '@nestjs/common';
+import {INestApplication, ValidationPipe} from '@nestjs/common';
 import {NestFactory} from '@nestjs/core';
 
 /**
@@ -16,6 +16,8 @@ export async function bootstrap (appModule: object, port: number): Promise<void>
   }
 
   const app: INestApplication = await NestFactory.create(appModule);
+
+  app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(port);
 }

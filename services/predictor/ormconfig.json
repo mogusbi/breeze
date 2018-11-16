@@ -1,0 +1,13 @@
+{
+  "entities": [
+    "src/**/*.entity.ts"
+  ],
+  "database": "predictor",
+  "host": "localhost",
+  "logging": true,
+  "password": "password",
+  "port": 3306,
+  "synchronize": true,
+  "type": "mysql",
+  "username": "breeze"
+}
