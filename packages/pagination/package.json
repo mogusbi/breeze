@@ -1,0 +1,51 @@
+{
+  "name": "@breeze-bb/pagination",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Breeze BB pagination module",
+  "author": "Mo Gusbi <me@mogusbi.co.uk>",
+  "homepage": "https://bitbucket.org/mogusbi/breeze-bb#readme",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/mogusbi/breeze-bb.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**/*.ts",
+      "!**/src/*.decorator.ts",
+      "!**/src/*.model.ts",
+      "!**/src/*.module.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "index.ts",
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/+(*.)+(spec|test).+(ts|js)?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ]
+  }
+}

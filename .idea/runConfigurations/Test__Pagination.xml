@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Team: Bootstrap" type="JavaScriptTestRunnerJest" factoryName="Jest">
-    <config-file value="$PROJECT_DIR$/packages/bootstrap/package.json" />
+  <configuration default="false" name="Test: Pagination" type="JavaScriptTestRunnerJest" factoryName="Jest">
+    <config-file value="$PROJECT_DIR$/packages/pagination/package.json" />
     <node-interpreter value="project" />
     <node-options value="" />
     <working-dir value="$PROJECT_DIR$" />

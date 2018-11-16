@@ -1,6 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Pagination, PaginationOptions} from '@breeze-bb/pagination';
 import {Body, Controller, Get, Post} from '@nestjs/common';
 import {TeamDto} from './team.dto';
 import {Team} from './team.entity';
@@ -38,7 +39,9 @@ export class TeamController {
    * @returns List of team entities
    */
   @Get()
-  public async listAll (): Promise<Team[]> {
-    return this.teamService.listAll();
+  public async listAll (
+    @Pagination() options: PaginationOptions
+  ): Promise<Team[]> {
+    return this.teamService.listAll(options);
   }
 }

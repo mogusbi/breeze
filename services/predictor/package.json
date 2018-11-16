@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@breeze-bb/bootstrap": "^0.0.0",
+    "@breeze-bb/pagination": "^0.0.0",
     "@breeze-bb/sql": "^0.0.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.9"

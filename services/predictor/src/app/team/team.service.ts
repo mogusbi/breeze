@@ -1,6 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {PaginationOptions} from '@breeze-bb/pagination';
 import {Inject, Injectable} from '@nestjs/common';
 import {Repository} from 'typeorm';
 import {TeamDto} from './team.dto';
@@ -37,7 +38,10 @@ export class TeamService {
    *
    * @returns A paginated list of teams
    */
-  public async listAll (): Promise<Team[]> {
-    return this.team.find();
+  public async listAll ({skip, take}: PaginationOptions): Promise<Team[]> {
+    return this.team.find({
+      skip,
+      take
+    });
   }
 }
