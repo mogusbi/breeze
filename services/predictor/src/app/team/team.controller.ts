@@ -1,0 +1,34 @@
+/**
+ * @author Mo Gusbi <me@mogusbi.co.uk>
+ */
+import {Body, Controller, Post} from '@nestjs/common';
+import {TeamDto} from './team.dto';
+import {Team} from './team.entity';
+import {TeamService} from './team.service';
+
+/**
+ * Controller for /teams endpoints
+ */
+@Controller('teams')
+export class TeamController {
+  /**
+   * @param teamService - Team service
+   */
+  constructor (
+    private readonly teamService: TeamService
+  ) {}
+
+  /**
+   * [Post] Creates new team entity
+   *
+   * @param dto - Team data transfer object
+   *
+   * @returns Newly created team entity
+   */
+  @Post()
+  public async create (
+    @Body() dto: TeamDto
+  ): Promise<Team> {
+    return this.teamService.create(dto);
+  }
+}

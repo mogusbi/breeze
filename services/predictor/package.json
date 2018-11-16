@@ -1,13 +1,13 @@
 {
-  "name": "@breeze-bb/sql",
+  "name": "@breeze-bb/predictor",
   "version": "0.0.0",
   "private": true,
-  "description": "Breeze BB SQL adaptor",
+  "description": "Breeze BB football predictor API",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://bitbucket.org/mogusbi/breeze-bb#readme",
   "license": "UNLICENSED",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "lib/main.js",
+  "typings": "lib/main.d.ts",
   "directories": {
     "lib": "lib"
   },
@@ -21,9 +21,11 @@
   "scripts": {
     "build": "tsc",
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
-    "lint": "tslint -c ../../tslint.json -p tsconfig.json"
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
+    "test": "jest --coverage"
   },
   "dependencies": {
+    "@breeze-bb/sql": "^0.0.0",
     "typeorm": "^0.2.9"
   }
 }

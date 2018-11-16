@@ -1,0 +1,32 @@
+/**
+ * @author Mo Gusbi <me@mogusbi.co.uk>
+ */
+import {Inject, Injectable} from '@nestjs/common';
+import {Repository} from 'typeorm';
+import {TeamDto} from './team.dto';
+import {Team} from './team.entity';
+import {TeamEnum} from './team.enum';
+
+/**
+ * Service used to query team database table
+ */
+@Injectable()
+export class TeamService {
+  /**
+   * @param team - Team repository
+   */
+  constructor (
+    @Inject(TeamEnum.providerToken) private readonly team: Repository<Team>
+  ) {}
+
+  /**
+   * Create a new team entity
+   *
+   * @param dto - Data transfer object
+   *
+   * @returns The new team entity
+   */
+  public async create (dto: TeamDto): Promise<Team> {
+    return this.team.create(dto);
+  }
+}
