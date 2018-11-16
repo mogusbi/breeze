@@ -22,7 +22,7 @@
     "build": "tsc",
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
-    "start": "ts-node --project tsconfig.json src/main.ts",
+    "start": "nodemon --exec ts-node src/main.ts",
     "test": "jest --coverage"
   },
   "dependencies": {
