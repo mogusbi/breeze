@@ -10,11 +10,7 @@ import {NestFactory} from '@nestjs/core';
  * @param appModule - The application module to be bootstrapped
  * @param port - The port to launch the bootstrapped module
  */
-export async function bootstrap (appModule: object, port: number): Promise<void> {
-  if (!port) {
-    throw new Error('No port has been set');
-  }
-
+export async function bootstrap (appModule: object, port: number = 3000): Promise<void> {
   const app: INestApplication = await NestFactory.create(appModule);
 
   app.useGlobalPipes(new ValidationPipe());

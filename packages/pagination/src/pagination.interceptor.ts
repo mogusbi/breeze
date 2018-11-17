@@ -26,7 +26,7 @@ export class PaginationInterceptor<T> implements NestInterceptor<[T[], number], 
     return call$.pipe(
       map(
         ([items, total]: [T[], number]): PaginationResult<T> | void => {
-          if (items.length) {
+          if (items.length > 0) {
             const http: HttpArgumentsHost = context.switchToHttp();
             const request: Request = http.getRequest();
             const {page, take: limit}: PaginationOptions<T> = PaginationFactory(null, request);

@@ -20,12 +20,16 @@ describe('bootstrap', (): void => {
     });
   });
 
-  it('should throw an error if no port is set', async (): Promise<void> => {
-    await expect(bootstrap(appModule, null)).rejects.toThrowError('No port has been set');
+  it('should create an application if port is set', async (): Promise<void> => {
+    await bootstrap(appModule, port);
+
+    expect(NestFactory.create).toHaveBeenCalledWith({
+      dummyData: true
+    });
   });
 
-  it('should create an application', async (): Promise<void> => {
-    await bootstrap(appModule, port);
+  it('should create an application if no port is set', async (): Promise<void> => {
+    await bootstrap(appModule);
 
     expect(NestFactory.create).toHaveBeenCalledWith({
       dummyData: true

@@ -12,11 +12,21 @@ import {PaginationOrderType} from './pagination.type';
  * @returns An object with the limit and page number
  */
 export function PaginationFactory<T = unknown> (_: string, {query}: Request): PaginationOptions<T> {
+  let dir: PaginationOrderType = query.dir;
   let page: number = query.page;
   let take: number = query.limit;
 
-  page = typeof page === 'number' ? page : parseInt(page, 10) || 1;
-  take = typeof take === 'number' ? take : parseInt(take, 10) || PaginationEnum.size;
+  if (page !== undefined) {
+    page = typeof page === 'number' ? page : parseInt(page, 10);
+  } else {
+    page = 1;
+  }
+
+  if (take !== undefined) {
+    take = typeof take === 'number' ? take : parseInt(take, 10);
+  } else {
+    take = PaginationEnum.size;
+  }
 
   if (take > PaginationEnum.max) {
     take = PaginationEnum.max;
@@ -25,6 +35,7 @@ export function PaginationFactory<T = unknown> (_: string, {query}: Request): Pa
   }
 
   const select: (keyof T)[] = query.fields ? query.fields.split(',') : null;
+  const sort: string = query.sort;
   const skip: number = take * (page - 1);
   const result: PaginationOptions<T> = {
     order: {},
@@ -33,14 +44,17 @@ export function PaginationFactory<T = unknown> (_: string, {query}: Request): Pa
     skip,
     take
   };
-  const sort: string = query.sort;
 
-  let dir: PaginationOrderType = query.dir.toUpperCase();
+  let orderType: PaginationOrderType = PaginationEnum.asc;
 
-  dir = dir === PaginationEnum.asc || dir === PaginationEnum.desc ? dir : PaginationEnum.asc;
+  if (dir !== undefined) {
+    dir = <PaginationOrderType>dir.toUpperCase();
 
-  if (sort && dir) {
-    result.order[sort] = dir;
+    orderType = dir;
+  }
+
+  if (sort !== undefined) {
+    result.order[sort] = orderType;
   }
 
   return result;

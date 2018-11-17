@@ -26,6 +26,7 @@
     "no-submodule-imports": false,
     "no-suspicious-comment": false,
     "no-unnecessary-class": false,
+    "no-unsafe-any": false,
     "object-literal-sort-keys": true,
     "object-literal-key-quotes": [
       true,
