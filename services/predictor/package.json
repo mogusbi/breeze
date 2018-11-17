@@ -19,7 +19,6 @@
     "url": "git+ssh://git@bitbucket.org/mogusbi/breeze-bb.git"
   },
   "scripts": {
-    "build": "tsc",
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "start": "nodemon --exec ts-node src/main.ts",

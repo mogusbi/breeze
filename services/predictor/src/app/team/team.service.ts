@@ -34,14 +34,25 @@ export class TeamService {
   }
 
   /**
-   * List all teams in a paginated list
+   * List all team entities in a paginated list
    *
-   * @returns A paginated list of teams
+   * @returns A paginated list of teams and the total number of entities in the database
    */
-  public async listAll ({skip, take}: PaginationOptions): Promise<Team[]> {
-    return this.team.find({
+  public async listAll ({order, select, skip, take}: PaginationOptions<Team>): Promise<[Team[], number]> {
+    return this.team.findAndCount({
+      order,
+      select,
       skip,
       take
     });
+  }
+
+  /**
+   * Removes a team entity
+   *
+   * @param id - Team entity id
+   */
+  public async remove (id: string): Promise<void> {
+    await this.team.delete(id);
   }
 }

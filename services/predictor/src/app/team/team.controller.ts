@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Pagination, PaginationOptions} from '@breeze-bb/pagination';
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Pagination, PaginationInterceptor, PaginationOptions} from '@breeze-bb/pagination';
+import {Body, Controller, Delete, Get, Param, Post, UseInterceptors} from '@nestjs/common';
 import {TeamDto} from './team.dto';
 import {Team} from './team.entity';
 import {TeamService} from './team.service';
@@ -20,7 +20,7 @@ export class TeamController {
   ) {}
 
   /**
-   * [Post] Creates new team entity
+   * [Post] Creates a new team
    *
    * @param dto - Team data transfer object
    *
@@ -36,12 +36,27 @@ export class TeamController {
   /**
    * [GET] A paginated list of teams
    *
+   * @param options - Serialised query string params for pagination
+   *
    * @returns List of team entities
    */
   @Get()
+  @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions
-  ): Promise<Team[]> {
+    @Pagination() options: PaginationOptions<Team>
+  ): Promise<[Team[], number]> {
     return this.teamService.listAll(options);
+  }
+
+  /**
+   * [Delete] Removes a team
+   *
+   * @param id - Team id
+   */
+  @Delete(':id')
+  public async remove (
+    @Param('id') id: string
+  ): Promise<void> {
+    await this.teamService.remove(id);
   }
 }
