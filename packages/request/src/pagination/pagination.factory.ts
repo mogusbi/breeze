@@ -2,6 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Request} from 'express';
+import {FilterFactory, FilterOptions} from '../filter';
 import {PaginationEnum} from './pagination.enum';
 import {PaginationOptions} from './pagination.model';
 import {PaginationOrderType} from './pagination.type';
@@ -9,9 +10,14 @@ import {PaginationOrderType} from './pagination.type';
 /**
  * Pagination helper factory
  *
- * @returns An object with the limit and page number
+ * @param _ - data
+ * @param request - Express request
+ *
+ * @returns Pagination options object
  */
-export function PaginationFactory<T = unknown> (_: string, {query}: Request): PaginationOptions<T> {
+export function PaginationFactory<T = unknown> (_: string, request: Request): PaginationOptions<T> {
+  const {query}: Request = request;
+
   let dir: PaginationOrderType = query.dir;
   let page: number = query.page;
   let take: number = query.limit;
@@ -34,13 +40,13 @@ export function PaginationFactory<T = unknown> (_: string, {query}: Request): Pa
     take = PaginationEnum.min;
   }
 
-  const select: (keyof T)[] = query.fields ? query.fields.split(',') : null;
+  const select: FilterOptions<T> = FilterFactory(_, request);
   const sort: string = query.sort;
   const skip: number = take * (page - 1);
   const result: PaginationOptions<T> = {
+    ...select,
     order: {},
     page,
-    select,
     skip,
     take
   };

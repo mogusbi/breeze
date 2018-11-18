@@ -1,6 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {FilterOptions} from '../filter';
 import {IPaginationOrder} from './pagination.interface';
 
 /**
@@ -17,10 +18,9 @@ export class PaginationResult<R> {
 /**
  * Paginated request options
  */
-export class PaginationOptions<R> {
+export class PaginationOptions<R> extends FilterOptions<R> {
   public readonly order: IPaginationOrder;
   public readonly page: number;
   public readonly take: number;
-  public readonly select: (keyof R)[];
   public readonly skip: number;
 }
