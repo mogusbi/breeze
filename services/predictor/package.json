@@ -42,6 +42,7 @@
     ],
     "coveragePathIgnorePatterns": [
       "index.ts",
+      "main.ts",
       "/node_modules/"
     ],
     "transform": {
