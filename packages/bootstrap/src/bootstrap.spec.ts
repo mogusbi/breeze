@@ -16,6 +16,7 @@ describe('bootstrap', (): void => {
 
     NestFactory.create = jest.fn().mockResolvedValue({
       listen: jest.fn(),
+      use: jest.fn(),
       useGlobalPipes: jest.fn()
     });
   });

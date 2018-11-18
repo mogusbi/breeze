@@ -45,5 +45,11 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@types/morgan": "^1.7.35"
   }
 }
