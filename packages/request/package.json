@@ -1,8 +1,8 @@
 {
-  "name": "@breeze-bb/pagination",
+  "name": "@breeze-bb/request",
   "version": "0.0.0",
   "private": true,
-  "description": "Breeze BB pagination module",
+  "description": "Breeze BB request module",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://bitbucket.org/mogusbi/breeze-bb#readme",
   "license": "UNLICENSED",
@@ -27,9 +27,9 @@
   "jest": {
     "collectCoverageFrom": [
       "**/src/**/*.ts",
-      "!**/src/*.decorator.ts",
-      "!**/src/*.model.ts",
-      "!**/src/*.module.ts"
+      "!**/src/**/*.decorator.ts",
+      "!**/src/**/*.model.ts",
+      "!**/src/**/*.module.ts"
     ],
     "coveragePathIgnorePatterns": [
       "index.ts",

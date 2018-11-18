@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {PaginationOptions} from '@breeze-bb/pagination';
+import {PaginationOptions} from '@breeze-bb/request';
 import {Inject, Injectable} from '@nestjs/common';
 import {Repository} from 'typeorm';
 import {TeamDto} from './team.dto';

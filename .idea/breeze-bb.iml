@@ -13,6 +13,9 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/pagination/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/packages/pagination/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/request/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/request/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/request/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/user/lib" />

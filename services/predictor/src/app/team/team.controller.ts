@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Pagination, PaginationInterceptor, PaginationOptions} from '@breeze-bb/pagination';
+import {Pagination, PaginationInterceptor, PaginationOptions} from '@breeze-bb/request';
 import {Body, Controller, Delete, Get, Param, Patch, Post, UseInterceptors} from '@nestjs/common';
 import {TeamDto} from './team.dto';
 import {Team} from './team.entity';

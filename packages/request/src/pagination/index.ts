@@ -1,6 +1,6 @@
 /**
- * Breeze BB pagination module
- * @module breeze-bb/pagination
+ * Breeze BB request pagination module
+ * @module breeze-bb/request/pagination
  */
 export * from './pagination.decorator';
 export * from './pagination.enum';
