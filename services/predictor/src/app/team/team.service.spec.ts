@@ -26,8 +26,8 @@ describe('TeamService', (): void => {
       })
       .compile();
 
-    team = testModule.get<jest.Mocked<Repository<Team>>>(TeamEnum.providerToken);
-    teamService = testModule.get<TeamService>(TeamService);
+    team = testModule.get(TeamEnum.providerToken);
+    teamService = testModule.get(TeamService);
   });
 
   describe('create', (): void => {
