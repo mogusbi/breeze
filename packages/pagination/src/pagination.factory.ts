@@ -50,7 +50,9 @@ export function PaginationFactory<T = unknown> (_: string, {query}: Request): Pa
   if (dir !== undefined) {
     dir = <PaginationOrderType>dir.toUpperCase();
 
-    orderType = dir;
+    if (dir === PaginationEnum.asc || dir === PaginationEnum.desc) {
+      orderType = dir;
+    }
   }
 
   if (sort !== undefined) {
