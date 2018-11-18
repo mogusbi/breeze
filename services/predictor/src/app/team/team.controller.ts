@@ -48,6 +48,13 @@ export class TeamController {
     return this.teamService.listAll(options);
   }
 
+  @Get(':id')
+  public async getTeam (
+    @Param('id') id: string
+  ): Promise<Team> {
+    return this.teamService.findOne(id);
+  }
+
   /**
    * [Delete] Removes a team
    *

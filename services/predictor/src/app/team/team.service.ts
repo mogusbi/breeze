@@ -34,6 +34,17 @@ export class TeamService {
   }
 
   /**
+   * Find a single team entity by id
+   *
+   * @param id - Team entity id
+   *
+   * @return Team entity
+   */
+  public async findOne (id: string): Promise<Team> {
+    return this.team.findOne(id);
+  }
+
+  /**
    * List all team entities in a paginated list
    *
    * @param options - Pagination options

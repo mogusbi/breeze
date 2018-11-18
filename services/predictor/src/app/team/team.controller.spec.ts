@@ -39,6 +39,14 @@ describe('TeamController', (): void => {
     });
   });
 
+  describe('getTeam', (): void => {
+    it('should call teamService.findOne with the correct params', async (): Promise<void> => {
+      await teamController.getTeam('team-id');
+
+      expect(teamService.findOne).toHaveBeenCalledWith('team-id');
+    });
+  });
+
   describe('listAll', (): void => {
     it('should call teamService.listAll with the correct params', async (): Promise<void> => {
       await teamController.listAll({
