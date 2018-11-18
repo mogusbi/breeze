@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {PaginationOptions} from '@breeze-bb/request';
+import {FilterOptions, PaginationOptions} from '@breeze-bb/request';
 import {Inject, Injectable} from '@nestjs/common';
 import {Repository} from 'typeorm';
 import {TeamDto} from './team.dto';
@@ -40,8 +40,8 @@ export class TeamService {
    *
    * @return Team entity
    */
-  public async findOne (id: string): Promise<Team> {
-    return this.team.findOne(id);
+  public async findOne (id: string, options: FilterOptions<Team>): Promise<Team> {
+    return this.team.findOne(id, options);
   }
 
   /**

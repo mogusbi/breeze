@@ -60,9 +60,13 @@ describe('TeamService', (): void => {
 
   describe('findOne', (): void => {
     it('should call findOne with the correct params', async (): Promise<void> => {
-      await teamService.findOne('team-id');
+      await teamService.findOne('team-id', {
+        select: null
+      });
 
-      expect(team.findOne).toHaveBeenCalledWith('team-id');
+      expect(team.findOne).toHaveBeenCalledWith('team-id', {
+        select: null
+      });
     });
   });
 

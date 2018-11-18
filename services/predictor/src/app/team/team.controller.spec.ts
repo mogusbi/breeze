@@ -41,9 +41,17 @@ describe('TeamController', (): void => {
 
   describe('getTeam', (): void => {
     it('should call teamService.findOne with the correct params', async (): Promise<void> => {
-      await teamController.getTeam('team-id');
+      await teamController.getTeam('team-id', {
+        select: [
+          'name'
+        ]
+      });
 
-      expect(teamService.findOne).toHaveBeenCalledWith('team-id');
+      expect(teamService.findOne).toHaveBeenCalledWith('team-id', {
+        select: [
+          'name'
+        ]
+      });
     });
   });
 
