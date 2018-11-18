@@ -16,6 +16,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/user/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/services/predictor/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/docs" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/lib" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />

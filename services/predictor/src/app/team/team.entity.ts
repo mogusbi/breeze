@@ -9,6 +9,8 @@ import {Column, Entity} from 'typeorm';
  */
 @Entity()
 export class Team extends Base {
-  @Column()
+  @Column({
+    unique: true
+  })
   public name: string;
 }

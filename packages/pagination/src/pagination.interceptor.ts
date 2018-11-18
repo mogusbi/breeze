@@ -1,9 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {ExecutionContext, Injectable, NestInterceptor} from '@nestjs/common';
+import {ExecutionContext, HttpStatus, Injectable, NestInterceptor} from '@nestjs/common';
 import {HttpArgumentsHost} from '@nestjs/common/interfaces';
-import {Request} from 'express';
+import {Request, Response} from 'express';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {PaginationFactory} from './pagination.factory';
@@ -26,8 +26,9 @@ export class PaginationInterceptor<T> implements NestInterceptor<[T[], number], 
     return call$.pipe(
       map(
         ([items, total]: [T[], number]): PaginationResult<T> | void => {
+          const http: HttpArgumentsHost = context.switchToHttp();
+
           if (items.length > 0) {
-            const http: HttpArgumentsHost = context.switchToHttp();
             const request: Request = http.getRequest();
             const {page, take: limit}: PaginationOptions<T> = PaginationFactory(null, request);
             const pages: number = total > 0 ? Math.ceil(total / limit) : 0;
@@ -40,6 +41,10 @@ export class PaginationInterceptor<T> implements NestInterceptor<[T[], number], 
               total
             };
           }
+
+          const response: Response = http.getResponse();
+
+          response.sendStatus(HttpStatus.NO_CONTENT);
         }
       )
     );

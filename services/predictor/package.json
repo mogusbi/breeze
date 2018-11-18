@@ -30,5 +30,28 @@
     "@breeze-bb/sql": "^0.0.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.9"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**/*.ts",
+      "!**/src/*.model.ts",
+      "!**/src/*.module.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "index.ts",
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/+(*.)+(spec|test).+(ts|js)?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ]
   }
 }

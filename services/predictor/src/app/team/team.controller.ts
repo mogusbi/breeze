@@ -2,7 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Pagination, PaginationInterceptor, PaginationOptions} from '@breeze-bb/pagination';
-import {Body, Controller, Delete, Get, Param, Post, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post, UseInterceptors} from '@nestjs/common';
 import {TeamDto} from './team.dto';
 import {Team} from './team.entity';
 import {TeamService} from './team.service';
@@ -58,5 +58,19 @@ export class TeamController {
     @Param('id') id: string
   ): Promise<void> {
     await this.teamService.remove(id);
+  }
+
+  /**
+   * [PATCH] Updates a team
+   *
+   * @param dto - Team data transfer object
+   * @param id - Team id
+   */
+  @Patch(':id')
+  public async update (
+    @Body() dto: TeamDto,
+    @Param('id') id: string
+  ): Promise<void> {
+    await this.teamService.update(id, dto);
   }
 }
