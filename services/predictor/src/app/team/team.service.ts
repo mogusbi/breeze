@@ -3,7 +3,7 @@
  */
 import {FilterOptions, PaginationOptions} from '@breeze-bb/request';
 import {Inject, Injectable} from '@nestjs/common';
-import {Repository} from 'typeorm';
+import {DeleteResult, Repository, UpdateResult} from 'typeorm';
 import {TeamDto} from './team.dto';
 import {Team} from './team.entity';
 import {TeamEnum} from './team.enum';
@@ -37,6 +37,7 @@ export class TeamService {
    * Find a single team entity by id
    *
    * @param id - Team entity id
+   * @param options - Filter options
    *
    * @return Team entity
    */
@@ -59,9 +60,13 @@ export class TeamService {
    * Removes a team entity
    *
    * @param id - Team entity id
+   *
+   * @returns The number of team entities that have been removed
    */
-  public async remove (id: string): Promise<void> {
-    await this.team.delete(id);
+  public async remove (id: string): Promise<number> {
+    const {raw: {affectedRows}}: DeleteResult = await this.team.delete(id);
+
+    return affectedRows;
   }
 
   /**
@@ -69,8 +74,12 @@ export class TeamService {
    *
    * @param id - Team entity id
    * @param dto - Data transfer object
+   *
+   * @returns The number of team entities that have been updated
    */
-  public async update (id: string, dto: TeamDto): Promise<void> {
-    await this.team.update(id, dto);
+  public async update (id: string, dto: TeamDto): Promise<number> {
+    const {raw: {affectedRows}}: UpdateResult = await this.team.update(id, dto);
+
+    return affectedRows;
   }
 }

@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Test: Bootstrap" type="JavaScriptTestRunnerJest" factoryName="Jest">
-    <config-file value="$PROJECT_DIR$/packages/bootstrap/package.json" />
+  <configuration default="false" name="Predictor: Test" type="JavaScriptTestRunnerJest" factoryName="Jest">
+    <config-file value="$PROJECT_DIR$/services/predictor/package.json" />
     <node-interpreter value="project" />
     <node-options value="" />
     <working-dir value="$PROJECT_DIR$" />

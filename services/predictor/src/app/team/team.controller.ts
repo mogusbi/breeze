@@ -2,7 +2,19 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breeze-bb/request';
-import {Body, Controller, Delete, Get, Param, Patch, Post, UseInterceptors} from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Delete,
+  Get, HttpCode,
+  HttpStatus,
+  NotFoundException,
+  Param,
+  Patch,
+  Post,
+  UseInterceptors
+} from '@nestjs/common';
 import {TeamDto} from './team.dto';
 import {Team} from './team.entity';
 import {TeamService} from './team.service';
@@ -30,7 +42,11 @@ export class TeamController {
   public async create (
     @Body() dto: TeamDto
   ): Promise<Team> {
-    return this.teamService.create(dto);
+    try {
+      return await this.teamService.create(dto);
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
   }
 
   /**
@@ -45,7 +61,11 @@ export class TeamController {
   public async listAll (
     @Pagination() options: PaginationOptions<Team>
   ): Promise<[Team[], number]> {
-    return this.teamService.listAll(options);
+    try {
+      return await this.teamService.listAll(options);
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
   }
 
   @Get(':id')
@@ -53,7 +73,17 @@ export class TeamController {
     @Param('id') id: string,
     @Filter() options: FilterOptions<Team>
   ): Promise<Team> {
-    return this.teamService.findOne(id, options);
+    try {
+      const team: Team = await this.teamService.findOne(id, options);
+
+      if (Boolean(team)) {
+        return team;
+      }
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
+
+    throw new NotFoundException();
   }
 
   /**
@@ -62,10 +92,21 @@ export class TeamController {
    * @param id - Team id
    */
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   public async remove (
     @Param('id') id: string
   ): Promise<void> {
-    await this.teamService.remove(id);
+    let count: number;
+
+    try {
+      count = await this.teamService.remove(id);
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
+
+    if (count === 0) {
+      throw new NotFoundException();
+    }
   }
 
   /**
@@ -75,10 +116,21 @@ export class TeamController {
    * @param id - Team id
    */
   @Patch(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   public async update (
     @Body() dto: TeamDto,
     @Param('id') id: string
   ): Promise<void> {
-    await this.teamService.update(id, dto);
+    let count: number;
+
+    try {
+      count = await this.teamService.update(id, dto);
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
+
+    if (count === 0) {
+      throw new NotFoundException();
+    }
   }
 }

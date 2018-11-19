@@ -20,6 +20,7 @@
   },
   "scripts": {
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
+    "e2e": "jest --config=e2e/jest-e2e.json --forceExit",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "start": "nodemon --exec ts-node src/main.ts",
     "test": "jest --coverage"
@@ -34,6 +35,7 @@
   "jest": {
     "collectCoverageFrom": [
       "**/src/**/*.ts",
+      "!**/e2e/**/*.ts",
       "!**/src/**/*.dto.ts",
       "!**/src/**/*.entity.ts",
       "!**/src/**/*.model.ts",
@@ -45,17 +47,17 @@
       "main.ts",
       "/node_modules/"
     ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testMatch": [
-      "**/+(*.)+(spec|test).+(ts|js)?(x)"
-    ],
     "moduleFileExtensions": [
       "ts",
       "js",
       "json",
       "node"
-    ]
+    ],
+    "testMatch": [
+      "**/+(*.)+(spec|test).+(ts|js)?(x)"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
   }
 }

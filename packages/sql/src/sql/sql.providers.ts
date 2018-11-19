@@ -9,10 +9,11 @@ export const SqlProviders: Provider[] = [
   {
     provide: SqlEnum.providerToken,
     async useFactory (): Promise<Connection> {
+      const connection: string = process.env.NODE_ENV === 'test' ? SqlEnum.testConnection : SqlEnum.defaultConnection;
       const root: string = process.cwd();
       const options: ConnectionOptions = await new ConnectionOptionsReader({
         root
-      }).get('default');
+      }).get(connection);
 
       return getConnectionManager().create(options).connect();
     }

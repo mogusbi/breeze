@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Test: Predictor" type="JavaScriptTestRunnerJest" factoryName="Jest">
-    <config-file value="$PROJECT_DIR$/services/predictor/package.json" />
+  <configuration default="false" name="Predictor: E2E" type="JavaScriptTestRunnerJest" factoryName="Jest">
+    <config-file value="$PROJECT_DIR$/services/predictor/e2e/jest.config.js" />
     <node-interpreter value="project" />
     <node-options value="" />
-    <working-dir value="$PROJECT_DIR$" />
+    <working-dir value="$PROJECT_DIR$/services/predictor" />
     <jest-options value="--watch" />
     <envs />
     <scope-kind value="ALL" />

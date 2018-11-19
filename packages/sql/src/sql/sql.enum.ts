@@ -3,5 +3,7 @@
  */
 
 export enum SqlEnum {
-  providerToken = 'DbConnectionToken'
+  defaultConnection = 'default',
+  providerToken = 'DbConnectionToken',
+  testConnection = 'test'
 }

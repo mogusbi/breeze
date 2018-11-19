@@ -92,6 +92,12 @@ describe('TeamService', (): void => {
 
   describe('remove', (): void => {
     it('should call delete with the correct params', async (): Promise<void> => {
+      team.delete.mockResolvedValueOnce({
+        raw: {
+          affectedRows: 1
+        }
+      });
+
       await teamService.remove('team-id');
 
       expect(team.delete).toHaveBeenCalledWith('team-id');
@@ -100,6 +106,12 @@ describe('TeamService', (): void => {
 
   describe('update', (): void => {
     it('should call update with the correct params', async (): Promise<void> => {
+      team.update.mockResolvedValueOnce({
+        raw: {
+          affectedRows: 1
+        }
+      });
+
       await teamService.update('team-id', {
         name: 'Updated name'
       });
