@@ -26,14 +26,14 @@ jobs:
           paths:
             - node_modules
       - run:
+          command: npm run bootstrap
+          name: Bootstrap
+      - run:
           command: npm run lint
           name: Lint code
       - run:
           command: npm run build
           name: Build packages
-      - run:
-          command: npm run bootstrap
-          name: Bootstrap
       - run:
           command: npm run test
           name: Unit tests
