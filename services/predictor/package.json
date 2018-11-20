@@ -19,7 +19,7 @@
   },
   "scripts": {
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
-    "e2e": "jest --config=e2e/jest-e2e.json --forceExit",
+    "e2e": "jest --config=e2e/jest.config.js --runInBand --forceExit",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "start": "nodemon --exec ts-node src/main.ts",
     "test": "jest --coverage"
