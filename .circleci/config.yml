@@ -10,6 +10,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_USER: breeze
           MYSQL_PASSWORD: password
+
     working_directory: ~/repo
     steps:
       - checkout
