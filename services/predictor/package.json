@@ -1,11 +1,10 @@
 {
   "name": "@breeze/predictor",
   "version": "0.0.0",
-  "private": true,
   "description": "Breeze football predictor API",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://github.com/mogusbi/breeze",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "main": "lib/main.js",
   "typings": "lib/main.d.ts",
   "directories": {
