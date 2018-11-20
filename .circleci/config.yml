@@ -32,7 +32,9 @@ jobs:
           command: npm run build
           name: Build packages
       - run:
-          command: npm run test
+          command: |
+            npm run test
+            curl -k https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN -d "payload[build_num]=$CIRCLE_BUILD_NUM&payload[status]=done"
           name: Unit tests
       - run:
           command: |
