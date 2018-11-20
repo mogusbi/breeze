@@ -22,7 +22,7 @@
     "e2e": "jest --config=e2e/jest.config.js --runInBand --forceExit",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "start": "nodemon --exec ts-node src/main.ts",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest --coverage --coverageReporters=text-lcov && codecov"
   },
   "dependencies": {
     "@breeze/bootstrap": "^0.0.0",
