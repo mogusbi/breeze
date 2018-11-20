@@ -1,5 +1,5 @@
 /**
- * Breeze BB application bootstrapper
- * @module breeze-bb/bootstrap
+ * Breeze application bootstrapper
+ * @module breeze/bootstrap
  */
 export * from './bootstrap';

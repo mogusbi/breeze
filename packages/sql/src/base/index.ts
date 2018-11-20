@@ -1,5 +1,5 @@
 /**
- * Breeze BB SQL base entity
- * @module breeze-bb/sql/base
+ * Breeze SQL base entity
+ * @module breeze/sql/base
  */
 export * from './base.entity';

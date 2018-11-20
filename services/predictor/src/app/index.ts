@@ -1,5 +1,5 @@
 /**
- * Breeze BB predictor
- * @module breeze-bb/predictor
+ * Breeze predictor
+ * @module breeze/predictor
  */
 export * from './app.module';

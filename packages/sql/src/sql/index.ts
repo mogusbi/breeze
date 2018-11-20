@@ -1,6 +1,6 @@
 /**
- * Breeze BB SQL adaptor
- * @module breeze-bb/sql/sql
+ * Breeze SQL adaptor
+ * @module breeze/sql/sql
  */
 export * from './sql.enum';
 export * from './sql.module';

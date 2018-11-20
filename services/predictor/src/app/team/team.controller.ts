@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breeze-bb/request';
+import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breeze/request';
 import {
   BadRequestException,
   Body,

@@ -1,8 +1,8 @@
 {
-  "name": "breeze-bb",
+  "name": "breeze",
   "version": "0.0.0",
   "private": true,
-  "description": "Node JS powered bulletin board",
+  "description": "A collection of building blocks to create applications",
   "scripts": {
     "add": "lerna add",
     "bootstrap": "lerna bootstrap",
@@ -20,7 +20,7 @@
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/mogusbi/breeze-bb.git"
+    "url": "https://github.com/mogusbi/breeze.git"
   },
   "license": "UNLICENSED",
   "dependencies": {

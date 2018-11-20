@@ -1,14 +1,14 @@
 version: "3"
 
 networks:
-  breeze-bb:
+  breeze:
     driver: bridge
 
 services:
   dynamo:
     image: amazon/dynamodb-local
     networks:
-      - breeze-bb
+      - breeze
     ports:
       - 8000:8000
     restart: always
@@ -20,7 +20,7 @@ services:
       MYSQL_USER: breeze
       MYSQL_PASSWORD: password
     networks:
-      - breeze-bb
+      - breeze
     ports:
       - 3306:3306
     restart: always

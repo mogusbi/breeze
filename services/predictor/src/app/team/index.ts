@@ -1,6 +1,6 @@
 /**
- * Breeze BB predictor team
- * @module breeze-bb/predictor/team
+ * Breeze predictor team
+ * @module breeze/predictor/team
  */
 export * from './team.controller';
 export * from './team.dto';

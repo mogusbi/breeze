@@ -1,10 +1,10 @@
 {
-  "name": "@breeze-bb/predictor",
+  "name": "@breeze/predictor",
   "version": "0.0.0",
   "private": true,
-  "description": "Breeze BB football predictor API",
+  "description": "Breeze football predictor API",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
-  "homepage": "https://bitbucket.org/mogusbi/breeze-bb#readme",
+  "homepage": "https://github.com/mogusbi/breeze",
   "license": "UNLICENSED",
   "main": "lib/main.js",
   "typings": "lib/main.d.ts",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/mogusbi/breeze-bb.git"
+    "url": "https://github.com/mogusbi/breeze.git"
   },
   "scripts": {
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
@@ -26,9 +26,9 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "@breeze-bb/bootstrap": "^0.0.0",
-    "@breeze-bb/request": "^0.0.0",
-    "@breeze-bb/sql": "^0.0.0",
+    "@breeze/bootstrap": "^0.0.0",
+    "@breeze/request": "^0.0.0",
+    "@breeze/sql": "^0.0.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.9"
   },

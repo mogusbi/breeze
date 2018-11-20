@@ -1,6 +1,6 @@
 /**
- * Breeze BB request module
- * @module breeze-bb/request
+ * Breeze request module
+ * @module breeze/request
  */
 export * from './filter';
 export * from './pagination';
