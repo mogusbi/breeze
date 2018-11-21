@@ -1,4 +1,5 @@
-[![Coverage Status](https://coveralls.io/repos/github/mogusbi/breeze/badge.svg?branch=develop)](https://coveralls.io/github/mogusbi/breeze?branch=master)
+[![CircleCI](https://circleci.com/gh/mogusbi/breeze.svg?style=svg)](https://circleci.com/gh/mogusbi/breeze)
+[![codecov](https://codecov.io/gh/mogusbi/breeze/branch/develop/graph/badge.svg)](https://codecov.io/gh/mogusbi/breeze)
 
 # Breeze
 
