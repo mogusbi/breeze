@@ -22,7 +22,7 @@
     ],
     "database": "predictor_testing",
     "host": "localhost",
-    "logging": true,
+    "logging": false,
     "migrations": [
       "migrations/**/*.ts"
     ],
