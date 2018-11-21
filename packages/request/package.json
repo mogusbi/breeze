@@ -21,7 +21,8 @@
     "build": "tsc",
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
-    "test": "jest --coverage && codecov"
+    "test": "jest --coverage",
+    "posttest": "codecov"
   },
   "jest": {
     "collectCoverageFrom": [
