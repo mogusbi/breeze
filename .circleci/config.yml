@@ -4,13 +4,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10.0
-      - image: circleci/dynamodb
-      - image: circleci/mysql:5.6
-        environment:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_USER: breeze
-          MYSQL_PASSWORD: password
-
     working_directory: ~/repo
     steps:
       - checkout
@@ -31,9 +24,48 @@ jobs:
       - run:
           command: npm run build
           name: Build packages
+      - persist_to_workspace:
+          paths:
+            - ./packages/*/lib/*
+            - ./packages/*/node_modules/*
+            - ./services/*/lib/*
+            - ./services/*/node_modules/*
+          root: .
+
+  unit-test:
+    docker:
+      - image: circleci/node:8.10.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - breeze-dependencies-{{ checksum "package.json" }}
+            - breeze-dependencies-
+      - attach_workspace:
+          at: ~/repo
       - run:
           command: npm run test
           name: Unit tests
+
+  integration-test:
+    docker:
+      - image: circleci/node:8.10.0
+      - image: circleci/dynamodb
+      - image: circleci/mysql:5.6
+          environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_USER: breeze
+            MYSQL_PASSWORD: password
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - breeze-dependencies-{{ checksum "package.json" }}
+            - breeze-dependencies-
+      - attach_workspace:
+          at: ~/repo
       - run:
           command: |
             sudo apt-get update
@@ -46,6 +78,86 @@ jobs:
       - run:
           command: npm run e2e
           name: Integration tests
+
+  generate-docs:
+    docker:
+      - image: circleci/node:8.10.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - breeze-dependencies-{{ checksum "package.json" }}
+            - breeze-dependencies-
       - run:
           command: npm run docs
           name: Generate documentation
+
+workflows:
+  version: 2
+
+  build-and-test:
+    - build
+    - unit-test:
+        requires:
+          - build
+    - integration-test:
+        requires:
+          - build
+    - generate-docs:
+        requires:
+          - unit-test
+          - integration-test
+
+
+#version: 2
+#
+#jobs:
+#  build:
+#    docker:
+#      - image: circleci/node:8.10.0
+#      - image: circleci/dynamodb
+#      - image: circleci/mysql:5.6
+#        environment:
+#          MYSQL_ROOT_PASSWORD: password
+#          MYSQL_USER: breeze
+#          MYSQL_PASSWORD: password
+#
+#    working_directory: ~/repo
+#    steps:
+#      - checkout
+#      - restore_cache:
+#          keys:
+#            - breeze-dependencies-{{ checksum "package.json" }}
+#            - breeze-dependencies-
+#      - run:
+#          command: npm i
+#          name: Install dependencies
+#      - save_cache:
+#          key: breeze-dependencies-{{ checksum "package.json" }}
+#          paths:
+#            - node_modules
+#      - run:
+#          command: npm run lint
+#          name: Lint code
+#      - run:
+#          command: npm run build
+#          name: Build packages
+#      - run:
+#          command: npm run test
+#          name: Unit tests
+#      - run:
+#          command: |
+#            sudo apt-get update
+#            sudo apt-get install -y mysql-client
+#          name: Install MySQL client
+#      - run:
+#          command: |
+#            mysql -h 127.0.0.1 -u root -ppassword < environments/mysql/predictor-testing.sql
+#          name: Set up database
+#      - run:
+#          command: npm run e2e
+#          name: Integration tests
+#      - run:
+#          command: npm run docs
+#          name: Generate documentation
