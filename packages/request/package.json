@@ -1,7 +1,7 @@
 {
-  "name": "@breeze/dynamo-db",
+  "name": "@breeze/request",
   "version": "0.0.0",
-  "description": "Breeze Dynamo DB adaptor",
+  "description": "Breeze request module",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://github.com/mogusbi/breeze",
   "license": "MIT",
@@ -23,14 +23,12 @@
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "test": "jest --coverage && codecov"
   },
-  "dependencies": {
-    "@aws/dynamodb-data-mapper": "^0.7.3",
-    "aws-sdk": "^2.355.0"
-  },
   "jest": {
     "collectCoverageFrom": [
       "**/src/**/*.ts",
-      "!**/src/*.module.ts"
+      "!**/src/**/*.decorator.ts",
+      "!**/src/**/*.model.ts",
+      "!**/src/**/*.module.ts"
     ],
     "coveragePathIgnorePatterns": [
       "index.ts",

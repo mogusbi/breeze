@@ -2,14 +2,17 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Module} from '@nestjs/common';
-import {TypeOrmModule} from '@nestjs/typeorm';
+import {SqlProviders} from './sql.providers';
 
 /**
  * SQL Module. This uses TypeORM in the background
  */
 @Module({
-  imports: [
-    TypeOrmModule.forRoot()
+  exports: [
+    ...SqlProviders
+  ],
+  providers: [
+    ...SqlProviders
   ]
 })
 export class SqlModule {}

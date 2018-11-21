@@ -154,6 +154,7 @@ jspm_packages/
 # Lerna
 lerna-debug.log
 packages/*/lib
+services/*/lib
 
 # Project files
 dist

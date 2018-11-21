@@ -1,0 +1,10 @@
+{
+  "ext": "ts",
+  "ignore": [
+    ".e2e-spec.ts",
+    ".spec.ts"
+  ],
+  "watch": [
+    "src"
+  ]
+}

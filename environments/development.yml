@@ -1,13 +1,28 @@
 version: "3"
 
 networks:
-  breeze-bb:
+  breeze:
     driver: bridge
 
 services:
   dynamo:
     image: amazon/dynamodb-local
     networks:
-      - breeze-bb
+      - breeze
     ports:
       - 8000:8000
+    restart: always
+
+  mysql:
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: breeze
+      MYSQL_PASSWORD: password
+    networks:
+      - breeze
+    ports:
+      - 3306:3306
+    restart: always
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d

@@ -23,8 +23,10 @@
     "no-relative-imports": false,
     "no-stateless-class": false,
     "no-string-based-set-timeout": false,
+    "no-submodule-imports": false,
     "no-suspicious-comment": false,
     "no-unnecessary-class": false,
+    "no-unsafe-any": false,
     "object-literal-sort-keys": true,
     "object-literal-key-quotes": [
       true,

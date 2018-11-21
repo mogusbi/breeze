@@ -1,7 +1,7 @@
 {
-  "name": "@breeze/dynamo-db",
+  "name": "@breeze/bootstrap",
   "version": "0.0.0",
-  "description": "Breeze Dynamo DB adaptor",
+  "description": "Breeze application bootstrapper",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://github.com/mogusbi/breeze",
   "license": "MIT",
@@ -22,10 +22,6 @@
     "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "test": "jest --coverage && codecov"
-  },
-  "dependencies": {
-    "@aws/dynamodb-data-mapper": "^0.7.3",
-    "aws-sdk": "^2.355.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -48,5 +44,11 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@types/morgan": "^1.7.35"
   }
 }

@@ -4,12 +4,24 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/packages/api/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/core/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/pagination/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/pagination/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/request/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/request/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/request/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/sql/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/user/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/services/predictor/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/services/predictor/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/services/predictor/lib" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
