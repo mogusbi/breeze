@@ -53,10 +53,10 @@ jobs:
       - image: circleci/node:8.10.0
       - image: circleci/dynamodb
       - image: circleci/mysql:5.6
-          environment:
-            MYSQL_ROOT_PASSWORD: password
-            MYSQL_USER: breeze
-            MYSQL_PASSWORD: password
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_USER: breeze
+          MYSQL_PASSWORD: password
     working_directory: ~/repo
     steps:
       - checkout
