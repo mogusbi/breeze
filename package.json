@@ -10,14 +10,14 @@
     "clean": "lerna clean",
     "create": "lerna create",
     "docs": "lerna run docs",
-    "e2e": "lerna run e2e",
+    "e2e": "lerna run e2e --stream",
     "environment": "docker-compose -f environments/development.yml up",
     "lerna": "lerna",
     "lint": "lerna run lint",
     "ls": "lerna ls",
     "postinstall": "lerna bootstrap",
     "start": "lerna run start --stream",
-    "test": "lerna run test"
+    "test": "lerna run test --stream"
   },
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "repository": {
