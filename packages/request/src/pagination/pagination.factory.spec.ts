@@ -16,6 +16,7 @@ describe('PaginationFactory', (): void => {
     expect(PaginationFactory(null, request)).toEqual({
       order: {},
       page: 3,
+      relations: [],
       select: null,
       skip: 60,
       take: 30
@@ -32,6 +33,7 @@ describe('PaginationFactory', (): void => {
     expect(PaginationFactory(null, request)).toEqual({
       order: {},
       page: 1,
+      relations: [],
       select: null,
       skip: 0,
       take: 20
@@ -48,6 +50,7 @@ describe('PaginationFactory', (): void => {
     expect(PaginationFactory(null, request)).toEqual({
       order: {},
       page: 3,
+      relations: [],
       select: null,
       skip: 20,
       take: 10
@@ -65,6 +68,7 @@ describe('PaginationFactory', (): void => {
     expect(PaginationFactory(null, request)).toEqual({
       order: {},
       page: 3,
+      relations: [],
       select: null,
       skip: 100,
       take: 50
@@ -82,6 +86,7 @@ describe('PaginationFactory', (): void => {
     expect(PaginationFactory(null, request)).toEqual({
       order: {},
       page: 3,
+      relations: [],
       select: null,
       skip: 10,
       take: 5
@@ -91,13 +96,16 @@ describe('PaginationFactory', (): void => {
   it('should convert comma separated filter value into an array', (): void => {
     const request: any = {
       query: {
-        fields: 'id,name,createdAt'
+        fields: 'id,name,createdAt,relation.id'
       }
     };
 
     expect(PaginationFactory(null, request)).toEqual({
       order: {},
       page: 1,
+      relations: [
+        'relation.id'
+      ],
       select: [
         'id',
         'name',
@@ -120,6 +128,7 @@ describe('PaginationFactory', (): void => {
         name: 'ASC'
       },
       page: 1,
+      relations: [],
       select: null,
       skip: 0,
       take: 10
@@ -139,6 +148,7 @@ describe('PaginationFactory', (): void => {
         name: 'ASC'
       },
       page: 1,
+      relations: [],
       select: null,
       skip: 0,
       take: 10
@@ -158,6 +168,7 @@ describe('PaginationFactory', (): void => {
         name: 'ASC'
       },
       page: 1,
+      relations: [],
       select: null,
       skip: 0,
       take: 10
@@ -177,6 +188,7 @@ describe('PaginationFactory', (): void => {
         name: 'DESC'
       },
       page: 1,
+      relations: [],
       select: null,
       skip: 0,
       take: 10

@@ -13,6 +13,7 @@ describe('FilterFactory', (): void => {
     };
 
     expect(FilterFactory(null, request)).toEqual({
+      relations: [],
       select: [
         'id',
         'name',
@@ -29,7 +30,28 @@ describe('FilterFactory', (): void => {
     };
 
     expect(FilterFactory(null, request)).toEqual({
+      relations: [],
       select: null
+    });
+  });
+
+  it('should pick out related fields and add them to relations', (): void => {
+    const request: any = {
+      query: {
+        fields: 'id,name,createdAt,related.id,related.name'
+      }
+    };
+
+    expect(FilterFactory(null, request)).toEqual({
+      relations: [
+        'related.id',
+        'related.name'
+      ],
+      select: [
+        'id',
+        'name',
+        'createdAt'
+      ]
     });
   });
 });
