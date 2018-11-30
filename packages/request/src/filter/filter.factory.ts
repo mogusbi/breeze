@@ -15,9 +15,13 @@ import {FilterOptions} from './filter.model';
  */
 export function FilterFactory<T = unknown> (_: string, {query}: Request): FilterOptions<T> {
   const split: RegExp = /\./;
-  const select: (keyof T)[] = query.fields ? query.fields
+
+  let select: (keyof T)[] = query.fields ? query.fields
     .split(',')
-    .filter((field: keyof T): boolean => !split.test(<string>field)) : null;
+    .filter((field: keyof T): boolean => !split.test(<string>field)) : [];
+
+  select = select.length === 0 ? null : select;
+
   const relations: string[] = query.fields ? query.fields
     .split(',')
     .filter((field: keyof T): boolean => split.test(<string>field))
