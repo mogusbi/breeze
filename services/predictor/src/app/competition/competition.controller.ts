@@ -16,69 +16,69 @@ import {
   Post,
   UseInterceptors
 } from '@nestjs/common';
-import {TeamDto} from './team.dto';
-import {Team} from './team.entity';
-import {TeamService} from './team.service';
+import {CompetitionDto} from './competition.dto';
+import {Competition} from './competition.entity';
+import {CompetitionService} from './competition.service';
 
 /**
- * Controller for /teams endpoints
+ * Controller for /competitions endpoints
  */
-@Controller('teams')
-export class TeamController {
+@Controller('competitions')
+export class CompetitionController {
   /**
-   * @param teamService - Team service
+   * @param competitionService - Competition service
    */
   constructor (
-    private readonly teamService: TeamService
+    private readonly competitionService: CompetitionService
   ) {}
 
   /**
-   * [Post] Creates a new team
+   * [Post] Creates a new competition
    *
-   * @param dto - Team data transfer object
+   * @param dto - Competition data transfer object
    *
-   * @returns Newly created team entity
+   * @returns Newly created competition entity
    */
   @Post()
   public async create (
-    @Body() dto: TeamDto
-  ): Promise<Team> {
+    @Body() dto: CompetitionDto
+  ): Promise<Competition> {
     try {
-      return await this.teamService.create(dto);
+      return await this.competitionService.create(dto);
     } catch (e) {
       throw new BadRequestException(e.message);
     }
   }
 
   /**
-   * [GET] A paginated list of teams
+   * [GET] A paginated list of competitions
    *
    * @param options - Serialised query string params for pagination
    *
-   * @returns List of team entities
+   * @returns List of Competition entities
    */
   @Get()
   @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions<Team>
-  ): Promise<[Team[], number]> {
+    @Pagination() options: PaginationOptions<Competition>
+  ): Promise<[Competition[], number]> {
     try {
-      return await this.teamService.listAll(options);
+      return await this.competitionService.listAll(options);
     } catch (e) {
       throw new BadRequestException(e.message);
     }
   }
 
   @Get(':id')
-  public async getTeam (
+  public async getCompetition (
     @Param('id') id: string,
-    @Filter() options: FilterOptions<Team>
-  ): Promise<Team> {
+    @Filter() options: FilterOptions<Competition>
+  ): Promise<Competition> {
     try {
-      const team: Team = await this.teamService.findOne(id, options);
+      const competition: Competition = await this.competitionService.findOne(id, options);
 
-      if (Boolean(team)) {
-        return team;
+      if (Boolean(competition)) {
+        return competition;
       }
     } catch (e) {
       throw new BadRequestException(e.message);
@@ -88,9 +88,9 @@ export class TeamController {
   }
 
   /**
-   * [Delete] Removes a team
+   * [Delete] Removes a competition
    *
-   * @param id - Team id
+   * @param id - Competition id
    */
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
@@ -100,7 +100,7 @@ export class TeamController {
     let count: number;
 
     try {
-      count = await this.teamService.remove(id);
+      count = await this.competitionService.remove(id);
     } catch (e) {
       throw new BadRequestException(e.message);
     }
@@ -111,21 +111,21 @@ export class TeamController {
   }
 
   /**
-   * [PATCH] Updates a team
+   * [PATCH] Updates a competition
    *
-   * @param dto - Team data transfer object
-   * @param id - Team id
+   * @param dto - Competition data transfer object
+   * @param id - Competition id
    */
   @Patch(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
   public async update (
-    @Body() dto: TeamDto,
+    @Body() dto: CompetitionDto,
     @Param('id') id: string
   ): Promise<void> {
     let count: number;
 
     try {
-      count = await this.teamService.update(id, dto);
+      count = await this.competitionService.update(id, dto);
     } catch (e) {
       throw new BadRequestException(e.message);
     }
