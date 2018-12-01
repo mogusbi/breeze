@@ -2,6 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Module} from '@nestjs/common';
+import {SeasonModule} from './season';
 import {TeamModule} from './team';
 
 /**
@@ -9,6 +10,7 @@ import {TeamModule} from './team';
  */
 @Module({
   imports: [
+    SeasonModule,
     TeamModule
   ]
 })
