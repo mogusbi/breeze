@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Team} from '@breeze/team';
 import {MigrationInterface, QueryRunner} from 'typeorm';
-import {Team} from '../app/team';
 
 export class TeamSeed1542580866334 implements MigrationInterface {
   private table: string = 'team';

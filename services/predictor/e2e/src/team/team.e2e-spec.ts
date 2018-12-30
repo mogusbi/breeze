@@ -4,7 +4,7 @@
 import {INestApplication} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
 import * as supertest from 'supertest';
-import {TeamModule} from '../../../src/app/team';
+import {TeamsModule} from '../../../src/app/teams';
 
 describe('Teams', (): void => {
   let app: INestApplication;
@@ -15,7 +15,7 @@ describe('Teams', (): void => {
     const testModule: TestingModule = await Test
       .createTestingModule({
         imports: [
-          TeamModule
+          TeamsModule
         ]
       })
       .compile();

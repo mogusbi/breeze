@@ -27,8 +27,11 @@
   },
   "dependencies": {
     "@breeze/bootstrap": "^0.0.0",
+    "@breeze/competition": "^0.0.0",
     "@breeze/request": "^0.0.0",
+    "@breeze/season": "^0.0.0",
     "@breeze/sql": "^0.0.0",
+    "@breeze/team": "^0.0.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.9"
   },
@@ -53,6 +56,11 @@
       "json",
       "node"
     ],
+    "moduleNameMapper": {
+      "@breeze/competition": "<rootDir>/node_modules/@breeze/competition/lib/__mocks__",
+      "@breeze/season": "<rootDir>/node_modules/@breeze/season/lib/__mocks__",
+      "@breeze/team": "<rootDir>/node_modules/@breeze/team/lib/__mocks__"
+    },
     "testMatch": [
       "**/+(*.)+(spec|test).+(ts|js)?(x)"
     ],

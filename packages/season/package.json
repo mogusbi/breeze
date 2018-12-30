@@ -1,0 +1,54 @@
+{
+  "name": "@breeze/season",
+  "version": "0.0.0",
+  "description": "Breeze season module",
+  "author": "Mo Gusbi <me@mogusbi.co.uk>",
+  "homepage": "https://github.com/mogusbi/breeze",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mogusbi/breeze.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
+    "test": "jest --coverage",
+    "posttest": "codecov"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**/*.ts",
+      "!**/src/*.module.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "index.ts",
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/+(*.)+(spec|test).+(ts|js)?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ]
+  },
+  "dependencies": {
+    "@breeze/request": "^0.0.0",
+    "@breeze/sql": "^0.0.0",
+    "typeorm": "^0.2.9"
+  }
+}

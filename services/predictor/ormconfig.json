@@ -1,7 +1,7 @@
 [
   {
     "entities": [
-      "src/**/*.entity.ts"
+      "node_modules/@breeze/**/lib/**/*.entity.js"
     ],
     "database": "predictor",
     "host": "localhost",
@@ -18,7 +18,7 @@
   },
   {
     "entities": [
-      "src/**/*.entity.ts"
+      "node_modules/@breeze/**/lib/**/*.entity.js"
     ],
     "database": "predictor_testing",
     "host": "localhost",

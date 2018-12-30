@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Season} from '@breeze/season';
 import {MigrationInterface, QueryRunner} from 'typeorm';
-import {Season} from '../app/season';
 
 export class Seasons1543614977600 implements MigrationInterface {
   private table: string = 'season';

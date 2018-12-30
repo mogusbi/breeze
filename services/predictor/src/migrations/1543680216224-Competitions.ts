@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Competition} from '@breeze/competition';
 import {MigrationInterface, QueryRunner} from 'typeorm';
-import {Competition} from '../app/competition';
 
 export class Competitions1543680216224 implements MigrationInterface {
   private table: string = 'competition';

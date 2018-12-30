@@ -2,18 +2,18 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Module} from '@nestjs/common';
-import {CompetitionModule} from './competition';
-import {SeasonModule} from './season';
-import {TeamModule} from './team';
+import {CompetitionsModule} from './competitions';
+import {SeasonsModule} from './seasons';
+import {TeamsModule} from './teams';
 
 /**
  * Predictor service app module
  */
 @Module({
   imports: [
-    CompetitionModule,
-    SeasonModule,
-    TeamModule
+    CompetitionsModule,
+    SeasonsModule,
+    TeamsModule
   ]
 })
 export class AppModule {}
