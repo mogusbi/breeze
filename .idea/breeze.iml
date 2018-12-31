@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamo-db/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/fixture/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/fixture/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/pagination/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/packages/pagination/lib" />

@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
+    "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json"
   },
   "dependencies": {

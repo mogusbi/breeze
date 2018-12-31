@@ -18,7 +18,7 @@
     "url": "https://github.com/mogusbi/breeze.git"
   },
   "scripts": {
-    "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
+    "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
     "e2e": "jest --config=e2e/jest.config.js --runInBand --forceExit",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "start": "nodemon --exec ts-node src/main.ts",
@@ -28,6 +28,7 @@
   "dependencies": {
     "@breeze/bootstrap": "^0.0.0",
     "@breeze/competition": "^0.0.0",
+    "@breeze/fixture": "^0.0.0",
     "@breeze/request": "^0.0.0",
     "@breeze/season": "^0.0.0",
     "@breeze/sql": "^0.0.0",
