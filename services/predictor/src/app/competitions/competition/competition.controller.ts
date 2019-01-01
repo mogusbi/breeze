@@ -32,6 +32,21 @@ export class CompetitionController {
   ) {}
 
   /**
+   * Converts a data transfer object into a valid entitiy
+   *
+   * @param dto - Competition data transfer object
+   *
+   * @return Competition entity
+   */
+  private static createCompetition (dto: CompetitionDto): Competition {
+    const competition: Competition = new Competition();
+
+    competition.name = dto.name;
+
+    return competition;
+  }
+
+  /**
    * [Post] Creates a new competition
    *
    * @param dto - Competition data transfer object
@@ -43,9 +58,7 @@ export class CompetitionController {
     @Body() dto: CompetitionDto
   ): Promise<Competition> {
     try {
-      const competition: Competition = new Competition();
-
-      competition.name = dto.name;
+      const competition: Competition = CompetitionController.createCompetition(dto);
 
       return await this.competitionService.create(competition);
     } catch (e) {
@@ -72,6 +85,14 @@ export class CompetitionController {
     }
   }
 
+  /**
+   * [GET] A single competition
+   *
+   * @param id - Competition id
+   * @param options - Serialised query string params for filtering
+   *
+   * @return A Competition entity
+   */
   @Get(':id')
   public async getCompetition (
     @Param('id') id: string,
@@ -128,10 +149,7 @@ export class CompetitionController {
     let count: number;
 
     try {
-      const competition: Competition = new Competition();
-
-      competition.id = id;
-      competition.name = dto.name;
+      const competition: Competition = CompetitionController.createCompetition(dto);
 
       count = await this.competitionService.update(id, competition);
     } catch (e) {

@@ -3,6 +3,7 @@
  */
 import {Module} from '@nestjs/common';
 import {CompetitionsModule} from './competitions';
+import {FixturesModule} from './fixtures';
 import {SeasonsModule} from './seasons';
 import {TeamsModule} from './teams';
 
@@ -12,6 +13,7 @@ import {TeamsModule} from './teams';
 @Module({
   imports: [
     CompetitionsModule,
+    FixturesModule,
     SeasonsModule,
     TeamsModule
   ]

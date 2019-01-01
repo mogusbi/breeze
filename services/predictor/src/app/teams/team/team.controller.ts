@@ -32,6 +32,21 @@ export class TeamController {
   ) {}
 
   /**
+   * Converts a data transfer object into a valid entitiy
+   *
+   * @param dto - Team data transfer object
+   *
+   * @return Team entity
+   */
+  private static createTeam (dto: TeamDto): Team {
+    const team: Team = new Team();
+
+    team.name = dto.name;
+
+    return team;
+  }
+
+  /**
    * [Post] Creates a new team
    *
    * @param dto - Team data transfer object
@@ -43,9 +58,7 @@ export class TeamController {
     @Body() dto: TeamDto
   ): Promise<Team> {
     try {
-      const team: Team = new Team();
-
-      team.name = dto.name;
+      const team: Team = TeamController.createTeam(dto);
 
       return await this.teamService.create(team);
     } catch (e) {
@@ -72,6 +85,14 @@ export class TeamController {
     }
   }
 
+  /**
+   * [GET] A single team
+   *
+   * @param id - Team id
+   * @param options - Serialised query string params for filtering
+   *
+   * @return A Tean entity
+   */
   @Get(':id')
   public async getTeam (
     @Param('id') id: string,
@@ -128,10 +149,7 @@ export class TeamController {
     let count: number;
 
     try {
-      const team: Team = new Team();
-
-      team.id = id;
-      team.name = dto.name;
+      const team: Team = TeamController.createTeam(dto);
 
       count = await this.teamService.update(id, team);
     } catch (e) {

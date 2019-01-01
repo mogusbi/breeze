@@ -32,6 +32,21 @@ export class SeasonController {
   ) {}
 
   /**
+   * Converts a data transfer object into a valid entitiy
+   *
+   * @param dto - Season data transfer object
+   *
+   * @return Season entity
+   */
+  private static createSeason (dto: SeasonDto): Season {
+    const season: Season = new Season();
+
+    season.name = dto.name;
+
+    return season;
+  }
+
+  /**
    * [Post] Creates a new season
    *
    * @param dto - Season data transfer object
@@ -43,9 +58,7 @@ export class SeasonController {
     @Body() dto: SeasonDto
   ): Promise<Season> {
     try {
-      const season: Season = new Season();
-
-      season.name = dto.name;
+      const season: Season = SeasonController.createSeason(dto);
 
       return await this.seasonService.create(season);
     } catch (e) {
@@ -72,6 +85,14 @@ export class SeasonController {
     }
   }
 
+  /**
+   * [GET] A single season
+   *
+   * @param id - Season id
+   * @param options - Serialised query string params for filtering
+   *
+   * @return A Season entity
+   */
   @Get(':id')
   public async getSeason (
     @Param('id') id: string,
@@ -128,10 +149,7 @@ export class SeasonController {
     let count: number;
 
     try {
-      const season: Season = new Season();
-
-      season.id = id;
-      season.name = dto.name;
+      const season: Season = SeasonController.createSeason(dto);
 
       count = await this.seasonService.update(id, season);
     } catch (e) {

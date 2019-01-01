@@ -59,6 +59,7 @@
     ],
     "moduleNameMapper": {
       "@breeze/competition": "<rootDir>/node_modules/@breeze/competition/lib/__mocks__",
+      "@breeze/fixture": "<rootDir>/node_modules/@breeze/fixture/lib/__mocks__",
       "@breeze/season": "<rootDir>/node_modules/@breeze/season/lib/__mocks__",
       "@breeze/team": "<rootDir>/node_modules/@breeze/team/lib/__mocks__"
     },
