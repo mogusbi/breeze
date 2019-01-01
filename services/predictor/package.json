@@ -18,6 +18,7 @@
     "url": "https://github.com/mogusbi/breeze.git"
   },
   "scripts": {
+    "build": "tsc",
     "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
     "e2e": "jest --config=e2e/jest.config.js --runInBand --forceExit",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
