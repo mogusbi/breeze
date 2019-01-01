@@ -653,8 +653,11 @@ describe('Teams', (): void => {
       id = body.id;
 
       expect(status).toEqual(201);
-      expect(body).toMatchObject({
-        name: 'Team'
+      expect(body).toEqual({
+        createdAt: expect.any(String),
+        id,
+        name: 'Team',
+        updatedAt: expect.any(String)
       });
     });
 
@@ -664,8 +667,9 @@ describe('Teams', (): void => {
       });
 
       expect(status).toEqual(400);
-      expect(body).toMatchObject({
+      expect(body).toEqual({
         error: 'Bad Request',
+        message: expect.any(String),
         statusCode: 400
       });
       expect(body.message).toContain('ER_DUP_ENTRY: Duplicate entry \'Team\'');
@@ -714,8 +718,9 @@ describe('Teams', (): void => {
       });
 
       expect(status).toEqual(400);
-      expect(body).toMatchObject({
+      expect(body).toEqual({
         error: 'Bad Request',
+        message: expect.any(String),
         statusCode: 400
       });
       expect(body.message).toContain('ER_DUP_ENTRY: Duplicate entry \'AFC Wimbledon\'');

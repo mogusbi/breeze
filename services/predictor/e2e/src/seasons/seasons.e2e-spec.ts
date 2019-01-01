@@ -653,8 +653,11 @@ describe('Seasons', (): void => {
       id = body.id;
 
       expect(status).toEqual(201);
-      expect(body).toMatchObject({
-        name: '2005/06'
+      expect(body).toEqual({
+        createdAt: expect.any(String),
+        id,
+        name: '2005/06',
+        updatedAt: expect.any(String)
       });
     });
 
@@ -664,8 +667,9 @@ describe('Seasons', (): void => {
       });
 
       expect(status).toEqual(400);
-      expect(body).toMatchObject({
+      expect(body).toEqual({
         error: 'Bad Request',
+        message: expect.any(String),
         statusCode: 400
       });
       expect(body.message).toContain('ER_DUP_ENTRY: Duplicate entry \'2005/06\'');
@@ -714,8 +718,9 @@ describe('Seasons', (): void => {
       });
 
       expect(status).toEqual(400);
-      expect(body).toMatchObject({
+      expect(body).toEqual({
         error: 'Bad Request',
+        message: expect.any(String),
         statusCode: 400
       });
       expect(body.message).toContain('ER_DUP_ENTRY: Duplicate entry \'2018/19\'');

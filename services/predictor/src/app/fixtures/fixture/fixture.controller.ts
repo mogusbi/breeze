@@ -51,7 +51,7 @@ export class FixtureController {
 
     fixture.away = away;
     fixture.awayScore = dto.awayScore;
-    fixture.competition = season;
+    fixture.competition = competition;
     fixture.date = dto.date;
     fixture.home = home;
     fixture.homeScore = dto.homeScore;

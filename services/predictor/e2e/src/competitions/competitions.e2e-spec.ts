@@ -653,8 +653,11 @@ describe('Competitions', (): void => {
       id = body.id;
 
       expect(status).toEqual(201);
-      expect(body).toMatchObject({
-        name: 'FIFA World Cup'
+      expect(body).toEqual({
+        createdAt: expect.any(String),
+        id,
+        name: 'FIFA World Cup',
+        updatedAt: expect.any(String)
       });
     });
 
@@ -664,8 +667,9 @@ describe('Competitions', (): void => {
       });
 
       expect(status).toEqual(400);
-      expect(body).toMatchObject({
+      expect(body).toEqual({
         error: 'Bad Request',
+        message: expect.any(String),
         statusCode: 400
       });
       expect(body.message).toContain('ER_DUP_ENTRY: Duplicate entry \'FIFA World Cup\'');
@@ -714,8 +718,9 @@ describe('Competitions', (): void => {
       });
 
       expect(status).toEqual(400);
-      expect(body).toMatchObject({
+      expect(body).toEqual({
         error: 'Bad Request',
+        message: expect.any(String),
         statusCode: 400
       });
       expect(body.message).toContain('ER_DUP_ENTRY: Duplicate entry \'UEFA Nations League\'');
