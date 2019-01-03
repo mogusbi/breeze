@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Environment" type="js.build_tools.npm" factoryName="npm">
+  <configuration default="false" name="Environment: Start" type="js.build_tools.npm" factoryName="npm">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="environment" />
+      <script value="environment:start" />
     </scripts>
     <node-interpreter value="project" />
     <envs />
