@@ -1,13 +1,13 @@
 # TODO: Enable once https://github.com/prettier/prettier/issues/3845 has been added
+arrowParens: always
+bracketSpacing: false
+endOfLine: lf
+insertPragma: false
+parser: typescript
 printWidth: 140
-tabWidth: 2
-useTabs: false
+requirePragma: false
 semi: true
 singleQuote: true
+tabWidth: 2
 trailingComma: none
-bracketSpacing: false
-arrowParens: always
-parser: typescript
-requirePragma: false
-insertPragma: false
-endOfLine: lf
+useTabs: false
