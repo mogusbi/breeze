@@ -13,6 +13,7 @@
     "e2e": "lerna run e2e",
     "environment:start": "docker-compose -f environments/development.yml up",
     "environment:teardown": "docker stop $(docker ps -aq) && docker rm $(docker ps -aq)",
+    "format": "lerna run format",
     "lerna": "lerna",
     "lint": "lerna run lint",
     "ls": "lerna ls",
