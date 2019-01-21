@@ -31,7 +31,1663 @@ describe('Fixtures', (): void => {
     await app.close();
   });
 
-  // TODO: [GET] /fixtures
+  describe('[GET] /fixtures', (): void => {
+    describe('with no filtering or sorting', (): void => {
+      it('should list first page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures');
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              away: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                name: 'Newcastle United',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2019-03-16T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                name: 'Bournemouth',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '04c78776-7f77-4fb2-ba29-7cd9f641a50b',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '47362a27-5245-4492-ab5b-8a2df31eec93',
+                name: 'Chelsea',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: 1,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-11-24T17:30:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                name: 'Tottenham Hotspur',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: 3,
+              id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                name: 'Arsenal',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-05T20:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                name: 'Manchester United',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                name: 'Newcastle United',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-05T19:45:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                name: 'Everton',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                name: 'Manchester City',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2019-03-16T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                name: 'Manchester United',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                name: 'Bournemouth',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-01T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                name: 'Manchester City',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '8c271376-e2c9-4c15-9ca1-60e469a18359',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                name: 'Arsenal',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: 2,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-11-25T13:30:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                name: 'Bournemouth',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: 1,
+              id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                name: 'Manchester United',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2019-01-13T16:30:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                name: 'Tottenham Hotspur',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                name: 'Liverpool',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: 3,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-11-24T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'e5f9f49c-bf0e-4505-8b3a-030ae3e5d968',
+                name: 'Watford',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: 0,
+              id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                name: 'Everton',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-02T16:15:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                name: 'Liverpool',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: 'eeea1164-37a8-49c0-8d08-6025a80c2788',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            }
+          ],
+          limit: 10,
+          page: 1,
+          pages: 2,
+          total: 12
+        });
+      });
+
+      it('should list second page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          page: 2
+        });
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              away: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                name: 'Manchester City',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-04T20:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'e5f9f49c-bf0e-4505-8b3a-030ae3e5d968',
+                name: 'Watford',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: 'f7621600-3f00-48e3-868c-dfe3115b30ee',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                name: 'Everton',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: 0,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-11-11T14:15:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '47362a27-5245-4492-ab5b-8a2df31eec93',
+                name: 'Chelsea',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: 0,
+              id: 'fc1e3fdd-9bf0-4ecc-bf06-988feb248e3b',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            }
+          ],
+          limit: 10,
+          page: 2,
+          pages: 2,
+          total: 12
+        });
+      });
+
+      it('should return no content if out of bounds', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          page: 3
+        });
+
+        expect(status).toEqual(204);
+        expect(body).toEqual({});
+      });
+    });
+
+    // TODO: Filtering tests
+    // describe('with filtering', (): void => {});
+
+    describe('with sorting', (): void => {
+      describe('ascending', (): void => {
+        it('should list first page of fixtures with all values', async (): Promise<void> => {
+          const {body, status}: supertest.Response = await request.get('/fixtures').query({
+            sort: 'date'
+          });
+
+          expect(status).toEqual(200);
+          expect(body).toEqual({
+            items: [
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                  name: 'Everton',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 0,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-11T14:15:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '47362a27-5245-4492-ab5b-8a2df31eec93',
+                  name: 'Chelsea',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 0,
+                id: 'fc1e3fdd-9bf0-4ecc-bf06-988feb248e3b',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                  name: 'Liverpool',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 3,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-24T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'e5f9f49c-bf0e-4505-8b3a-030ae3e5d968',
+                  name: 'Watford',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 0,
+                id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '47362a27-5245-4492-ab5b-8a2df31eec93',
+                  name: 'Chelsea',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 1,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-24T17:30:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                  name: 'Tottenham Hotspur',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 3,
+                id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                  name: 'Arsenal',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 2,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-25T13:30:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                  name: 'Bournemouth',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 1,
+                id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                  name: 'Bournemouth',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-01T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                  name: 'Manchester City',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '8c271376-e2c9-4c15-9ca1-60e469a18359',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                  name: 'Everton',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-02T16:15:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                  name: 'Liverpool',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: 'eeea1164-37a8-49c0-8d08-6025a80c2788',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                  name: 'Manchester City',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-04T20:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'e5f9f49c-bf0e-4505-8b3a-030ae3e5d968',
+                  name: 'Watford',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: 'f7621600-3f00-48e3-868c-dfe3115b30ee',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                  name: 'Newcastle United',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-05T19:45:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                  name: 'Everton',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                  name: 'Arsenal',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-05T20:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                  name: 'Manchester United',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                  name: 'Manchester United',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2019-01-13T16:30:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                  name: 'Tottenham Hotspur',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              }
+            ],
+            limit: 10,
+            page: 1,
+            pages: 2,
+            total: 12
+          });
+        });
+
+        it('should list second page of fixtures with all values', async (): Promise<void> => {
+          const {body, status}: supertest.Response = await request.get('/fixtures').query({
+            page: 2,
+            sort: 'date'
+          });
+
+          expect(status).toEqual(200);
+          expect(body).toEqual({
+            items: [
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                  name: 'Newcastle United',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2019-03-16T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                  name: 'Bournemouth',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '04c78776-7f77-4fb2-ba29-7cd9f641a50b',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                  name: 'Manchester City',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2019-03-16T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                  name: 'Manchester United',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              }
+            ],
+            limit: 10,
+            page: 2,
+            pages: 2,
+            total: 12
+          });
+        });
+
+        it('should return no content if out of bounds', async (): Promise<void> => {
+          const {body, status}: supertest.Response = await request.get('/fixtures').query({
+            page: 3,
+            sort: 'date'
+          });
+
+          expect(status).toEqual(204);
+          expect(body).toEqual({});
+        });
+      });
+
+      describe('descending', (): void => {
+        it('should list first page of fixtures with all values', async (): Promise<void> => {
+          const {body, status}: supertest.Response = await request.get('/fixtures').query({
+            dir: 'desc',
+            sort: 'date'
+          });
+
+          expect(status).toEqual(200);
+          expect(body).toEqual({
+            items: [
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                  name: 'Newcastle United',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2019-03-16T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                  name: 'Bournemouth',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '04c78776-7f77-4fb2-ba29-7cd9f641a50b',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                  name: 'Manchester City',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2019-03-16T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                  name: 'Manchester United',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                  name: 'Manchester United',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2019-01-13T16:30:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                  name: 'Tottenham Hotspur',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                  name: 'Arsenal',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-05T20:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                  name: 'Manchester United',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                  name: 'Newcastle United',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-05T19:45:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                  name: 'Everton',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                  name: 'Manchester City',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-04T20:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'e5f9f49c-bf0e-4505-8b3a-030ae3e5d968',
+                  name: 'Watford',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: 'f7621600-3f00-48e3-868c-dfe3115b30ee',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                  name: 'Everton',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-02T16:15:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                  name: 'Liverpool',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: 'eeea1164-37a8-49c0-8d08-6025a80c2788',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                  name: 'Bournemouth',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: null,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-12-01T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-18T00:00:00.000Z',
+                  id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                  name: 'Manchester City',
+                  updatedAt: '2018-11-18T00:00:00.000Z'
+                },
+                homeScore: null,
+                id: '8c271376-e2c9-4c15-9ca1-60e469a18359',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                  name: 'Arsenal',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 2,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-25T13:30:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                  name: 'Bournemouth',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 1,
+                id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '47362a27-5245-4492-ab5b-8a2df31eec93',
+                  name: 'Chelsea',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 1,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-24T17:30:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                  name: 'Tottenham Hotspur',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 3,
+                id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              }
+            ],
+            limit: 10,
+            page: 1,
+            pages: 2,
+            total: 12
+          });
+        });
+
+        it('should list second page of fixtures with all values', async (): Promise<void> => {
+          const {body, status}: supertest.Response = await request.get('/fixtures').query({
+            dir: 'desc',
+            page: 2,
+            sort: 'date'
+          });
+
+          expect(status).toEqual(200);
+          expect(body).toEqual({
+            items: [
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                  name: 'Liverpool',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 3,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-24T15:00:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: 'e5f9f49c-bf0e-4505-8b3a-030ae3e5d968',
+                  name: 'Watford',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 0,
+                id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              },
+              {
+                away: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                  name: 'Everton',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                awayScore: 0,
+                competition: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                  name: 'Premier League',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                createdAt: '2018-11-30T00:00:00.000Z',
+                date: '2018-11-11T14:15:00.000Z',
+                home: {
+                  createdAt: '2018-11-19T00:00:00.000Z',
+                  id: '47362a27-5245-4492-ab5b-8a2df31eec93',
+                  name: 'Chelsea',
+                  updatedAt: '2018-11-19T00:00:00.000Z'
+                },
+                homeScore: 0,
+                id: 'fc1e3fdd-9bf0-4ecc-bf06-988feb248e3b',
+                season: {
+                  createdAt: '2018-12-01T00:00:00.000Z',
+                  id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                  name: '2018/19',
+                  updatedAt: '2018-12-01T00:00:00.000Z'
+                },
+                updatedAt: '2018-11-30T00:00:00.000Z'
+              }
+            ],
+            limit: 10,
+            page: 2,
+            pages: 2,
+            total: 12
+          });
+        });
+
+        it('should return no content if out of bounds', async (): Promise<void> => {
+          const {body, status}: supertest.Response = await request.get('/fixtures').query({
+            dir: 'desc',
+            page: 3,
+            sort: 'date'
+          });
+
+          expect(status).toEqual(204);
+          expect(body).toEqual({});
+        });
+      });
+    });
+
+    describe('with limiting', (): void => {
+      it('should list first page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          limit: 5
+        });
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              away: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                name: 'Newcastle United',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2019-03-16T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                name: 'Bournemouth',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '04c78776-7f77-4fb2-ba29-7cd9f641a50b',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '47362a27-5245-4492-ab5b-8a2df31eec93',
+                name: 'Chelsea',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: 1,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-11-24T17:30:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                name: 'Tottenham Hotspur',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: 3,
+              id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                name: 'Arsenal',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-05T20:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                name: 'Manchester United',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '1412d281-06e0-488d-8795-b46ee26daa4e',
+                name: 'Newcastle United',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-05T19:45:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                name: 'Everton',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                name: 'Manchester City',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2019-03-16T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                name: 'Manchester United',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            }
+          ],
+          limit: 5,
+          page: 1,
+          pages: 3,
+          total: 12
+        });
+      });
+
+      it('should list second page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          limit: 5,
+          page: 2
+        });
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                name: 'Bournemouth',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-01T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-18T00:00:00.000Z',
+                id: '19d7f679-43d4-4060-b19d-03b30127cf23',
+                name: 'Manchester City',
+                updatedAt: '2018-11-18T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: '8c271376-e2c9-4c15-9ca1-60e469a18359',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '07c3eac0-909d-4a1c-9fb5-6a6202c65e34',
+                name: 'Arsenal',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: 2,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-11-25T13:30:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'ebdcacdb-cdd8-4817-b87b-412c3e83ecc0',
+                name: 'Bournemouth',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: 1,
+              id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '97243d37-3330-46d3-96df-9513e35a8cc9',
+                name: 'Manchester United',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2019-01-13T16:30:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'cefc7f1b-65ae-44d1-b0a8-79c20b551f41',
+                name: 'Tottenham Hotspur',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                name: 'Liverpool',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: 3,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-11-24T15:00:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: 'e5f9f49c-bf0e-4505-8b3a-030ae3e5d968',
+                name: 'Watford',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: 0,
+              id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            },
+            {
+              away: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '5ff6312e-59d5-462f-bf5e-094834b55e96',
+                name: 'Everton',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              awayScore: null,
+              competition: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: 'a6543c15-966a-4d22-85df-edaa11561227',
+                name: 'Premier League',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              createdAt: '2018-11-30T00:00:00.000Z',
+              date: '2018-12-02T16:15:00.000Z',
+              home: {
+                createdAt: '2018-11-19T00:00:00.000Z',
+                id: '6d07e93c-2c15-4de8-85b0-a3a2be741897',
+                name: 'Liverpool',
+                updatedAt: '2018-11-19T00:00:00.000Z'
+              },
+              homeScore: null,
+              id: 'eeea1164-37a8-49c0-8d08-6025a80c2788',
+              season: {
+                createdAt: '2018-12-01T00:00:00.000Z',
+                id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+                name: '2018/19',
+                updatedAt: '2018-12-01T00:00:00.000Z'
+              },
+              updatedAt: '2018-11-30T00:00:00.000Z'
+            }
+          ],
+          limit: 5,
+          page: 2,
+          pages: 3,
+          total: 12
+        });
+      });
+
+      it('should return no content if out of bounds', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          limit: 5,
+          page: 4
+        });
+
+        expect(status).toEqual(204);
+        expect(body).toEqual({});
+      });
+    });
+  });
 
   describe('[GET] /fixtures/:id', (): void => {
     it('should return a fixture', async (): Promise<void> => {
@@ -168,7 +1824,7 @@ describe('Fixtures', (): void => {
       expect(body).toEqual({});
     });
 
-    it('should return not found if competition does not exist', async (): Promise<void> => {
+    it('should return not found if fixture does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.patch('/fixtures/88044266-a83a-4e10-b85b-e552790909a1').send({
         away: '97243d37-3330-46d3-96df-9513e35a8cc9',
         awayScore: 1,
