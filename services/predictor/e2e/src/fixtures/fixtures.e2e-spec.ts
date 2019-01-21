@@ -117,7 +117,7 @@ describe('Fixtures', (): void => {
   });
 
   describe('[POST] /fixtures', (): void => {
-    it('should create a new competition', async (): Promise<void> => {
+    it('should create a new fixture', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.post('/fixtures').send({
         away: '97243d37-3330-46d3-96df-9513e35a8cc9',
         competition: '9463a53e-61cd-4521-8390-3dfd5dcd5fa4',
@@ -152,7 +152,40 @@ describe('Fixtures', (): void => {
     });
   });
 
-  // TODO: [PATCH] /fixtures
+  describe('[PATCH] /fixtures', (): void => {
+    it('should update a fixture', async (): Promise<void> => {
+      const {body, status}: supertest.Response = await request.patch(`/fixtures/${id}`).send({
+        away: '97243d37-3330-46d3-96df-9513e35a8cc9',
+        awayScore: 1,
+        competition: '9463a53e-61cd-4521-8390-3dfd5dcd5fa4',
+        date: '2019-07-01T20:00:00',
+        home: 'bab0f5a9-d202-49f0-ad49-eb49c0d9b701',
+        homeScore: 2,
+        season: '913d0a60-b388-4101-b5cf-95167c4f35cb'
+      });
+
+      expect(status).toEqual(204);
+      expect(body).toEqual({});
+    });
+
+    it('should return not found if competition does not exist', async (): Promise<void> => {
+      const {body, status}: supertest.Response = await request.patch('/fixtures/88044266-a83a-4e10-b85b-e552790909a1').send({
+        away: '97243d37-3330-46d3-96df-9513e35a8cc9',
+        awayScore: 1,
+        competition: '9463a53e-61cd-4521-8390-3dfd5dcd5fa4',
+        date: '2019-07-01T20:00:00',
+        home: 'bab0f5a9-d202-49f0-ad49-eb49c0d9b701',
+        homeScore: 2,
+        season: '913d0a60-b388-4101-b5cf-95167c4f35cb'
+      });
+
+      expect(status).toEqual(404);
+      expect(body).toEqual({
+        error: 'Not Found',
+        statusCode: 404
+      });
+    });
+  });
 
   describe('[DELETE] /fixtures/:id', (): void => {
     it('should delete a fixture', async (): Promise<void> => {
