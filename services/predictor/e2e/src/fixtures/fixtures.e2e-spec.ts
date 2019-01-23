@@ -1728,8 +1728,21 @@ describe('Fixtures', (): void => {
       });
     });
 
+    it('should return a filtered result', async (): Promise<void> => {
+      const {body, status}: supertest.Response = await request.get('/fixtures/a32e5fa2-1bf1-4188-86d7-50d74cfea6b9').query({
+        fields: 'id,homeScore,awayScore'
+      });
+
+      expect(status).toEqual(200);
+      expect(body).toEqual({
+        awayScore: 2,
+        homeScore: 1,
+        id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9'
+      });
+    });
+
     // TODO: Await TypeORM fix for join filtering
-    it.skip('should return a filtered result', async (): Promise<void> => {
+    it.skip('should return a filtered result on join', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/fixtures/a32e5fa2-1bf1-4188-86d7-50d74cfea6b9').query({
         fields: 'id,home.name,homeScore,away.name,awayScore'
       });
