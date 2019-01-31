@@ -3,7 +3,7 @@
  */
 import {INestApplication, ValidationPipe} from '@nestjs/common';
 import {NestFactory} from '@nestjs/core';
-import * as mogan from 'morgan';
+import * as morgan from 'morgan';
 
 /**
  * Bootstraps an application module
@@ -14,7 +14,7 @@ import * as mogan from 'morgan';
 export async function bootstrap (appModule: object, port: number = 3000): Promise<void> {
   const app: INestApplication = await NestFactory.create(appModule);
 
-  app.use(mogan('dev'));
+  app.use(morgan('dev'));
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(port);
