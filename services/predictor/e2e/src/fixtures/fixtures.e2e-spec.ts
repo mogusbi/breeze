@@ -457,8 +457,317 @@ describe('Fixtures', (): void => {
       });
     });
 
-    // TODO: Filtering tests
-    // describe('with filtering', (): void => {});
+    describe('with filtering', (): void => {
+      it('should list first page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,awayScore,homeScore'
+        });
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              awayScore: null,
+              homeScore: null,
+              id: '04c78776-7f77-4fb2-ba29-7cd9f641a50b'
+            },
+            {
+              awayScore: 1,
+              homeScore: 3,
+              id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17'
+            },
+            {
+              awayScore: null,
+              homeScore: null,
+              id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1'
+            },
+            {
+              awayScore: null,
+              homeScore: null,
+              id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a'
+            },
+            {
+              awayScore: null,
+              homeScore: null,
+              id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb'
+            },
+            {
+              awayScore: null,
+              homeScore: null,
+              id: '8c271376-e2c9-4c15-9ca1-60e469a18359'
+            },
+            {
+              awayScore: 2,
+              homeScore: 1,
+              id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9'
+            },
+            {
+              awayScore: null,
+              homeScore: null,
+              id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304'
+            },
+            {
+              awayScore: 3,
+              homeScore: 0,
+              id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d'
+            },
+            {
+              awayScore: null,
+              homeScore: null,
+              id: 'eeea1164-37a8-49c0-8d08-6025a80c2788'
+            }
+          ],
+          limit: 10,
+          page: 1,
+          pages: 2,
+          total: 12
+        });
+      });
+
+      it('should list second page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,awayScore,homeScore',
+          page: 2
+        });
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              awayScore: null,
+              homeScore: null,
+              id: 'f7621600-3f00-48e3-868c-dfe3115b30ee'
+            },
+            {
+              awayScore: 0,
+              homeScore: 0,
+              id: 'fc1e3fdd-9bf0-4ecc-bf06-988feb248e3b'
+            }
+          ],
+          limit: 10,
+          page: 2,
+          pages: 2,
+          total: 12
+        });
+      });
+
+      it('should return no content if out of bounds', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,awayScore,homeScore',
+          page: 3
+        });
+
+        expect(status).toEqual(204);
+        expect(body).toEqual({});
+      });
+
+      it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,name',
+          page: 3
+        });
+
+        expect(status).toEqual(400);
+        expect(body).toEqual({
+          error: 'Bad Request',
+          message: 'name column was not found in the Fixture entity.',
+          statusCode: 400
+        });
+      });
+    });
+
+    // TODO: Await TypeORM fix for join filtering
+    describe.skip('with filtering on joins', (): void => {
+      it('should list first page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,home.name,homeScore,away.name,awayScore'
+        });
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              away: {
+                name: 'Newcastle United'
+              },
+              awayScore: null,
+              home: {
+                name: 'Bournemouth'
+              },
+              homeScore: null,
+              id: '04c78776-7f77-4fb2-ba29-7cd9f641a50b'
+            },
+            {
+              away: {
+                name: 'Chelsea',
+              },
+              awayScore: 1,
+              home: {
+                name: 'Tottenham Hotspur',
+              },
+              homeScore: 3,
+              id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17',
+            },
+            {
+              away: {
+                name: 'Arsenal',
+              },
+              awayScore: null,
+              home: {
+                name: 'Manchester United',
+              },
+              homeScore: null,
+              id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1',
+            },
+            {
+              away: {
+                name: 'Newcastle United',
+              },
+              awayScore: null,
+              home: {
+                name: 'Everton',
+              },
+              homeScore: null,
+              id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a',
+            },
+            {
+              away: {
+                name: 'Manchester City',
+              },
+              awayScore: null,
+              date: '2019-03-16T15:00:00.000Z',
+              home: {
+                name: 'Manchester United',
+              },
+              homeScore: null,
+              id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb',
+            },
+            {
+              away: {
+                name: 'Bournemouth',
+              },
+              awayScore: null,
+              home: {
+                name: 'Manchester City',
+              },
+              homeScore: null,
+              id: '8c271376-e2c9-4c15-9ca1-60e469a18359',
+            },
+            {
+              away: {
+                name: 'Arsenal',
+              },
+              awayScore: 2,
+              home: {
+                name: 'Bournemouth',
+              },
+              homeScore: 1,
+              id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9',
+            },
+            {
+              away: {
+                name: 'Manchester United',
+              },
+              awayScore: null,
+              home: {
+                name: 'Tottenham Hotspur',
+              },
+              homeScore: null,
+              id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304',
+            },
+            {
+              away: {
+                name: 'Liverpool',
+              },
+              awayScore: 3,
+              home: {
+                name: 'Watford',
+              },
+              homeScore: 0,
+              id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d',
+            },
+            {
+              away: {
+                name: 'Everton',
+              },
+              awayScore: null,
+              home: {
+                name: 'Liverpool',
+              },
+              homeScore: null,
+              id: 'eeea1164-37a8-49c0-8d08-6025a80c2788',
+            }
+          ],
+          limit: 10,
+          page: 1,
+          pages: 2,
+          total: 12
+        });
+      });
+
+      it('should list second page of fixtures with all values', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,home.name,homeScore,away.name,awayScore',
+          page: 2
+        });
+
+        expect(status).toEqual(200);
+        expect(body).toEqual({
+          items: [
+            {
+              away: {
+                name: 'Manchester City',
+              },
+              awayScore: null,
+              home: {
+                name: 'Watford',
+              },
+              homeScore: null,
+              id: 'f7621600-3f00-48e3-868c-dfe3115b30ee',
+            },
+            {
+              away: {
+                name: 'Everton',
+              },
+              awayScore: 0,
+              home: {
+                name: 'Chelsea',
+              },
+              homeScore: 0,
+              id: 'fc1e3fdd-9bf0-4ecc-bf06-988feb248e3b'
+            }
+          ],
+          limit: 10,
+          page: 2,
+          pages: 2,
+          total: 12
+        });
+      });
+
+      it('should return no content if out of bounds', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,home.name,homeScore,away.name,awayScore',
+          page: 3
+        });
+
+        expect(status).toEqual(204);
+        expect(body).toEqual({});
+      });
+
+      it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
+        const {body, status}: supertest.Response = await request.get('/fixtures').query({
+          fields: 'id,home.location',
+          page: 3
+        });
+
+        expect(status).toEqual(400);
+        expect(body).toEqual({
+          error: 'Bad Request',
+          message: 'location column was not found in the Team entity.',
+          statusCode: 400
+        });
+      });
+    });
 
     describe('with sorting', (): void => {
       describe('ascending', (): void => {
