@@ -1,10 +1,10 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breeze/competition';
-import {Fixture} from '@breeze/fixture';
-import {Season} from '@breeze/season';
-import {Team} from '@breeze/team';
+import {Competition} from '@breezejs/competition';
+import {Fixture} from '@breezejs/fixture';
+import {Season} from '@breezejs/season';
+import {Team} from '@breezejs/team';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
 export class Fixtures1543687206935 implements MigrationInterface {

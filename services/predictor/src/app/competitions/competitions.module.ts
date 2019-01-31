@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {CompetitionModule} from '@breeze/competition';
+import {CompetitionModule} from '@breezejs/competition';
 import {Module} from '@nestjs/common';
 import {CompetitionController} from './competition';
 

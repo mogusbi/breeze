@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {FilterOptions, PaginationOptions} from '@breeze/request';
+import {FilterOptions, PaginationOptions} from '@breezejs/request';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
 import {Competition} from './competition.entity';

@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {SqlEnum} from '@breeze/sql';
+import {SqlEnum} from '@breezejs/sql';
 import {Provider} from '@nestjs/common';
 import {Connection, Repository} from 'typeorm';
 import {Season} from './season.entity';

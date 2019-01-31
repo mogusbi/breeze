@@ -1,5 +1,5 @@
 {
-  "name": "@breeze/predictor",
+  "name": "@breezejs/predictor",
   "version": "0.0.0",
   "description": "Breeze football predictor API",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
@@ -27,13 +27,13 @@
     "posttest": "codecov"
   },
   "dependencies": {
-    "@breeze/bootstrap": "^0.0.0",
-    "@breeze/competition": "^0.0.0",
-    "@breeze/fixture": "^0.0.0",
-    "@breeze/request": "^0.0.0",
-    "@breeze/season": "^0.0.0",
-    "@breeze/sql": "^0.0.0",
-    "@breeze/team": "^0.0.0",
+    "@breezejs/bootstrap": "^0.0.0",
+    "@breezejs/competition": "^0.0.0",
+    "@breezejs/fixture": "^0.0.0",
+    "@breezejs/request": "^0.0.0",
+    "@breezejs/season": "^0.0.0",
+    "@breezejs/sql": "^0.0.0",
+    "@breezejs/team": "^0.0.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.9"
   },
@@ -59,10 +59,10 @@
       "node"
     ],
     "moduleNameMapper": {
-      "@breeze/competition": "<rootDir>/node_modules/@breeze/competition/lib/__mocks__",
-      "@breeze/fixture": "<rootDir>/node_modules/@breeze/fixture/lib/__mocks__",
-      "@breeze/season": "<rootDir>/node_modules/@breeze/season/lib/__mocks__",
-      "@breeze/team": "<rootDir>/node_modules/@breeze/team/lib/__mocks__"
+      "@breezejs/competition": "<rootDir>/node_modules/@breezejs/competition/lib/__mocks__",
+      "@breezejs/fixture": "<rootDir>/node_modules/@breezejs/fixture/lib/__mocks__",
+      "@breezejs/season": "<rootDir>/node_modules/@breezejs/season/lib/__mocks__",
+      "@breezejs/team": "<rootDir>/node_modules/@breezejs/team/lib/__mocks__"
     },
     "testMatch": [
       "**/+(*.)+(spec|test).+(ts|js)?(x)"

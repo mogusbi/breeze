@@ -1,5 +1,5 @@
 {
-  "name": "@breeze/fixture",
+  "name": "@breezejs/fixture",
   "version": "0.0.0",
   "description": "Breeze fixture module",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
@@ -47,11 +47,11 @@
     ]
   },
   "dependencies": {
-    "@breeze/competition": "^0.0.0",
-    "@breeze/request": "^0.0.0",
-    "@breeze/season": "^0.0.0",
-    "@breeze/sql": "^0.0.0",
-    "@breeze/team": "^0.0.0",
+    "@breezejs/competition": "^0.0.0",
+    "@breezejs/request": "^0.0.0",
+    "@breezejs/season": "^0.0.0",
+    "@breezejs/sql": "^0.0.0",
+    "@breezejs/team": "^0.0.0",
     "typeorm": "^0.2.9"
   }
 }

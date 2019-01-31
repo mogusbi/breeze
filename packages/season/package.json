@@ -1,5 +1,5 @@
 {
-  "name": "@breeze/season",
+  "name": "@breezejs/season",
   "version": "0.0.0",
   "description": "Breeze season module",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
@@ -47,8 +47,8 @@
     ]
   },
   "dependencies": {
-    "@breeze/request": "^0.0.0",
-    "@breeze/sql": "^0.0.0",
+    "@breezejs/request": "^0.0.0",
+    "@breezejs/sql": "^0.0.0",
     "typeorm": "^0.2.9"
   }
 }

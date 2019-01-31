@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition, CompetitionService} from '@breeze/competition';
-import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breeze/request';
+import {Competition, CompetitionService} from '@breezejs/competition';
+import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
 import {
   BadRequestException,
   Body,

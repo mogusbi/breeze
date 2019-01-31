@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breeze/request';
-import {Season, SeasonService} from '@breeze/season';
+import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
+import {Season, SeasonService} from '@breezejs/season';
 import {
   BadRequestException,
   Body,

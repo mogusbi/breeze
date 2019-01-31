@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {TeamModule} from '@breeze/team';
+import {TeamModule} from '@breezejs/team';
 import {Module} from '@nestjs/common';
 import {TeamController} from './team';
 

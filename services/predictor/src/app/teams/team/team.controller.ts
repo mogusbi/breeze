@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breeze/request';
-import {Team, TeamService} from '@breeze/team';
+import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
+import {Team, TeamService} from '@breezejs/team';
 import {
   BadRequestException,
   Body,

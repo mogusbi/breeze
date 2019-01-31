@@ -1,11 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breeze/competition';
-import {Fixture, FixtureService} from '@breeze/fixture';
-import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breeze/request';
-import {Season} from '@breeze/season';
-import {Team} from '@breeze/team';
+import {Competition} from '@breezejs/competition';
+import {Fixture, FixtureService} from '@breezejs/fixture';
+import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
+import {Season} from '@breezejs/season';
+import {Team} from '@breezejs/team';
 import {
   BadRequestException,
   Body,

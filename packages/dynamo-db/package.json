@@ -1,5 +1,5 @@
 {
-  "name": "@breeze/dynamo-db",
+  "name": "@breezejs/dynamo-db",
   "version": "0.0.0",
   "description": "Breeze Dynamo DB adaptor",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",

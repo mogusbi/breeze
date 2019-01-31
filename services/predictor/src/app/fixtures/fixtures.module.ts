@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {FixtureModule} from '@breeze/fixture';
+import {FixtureModule} from '@breezejs/fixture';
 import {Module} from '@nestjs/common';
 import {FixtureController} from './fixture';
 

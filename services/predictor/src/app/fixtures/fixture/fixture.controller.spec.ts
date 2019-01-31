@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Fixture, FixtureService} from '@breeze/fixture';
+import {Fixture, FixtureService} from '@breezejs/fixture';
 import {BadRequestException, NotFoundException} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
 import {FixtureController} from './fixture.controller';

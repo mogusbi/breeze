@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Team} from '@breeze/team';
+import {Team} from '@breezejs/team';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
 export class TeamSeed1542580866334 implements MigrationInterface {

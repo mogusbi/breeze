@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breeze/competition';
+import {Competition} from '@breezejs/competition';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
 export class Competitions1543680216224 implements MigrationInterface {

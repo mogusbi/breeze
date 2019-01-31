@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition, CompetitionService} from '@breeze/competition';
+import {Competition, CompetitionService} from '@breezejs/competition';
 import {BadRequestException, NotFoundException} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
 import {CompetitionController} from './competition.controller';

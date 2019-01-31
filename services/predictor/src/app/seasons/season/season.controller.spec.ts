@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Season, SeasonService} from '@breeze/season';
+import {Season, SeasonService} from '@breezejs/season';
 import {BadRequestException, NotFoundException} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
 import {SeasonController} from './season.controller';

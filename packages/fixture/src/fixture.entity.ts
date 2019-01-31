@@ -1,10 +1,10 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breeze/competition';
-import {Season} from '@breeze/season';
-import {Base} from '@breeze/sql';
-import {Team} from '@breeze/team';
+import {Competition} from '@breezejs/competition';
+import {Season} from '@breezejs/season';
+import {Base} from '@breezejs/sql';
+import {Team} from '@breezejs/team';
 import {Column, Entity, JoinColumn, ManyToOne} from 'typeorm';
 
 /**

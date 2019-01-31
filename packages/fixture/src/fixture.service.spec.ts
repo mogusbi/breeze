@@ -1,9 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breeze/competition';
-import {Season} from '@breeze/season';
-import {Team} from '@breeze/team';
+import {Competition} from '@breezejs/competition';
+import {Season} from '@breezejs/season';
+import {Team} from '@breezejs/team';
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
 import {Fixture} from './fixture.entity';

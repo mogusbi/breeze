@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {SqlModule} from '@breeze/sql';
+import {SqlModule} from '@breezejs/sql';
 import {Module} from '@nestjs/common';
 import {TeamProviders} from './team.providers';
 import {TeamService} from './team.service';
