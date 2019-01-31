@@ -599,103 +599,103 @@ describe('Fixtures', (): void => {
             },
             {
               away: {
-                name: 'Chelsea',
+                name: 'Chelsea'
               },
               awayScore: 1,
               home: {
-                name: 'Tottenham Hotspur',
+                name: 'Tottenham Hotspur'
               },
               homeScore: 3,
-              id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17',
+              id: '08a4387f-1cf9-47eb-a577-22ee2c3b2f17'
             },
             {
               away: {
-                name: 'Arsenal',
+                name: 'Arsenal'
               },
               awayScore: null,
               home: {
-                name: 'Manchester United',
+                name: 'Manchester United'
               },
               homeScore: null,
-              id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1',
+              id: '4e0ce8a4-1053-43a4-ae48-ecfbb6bc79f1'
             },
             {
               away: {
-                name: 'Newcastle United',
+                name: 'Newcastle United'
               },
               awayScore: null,
               home: {
-                name: 'Everton',
+                name: 'Everton'
               },
               homeScore: null,
-              id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a',
+              id: '5cea0599-c9bd-4063-81f2-697e0bcc5c4a'
             },
             {
               away: {
-                name: 'Manchester City',
+                name: 'Manchester City'
               },
               awayScore: null,
               date: '2019-03-16T15:00:00.000Z',
               home: {
-                name: 'Manchester United',
+                name: 'Manchester United'
               },
               homeScore: null,
-              id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb',
+              id: '67d2e593-4c29-479c-ba9a-56bfeb5e1ebb'
             },
             {
               away: {
-                name: 'Bournemouth',
+                name: 'Bournemouth'
               },
               awayScore: null,
               home: {
-                name: 'Manchester City',
+                name: 'Manchester City'
               },
               homeScore: null,
-              id: '8c271376-e2c9-4c15-9ca1-60e469a18359',
+              id: '8c271376-e2c9-4c15-9ca1-60e469a18359'
             },
             {
               away: {
-                name: 'Arsenal',
+                name: 'Arsenal'
               },
               awayScore: 2,
               home: {
-                name: 'Bournemouth',
+                name: 'Bournemouth'
               },
               homeScore: 1,
-              id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9',
+              id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9'
             },
             {
               away: {
-                name: 'Manchester United',
+                name: 'Manchester United'
               },
               awayScore: null,
               home: {
-                name: 'Tottenham Hotspur',
+                name: 'Tottenham Hotspur'
               },
               homeScore: null,
-              id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304',
+              id: 'ce41219d-d6e4-43f8-8b82-0f3d0e36f304'
             },
             {
               away: {
-                name: 'Liverpool',
+                name: 'Liverpool'
               },
               awayScore: 3,
               home: {
-                name: 'Watford',
+                name: 'Watford'
               },
               homeScore: 0,
-              id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d',
+              id: 'ea72f2be-ef7e-4fae-99be-02222e968f5d'
             },
             {
               away: {
-                name: 'Everton',
+                name: 'Everton'
               },
               awayScore: null,
               home: {
-                name: 'Liverpool',
+                name: 'Liverpool'
               },
               homeScore: null,
-              id: 'eeea1164-37a8-49c0-8d08-6025a80c2788',
+              id: 'eeea1164-37a8-49c0-8d08-6025a80c2788'
             }
           ],
           limit: 10,
@@ -716,22 +716,22 @@ describe('Fixtures', (): void => {
           items: [
             {
               away: {
-                name: 'Manchester City',
+                name: 'Manchester City'
               },
               awayScore: null,
               home: {
-                name: 'Watford',
+                name: 'Watford'
               },
               homeScore: null,
-              id: 'f7621600-3f00-48e3-868c-dfe3115b30ee',
+              id: 'f7621600-3f00-48e3-868c-dfe3115b30ee'
             },
             {
               away: {
-                name: 'Everton',
+                name: 'Everton'
               },
               awayScore: 0,
               home: {
-                name: 'Chelsea',
+                name: 'Chelsea'
               },
               homeScore: 0,
               id: 'fc1e3fdd-9bf0-4ecc-bf06-988feb248e3b'
