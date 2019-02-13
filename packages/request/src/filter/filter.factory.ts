@@ -14,9 +14,21 @@ import {FilterOptions} from './filter.model';
  * @return Filter options object
  */
 export function FilterFactory<T = unknown> (_: string, {query}: Request): FilterOptions<T> {
-  const select: (keyof T)[] = query.fields ? query.fields.split(',') : null;
+  const split: RegExp = /\./;
+
+  let select: (keyof T)[] = query.fields ? query.fields
+    .split(',')
+    .filter((field: keyof T): boolean => !split.test(<string>field)) : [];
+
+  select = select.length === 0 ? null : select;
+
+  const relations: string[] = query.fields ? query.fields
+    .split(',')
+    .filter((field: keyof T): boolean => split.test(<string>field))
+    .map((field: keyof T): string => <string>field) : [];
 
   return {
+    relations,
     select
   };
 }

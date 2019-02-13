@@ -1,13 +1,13 @@
 [
   {
     "entities": [
-      "src/**/*.entity.ts"
+      "node_modules/@breezejs/**/lib/**/*.entity.js"
     ],
     "database": "predictor",
     "host": "localhost",
     "logging": true,
     "migrations": [
-      "migrations/**/*.ts"
+      "src/migrations/**/*.ts"
     ],
     "migrationsRun": true,
     "password": "password",
@@ -18,13 +18,13 @@
   },
   {
     "entities": [
-      "src/**/*.entity.ts"
+      "node_modules/@breezejs/**/lib/**/*.entity.js"
     ],
     "database": "predictor_testing",
     "host": "localhost",
-    "logging": true,
+    "logging": false,
     "migrations": [
-      "migrations/**/*.ts"
+      "src/migrations/**/*.ts"
     ],
     "migrationsRun": true,
     "name": "test",

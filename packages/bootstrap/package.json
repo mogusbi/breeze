@@ -1,5 +1,5 @@
 {
-  "name": "@breeze/bootstrap",
+  "name": "@breezejs/bootstrap",
   "version": "0.0.0",
   "description": "Breeze application bootstrapper",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
@@ -19,9 +19,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
+    "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
-    "test": "jest --coverage && codecov"
+    "test": "jest --coverage",
+    "posttest": "codecov"
   },
   "jest": {
     "collectCoverageFrom": [

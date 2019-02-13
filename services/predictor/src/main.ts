@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {bootstrap} from '@breeze/bootstrap';
+import {bootstrap} from '@breezejs/bootstrap';
 import {AppModule} from './app';
 
 try {

@@ -1,5 +1,5 @@
 {
-  "name": "@breeze/sql",
+  "name": "@breezejs/sql",
   "version": "0.0.0",
   "description": "Breeze SQL adaptor",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "docs": "typedoc --exclude \"**/*+(index|spec).ts\" --out ./docs --mode modules ./src",
+    "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json"
   },
   "dependencies": {
