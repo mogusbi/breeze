@@ -20,9 +20,13 @@
   "scripts": {
     "build": "tsc",
     "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
-    "lint": "tslint -c ../../tslint.json -p tsconfig.json"
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "typeorm": "^0.2.9"
-  }
+    "typeorm": "^0.2.9",
+    "snyk": "^1.134.2"
+  },
+  "snyk": true
 }
