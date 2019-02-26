@@ -24,7 +24,9 @@
     "lint": "tslint -c ../../tslint.json -p tsconfig.lint.json",
     "start": "nodemon --exec ts-node src/main.ts",
     "test": "jest --coverage",
-    "posttest": "codecov"
+    "posttest": "codecov",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@breezejs/bootstrap": "^0.0.0",
@@ -35,7 +37,8 @@
     "@breezejs/sql": "^0.0.0",
     "@breezejs/team": "^0.0.0",
     "mysql": "^2.16.0",
-    "typeorm": "^0.2.9"
+    "typeorm": "^0.2.9",
+    "snyk": "^1.134.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -70,5 +73,6 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     }
-  }
+  },
+  "snyk": true
 }
