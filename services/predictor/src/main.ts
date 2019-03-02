@@ -1,4 +1,3 @@
-// tslint:disable no-console
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
