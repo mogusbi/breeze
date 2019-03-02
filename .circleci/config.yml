@@ -32,28 +32,9 @@ jobs:
             - ./services/*/node_modules/*
           root: .
 
-  static-code-analysis:
-    docker:
-      - image: breezejs/sonar-scanner:latest
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - breeze-predictor-dependencies-{{ checksum "package.json" }}
-            - breeze-predictor-dependencies-
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          command: which node
-          name: Node location
-      - run:
-          command: sonar-scanner -Dsonar.login=$SONAR_LOGIN
-          name: Static code analysis
-
   unit-test:
     docker:
-      - image: circleci/node:8.10.0
+      - image: breezejs/sonar-scanner:latest
     working_directory: ~/repo
     steps:
       - checkout
@@ -66,6 +47,9 @@ jobs:
       - run:
           command: npm run test
           name: Unit tests
+      - run:
+          command: sonar-scanner -Dsonar.login=$SONAR_LOGIN
+          name: Static code analysis
 
   integration-test:
     docker:
@@ -126,9 +110,6 @@ workflows:
       - integration-test:
           requires:
             - build
-      - static-code-analysis:
-          requires:
-            - unit-test
       - generate-docs:
           requires:
             - unit-test
