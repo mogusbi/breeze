@@ -45,6 +45,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+          command: npm i -g typescript@3.1.6
+          name: Install TypeScript
+      - run:
           command: sonar-scanner -Dsonar.login=$SONAR_LOGIN
           name: Static code analysis
 
