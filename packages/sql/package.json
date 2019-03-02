@@ -24,6 +24,5 @@
   },
   "dependencies": {
     "typeorm": "^0.2.9"
-  },
-  "snyk": true
+  }
 }
