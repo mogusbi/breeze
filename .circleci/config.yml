@@ -45,12 +45,6 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          command: node -v
-          name: Node version
-      - run:
-          command: npm -v
-          name: NPM version
-      - run:
           command: sonar-scanner -Dsonar.login=$SONAR_LOGIN
           name: Static code analysis
 
