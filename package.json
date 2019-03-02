@@ -22,9 +22,10 @@
     "test": "lerna run test"
   },
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
+  "homepage": "https://github.com/breezejs/breezejs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mogusbi/breeze.git"
+    "url": "https://github.com/breezejs/breezejs.git"
   },
   "license": "MIT",
   "dependencies": {

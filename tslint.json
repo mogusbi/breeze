@@ -25,6 +25,10 @@
       140
     ],
     "no-backbone-get-set-outside-model": false,
+    "no-console": [
+      true,
+      "log"
+    ],
     "no-implicit-dependencies": false,
     "no-multiline-string": false,
     "no-parameter-properties": false,

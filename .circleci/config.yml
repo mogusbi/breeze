@@ -34,7 +34,7 @@ jobs:
 
   unit-test:
     docker:
-      - image: circleci/node:8.10.0
+      - image: breezejs/sonar-scanner:latest
     working_directory: ~/repo
     steps:
       - checkout
@@ -47,6 +47,9 @@ jobs:
       - run:
           command: npm run test
           name: Unit tests
+      - run:
+          command: sonar-scanner -Dsonar.login=$SONAR_LOGIN -Dsonar.branch.name=$CIRCLE_BRANCH
+          name: Static code analysis
 
   integration-test:
     docker:
