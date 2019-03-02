@@ -1,7 +1,7 @@
-[![CircleCI](https://circleci.com/gh/mogusbi/breeze.svg?style=svg)](https://circleci.com/gh/mogusbi/breeze)
-[![codecov](https://codecov.io/gh/mogusbi/breeze/branch/develop/graph/badge.svg)](https://codecov.io/gh/mogusbi/breeze)
-[![Dependencies](https://david-dm.org/mogusbi/breeze.svg)](https://david-dm.org/mogusbi/breeze)
-[![Known Vulnerabilities](https://snyk.io/test/github/mogusbi/breeze/badge.svg)](https://snyk.io/test/github/mogusbi/breeze)
+[![CircleCI](https://circleci.com/gh/breezejs/breezejs.svg?style=svg)](https://circleci.com/gh/breezejs/breezejs)
+[![codecov](https://codecov.io/gh/breezejs/breezejs/branch/develop/graph/badge.svg)](https://codecov.io/gh/breezejs/breezejs)
+[![Dependencies](https://david-dm.org/breezejs/breezejs.svg)](https://david-dm.org/breezejs/breezejs)
+[![Known Vulnerabilities](https://snyk.io/test/github/breezejs/breezejs/badge.svg)](https://snyk.io/test/breezejs/breezejs/breezejs)
 
 # Breeze
 

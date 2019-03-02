@@ -48,7 +48,7 @@ jobs:
           command: npm run test
           name: Unit tests
       - run:
-          command: sonar-scanner -Dsonar.login=$SONAR_LOGIN
+          command: sonar-scanner -Dsonar.login=$SONAR_LOGIN -Dsonar.branch.name=$CIRCLE_BRANCH
           name: Static code analysis
 
   integration-test:
