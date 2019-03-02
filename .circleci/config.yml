@@ -117,12 +117,15 @@ workflows:
   build-and-test:
     jobs:
       - build
+      - static-code-analysis:
+          requires:
+            - build
       - unit-test:
           requires:
-            - build
+            - static-code-analysis
       - integration-test:
           requires:
-            - build
+            - static-code-analysis
       - generate-docs:
           requires:
             - unit-test
