@@ -20,13 +20,20 @@
   "scripts": {
     "build": "tsc",
     "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
+    "e2e": "DYNAMO_DB_ENDPOINT=http://localhost:8000 jest --config=jest.config.js --runInBand",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "test": "jest --coverage",
     "posttest": "codecov"
   },
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
-    "aws-sdk": "^2.355.0"
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@aws/dynamodb-data-marshaller": "^0.7.3",
+    "aws-sdk": "^2.355.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^3.4.4"
   },
   "jest": {
     "collectCoverageFrom": [
