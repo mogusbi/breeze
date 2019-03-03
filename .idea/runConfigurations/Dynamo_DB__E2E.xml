@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Dynamo DB: E2E" type="JavaScriptTestRunnerJest" factoryName="Jest">
-    <config-file value="$PROJECT_DIR$/packages/dynamo-db/jest.config.js" />
+    <config-file value="$PROJECT_DIR$/packages/dynamo-db/e2e/jest.config.js" />
     <node-interpreter value="project" />
     <node-options value="" />
     <working-dir value="$PROJECT_DIR$" />
-    <jest-options value="--watch  --runInBand" />
+    <jest-options value="--watch --runInBand" />
     <envs>
       <env name="DYNAMO_DB_ENDPOINT" value="http://localhost:8000" />
     </envs>

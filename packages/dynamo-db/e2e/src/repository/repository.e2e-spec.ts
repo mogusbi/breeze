@@ -2,8 +2,8 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {attribute, table} from '@aws/dynamodb-data-mapper-annotations';
-import {Base} from '../base';
-import {Repository} from './repository';
+import {Base} from '../../../src/base';
+import {Repository} from '../../../src/repository';
 
 @table('test')
 class Test extends Base {
