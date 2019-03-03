@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service shared competitions module
- * @module breeze/predictor/competitions/shared
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './competition.dto';

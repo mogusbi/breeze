@@ -1,6 +1,5 @@
 /**
- * Breeze request filter module
- * @module breeze/request/filter
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './filter.decorator';
 export * from './filter.factory';

@@ -1,5 +1,4 @@
 /**
- * Breeze application bootstrapper
- * @module breeze/bootstrap
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './bootstrap';

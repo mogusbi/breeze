@@ -1,6 +1,5 @@
 /**
- * Breeze SQL adaptor
- * @module breeze/sql/sql
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './sql.enum';
 export * from './sql.module';

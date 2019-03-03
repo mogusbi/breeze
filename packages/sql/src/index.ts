@@ -1,6 +1,5 @@
 /**
- * Breeze SQL adaptor and base entity
- * @module breeze/sql
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './base';
 export * from './sql';
