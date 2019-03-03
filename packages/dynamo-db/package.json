@@ -20,9 +20,9 @@
   "scripts": {
     "build": "tsc",
     "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
-    "e2e": "DYNAMO_DB_ENDPOINT=http://localhost:8000 jest --config=e2e/jest.config.js --runInBand",
+    "e2e": "jest --config=e2e/jest.config.js --runInBand",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "posttest": "codecov"
   },
   "dependencies": {
