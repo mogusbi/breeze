@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service seasons module
- * @module breeze/predictor/seasons
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './seasons.module';

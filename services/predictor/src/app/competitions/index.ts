@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service competitions module
- * @module breeze/predictor/competitions
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './competitions.module';

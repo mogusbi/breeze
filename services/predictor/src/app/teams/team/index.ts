@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service team module
- * @module breeze/predictor/teams/team
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './team.controller';

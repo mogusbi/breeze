@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service shared fixtures module
- * @module breeze/predictor/fixtures/shared
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './fixture.dto';

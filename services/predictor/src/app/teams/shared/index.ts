@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service shared teams module
- * @module breeze/predictor/teams/shared
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './team.dto';

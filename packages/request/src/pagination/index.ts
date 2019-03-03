@@ -1,6 +1,5 @@
 /**
- * Breeze request pagination module
- * @module breeze/request/pagination
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './pagination.decorator';
 export * from './pagination.enum';

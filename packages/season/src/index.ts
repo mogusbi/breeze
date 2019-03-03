@@ -1,6 +1,5 @@
 /**
- * Breeze season
- * @module breeze/season
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './season.entity';
 export * from './season.enum';

@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service shared seasons module
- * @module breeze/predictor/seasons/shared
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './season.dto';

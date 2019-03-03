@@ -1,5 +1,4 @@
 /**
- * Breeze predictor service fixture module
- * @module breeze/predictor/fixtures/fixture
+ * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 export * from './fixture.controller';
