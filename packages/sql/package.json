@@ -23,6 +23,6 @@
     "lint": "tslint -c ../../tslint.json -p tsconfig.json"
   },
   "dependencies": {
-    "typeorm": "^0.2.9"
+    "typeorm": "^0.2.14"
   }
 }
