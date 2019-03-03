@@ -60,7 +60,8 @@ jobs:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_USER: breeze
           MYSQL_PASSWORD: password
-          DYNAMO_DB_ENDPOINT: http://localhost:8000
+      environment:
+        DYNAMO_DB_ENDPOINT: http://localhost:8000
     working_directory: ~/repo
     steps:
       - checkout
