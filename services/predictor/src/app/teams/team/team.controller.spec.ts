@@ -46,9 +46,11 @@ describe('TeamController', (): void => {
 
   describe('getTeam', (): void => {
     it('should call teamService.findOne with the correct params', async (): Promise<void> => {
-      teamService.findOne.mockResolvedValueOnce({
-        id: 'team-id'
-      });
+      const mock: Team = new Team();
+
+      mock.id = 'team-id';
+
+      teamService.findOne.mockResolvedValueOnce(mock);
 
       await teamController.getTeam('team-id', {
         select: [

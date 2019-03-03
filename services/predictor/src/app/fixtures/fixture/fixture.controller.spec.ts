@@ -58,9 +58,11 @@ describe('FixtureController', (): void => {
 
   describe('getFixture', (): void => {
     it('should call fixtureService.findOne with the correct params', async (): Promise<void> => {
-      fixtureService.findOne.mockResolvedValueOnce({
-        id: 'fixture-id'
-      });
+      const mock: Fixture = new Fixture();
+
+      mock.id = 'fixture-id';
+
+      fixtureService.findOne.mockResolvedValueOnce(mock);
 
       await fixtureController.getFixture('fixture-id', {
         select: [

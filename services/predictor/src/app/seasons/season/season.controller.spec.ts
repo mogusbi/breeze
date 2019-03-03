@@ -46,9 +46,11 @@ describe('SeasonController', (): void => {
 
   describe('getSeason', (): void => {
     it('should call seasonService.findOne with the correct params', async (): Promise<void> => {
-      seasonService.findOne.mockResolvedValueOnce({
-        id: 'season-id'
-      });
+      const mock: Season = new Season();
+
+      mock.id = 'season-id';
+
+      seasonService.findOne.mockResolvedValueOnce(mock);
 
       await seasonController.getSeason('season-id', {
         select: [

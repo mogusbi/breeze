@@ -46,9 +46,11 @@ describe('CompetitionController', (): void => {
 
   describe('getCompetition', (): void => {
     it('should call competitionService.findOne with the correct params', async (): Promise<void> => {
-      competitionService.findOne.mockResolvedValueOnce({
-        id: 'competition-id'
-      });
+      const mock: Competition = new Competition();
+
+      mock.id = 'competition-id';
+
+      competitionService.findOne.mockResolvedValueOnce(mock);
 
       await competitionController.getCompetition('competition-id', {
         select: [
