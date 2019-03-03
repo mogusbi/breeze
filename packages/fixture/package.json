@@ -52,6 +52,6 @@
     "@breezejs/season": "^0.0.0",
     "@breezejs/sql": "^0.0.0",
     "@breezejs/team": "^0.0.0",
-    "typeorm": "^0.2.9"
+    "typeorm": "^0.2.14"
   }
 }
