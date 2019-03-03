@@ -2,7 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Test, TestingModule} from '@nestjs/testing';
-import {Repository} from 'typeorm';
+import {Repository, UpdateResult} from 'typeorm';
 import {Season} from './season.entity';
 import {SeasonEnum} from './season.enum';
 import {SeasonService} from './season.service';
@@ -102,11 +102,13 @@ describe('SeasonService', (): void => {
 
   describe('update', (): void => {
     it('should call update with the correct params', async (): Promise<void> => {
-      season.update.mockResolvedValueOnce({
-        raw: {
-          affectedRows: 1
-        }
-      });
+      const updateResult: UpdateResult = new UpdateResult();
+
+      updateResult.raw = {
+        affectedRows: '1'
+      };
+
+      season.update.mockResolvedValueOnce(updateResult);
 
       const entity: Season = new Season();
 

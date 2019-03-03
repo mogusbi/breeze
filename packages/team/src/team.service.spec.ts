@@ -2,7 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Test, TestingModule} from '@nestjs/testing';
-import {Repository} from 'typeorm';
+import {Repository, UpdateResult} from 'typeorm';
 import {Team} from './team.entity';
 import {TeamEnum} from './team.enum';
 import {TeamService} from './team.service';
@@ -102,11 +102,13 @@ describe('TeamService', (): void => {
 
   describe('update', (): void => {
     it('should call update with the correct params', async (): Promise<void> => {
-      team.update.mockResolvedValueOnce({
-        raw: {
-          affectedRows: 1
-        }
-      });
+      const updateResult: UpdateResult = new UpdateResult();
+
+      updateResult.raw = {
+        affectedRows: '1'
+      };
+
+      team.update.mockResolvedValueOnce(updateResult);
 
       const entity: Team = new Team();
 

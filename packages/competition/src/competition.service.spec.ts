@@ -2,7 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Test, TestingModule} from '@nestjs/testing';
-import {Repository} from 'typeorm';
+import {Repository, UpdateResult} from 'typeorm';
 import {Competition} from './competition.entity';
 import {CompetitionEnum} from './competition.enum';
 import {CompetitionService} from './competition.service';
@@ -102,11 +102,13 @@ describe('CompetitionService', (): void => {
 
   describe('update', (): void => {
     it('should call update with the correct params', async (): Promise<void> => {
-      competition.update.mockResolvedValueOnce({
-        raw: {
-          affectedRows: 1
-        }
-      });
+      const updateResult: UpdateResult = new UpdateResult();
+
+      updateResult.raw = {
+        affectedRows: '1'
+      };
+
+      competition.update.mockResolvedValueOnce(updateResult);
 
       const entity: Competition = new Competition();
 

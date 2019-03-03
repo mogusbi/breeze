@@ -44,6 +44,9 @@
       "js",
       "json",
       "node"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/.*/__mocks__"
     ]
   },
   "dependencies": {

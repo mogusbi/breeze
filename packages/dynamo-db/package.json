@@ -55,6 +55,9 @@
       "js",
       "json",
       "node"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/.*/__mocks__"
     ]
   }
 }

@@ -5,7 +5,7 @@ import {Competition} from '@breezejs/competition';
 import {Season} from '@breezejs/season';
 import {Team} from '@breezejs/team';
 import {Test, TestingModule} from '@nestjs/testing';
-import {Repository} from 'typeorm';
+import {Repository, UpdateResult} from 'typeorm';
 import {Fixture} from './fixture.entity';
 import {FixtureEnum} from './fixture.enum';
 import {FixtureService} from './fixture.service';
@@ -133,11 +133,13 @@ describe('FixtureService', (): void => {
 
   describe('update', (): void => {
     it('should call update with the correct params', async (): Promise<void> => {
-      fixture.update.mockResolvedValueOnce({
-        raw: {
-          affectedRows: 1
-        }
-      });
+      const updateResult: UpdateResult = new UpdateResult();
+
+      updateResult.raw = {
+        affectedRows: '1'
+      };
+
+      fixture.update.mockResolvedValueOnce(updateResult);
 
       const entity: Fixture = new Fixture();
 
