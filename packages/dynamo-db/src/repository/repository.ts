@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {CreateTableOptions, DataMapper} from '@aws/dynamodb-data-mapper';
+import {CreateTableOptions, DataMapper, ScanIterator, ScanPaginator} from '@aws/dynamodb-data-mapper';
 import {ZeroArgumentsConstructor} from '@aws/dynamodb-data-marshaller';
 import {DynamoDB} from 'aws-sdk';
 import {ClientConfiguration} from 'aws-sdk/clients/dynamodb';
@@ -58,6 +58,28 @@ export class Repository<Entity extends Base> {
    */
   public async deleteTable<T> (entity: ZeroArgumentsConstructor<T>): Promise<void> {
     await this.dataMapper.ensureTableNotExists(entity);
+  }
+
+  public async findAndCount<T> (entity: ZeroArgumentsConstructor<T>): Promise<[T[], number]> {
+    const all: ScanIterator<T> = this.dataMapper.scan<T>(entity);
+    const {lastEvaluatedKey}: ScanPaginator<T> = this.dataMapper.scan<T>(entity).pages();
+    const iterator: ScanIterator<T> = this.dataMapper.scan<T>(entity, {
+      startKey: lastEvaluatedKey
+    });
+
+    let total: number;
+
+    for await (const _ of all) {
+      total = all.count;
+    }
+
+    const output: T[] = [];
+
+    for await (const item of iterator) {
+      output.push(item);
+    }
+
+    return [output, total];
   }
 
   /**

@@ -13,7 +13,8 @@ class Test extends Base {
 
 describe('Repository', (): void => {
   let repository: Repository<Test>;
-  let item: Test;
+  let item1: Test;
+  let item2: Test;
 
   beforeAll(async (): Promise<void> => {
     repository = new Repository();
@@ -34,9 +35,9 @@ describe('Repository', (): void => {
 
       entity.name = 'New row 1';
 
-      item = await repository.create(entity);
+      item1 = await repository.create(entity);
 
-      expect(item).toEqual({
+      expect(item1).toEqual({
         createdAt: expect.any(String),
         id: expect.any(String),
         name: 'New row 1',
@@ -49,7 +50,9 @@ describe('Repository', (): void => {
 
       entity.name = 'New row 2';
 
-      await expect(repository.create(entity)).resolves.toEqual({
+      item2 = await repository.create(entity);
+
+      expect(item2).toEqual({
         createdAt: expect.any(String),
         id: expect.any(String),
         name: 'New row 2',
@@ -58,9 +61,26 @@ describe('Repository', (): void => {
     });
   });
 
+  describe('findAndCount', (): void => {
+    it('should return all items in the table', async (): Promise<void> => {
+      const result: Test[] = [
+        item2,
+        item1
+      ];
+
+      await expect(repository.findAndCount(Test)).resolves.toEqual([result, 2]);
+    });
+
+    it.todo('should return page 1 of a paginated query');
+
+    it.todo('should return page 2 of a paginated query');
+
+    it.todo('should return a filtered list');
+  });
+
   describe('findOne', (): void => {
     it('should find item by ID', async (): Promise<void> => {
-      await expect(repository.findOne(item.id, item)).resolves.toEqual(item);
+      await expect(repository.findOne(item1.id, item1)).resolves.toEqual(item1);
     });
 
     it('should throw an error if item cannot be found', async (): Promise<void> => {
@@ -70,29 +90,21 @@ describe('Repository', (): void => {
 
       await expect(repository.findOne(dummy.id, dummy)).rejects.toThrowError();
     });
+
+    it.todo('should return a filtered item');
   });
 
   describe('update', (): void => {
     it('should update an item', async (): Promise<void> => {
-      item.name = 'Updated row 1';
+      item1.name = 'Updated row 1';
 
-      await expect(repository.update(item.id, item)).resolves.toEqual({
-        createdAt: item.createdAt,
-        id: item.id,
-        name: 'Updated row 1',
-        updatedAt: expect.any(String)
-      });
+      await expect(repository.update(item1.id, item1)).resolves.toEqual(item1);
     });
   });
 
   describe('remove', (): void => {
     it('should remove an item', async (): Promise<void> => {
-      await expect(repository.update(item.id, item)).resolves.toEqual({
-        createdAt: item.createdAt,
-        id: item.id,
-        name: 'Updated row 1',
-        updatedAt: expect.any(String)
-      });
+      await expect(repository.update(item1.id, item1)).resolves.toEqual(item1);
     });
   });
 });

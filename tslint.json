@@ -1,6 +1,7 @@
 {
   "extends": "tslint-microsoft-contrib",
   "rules": {
+    "await-promise": false,
     "completed-docs": false,
     "export-name": false,
     "function-name": [
@@ -30,6 +31,12 @@
       "log"
     ],
     "no-implicit-dependencies": false,
+    "mocha-no-side-effect-code": [
+      true,
+      {
+        "ignore": "it.todo.*"
+      }
+    ],
     "no-multiline-string": false,
     "no-parameter-properties": false,
     "no-relative-imports": false,
