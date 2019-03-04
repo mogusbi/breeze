@@ -58,10 +58,35 @@ describe('Repository', (): void => {
     });
   });
 
+  describe('findOne', (): void => {
+    it('should find item by ID', async (): Promise<void> => {
+      await expect(repository.findOne(item.id, item)).resolves.toEqual(item);
+    });
+
+    it('should throw an error if item cannot be found', async (): Promise<void> => {
+      const dummy: Test = new Test();
+
+      dummy.id = 'fake-id';
+
+      await expect(repository.findOne(dummy.id, dummy)).rejects.toThrowError();
+    });
+  });
+
   describe('update', (): void => {
     it('should update an item', async (): Promise<void> => {
       item.name = 'Updated row 1';
 
+      await expect(repository.update(item.id, item)).resolves.toEqual({
+        createdAt: item.createdAt,
+        id: item.id,
+        name: 'Updated row 1',
+        updatedAt: expect.any(String)
+      });
+    });
+  });
+
+  describe('remove', (): void => {
+    it('should remove an item', async (): Promise<void> => {
       await expect(repository.update(item.id, item)).resolves.toEqual({
         createdAt: item.createdAt,
         id: item.id,

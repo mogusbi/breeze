@@ -57,7 +57,35 @@ export class Repository<Entity extends Base> {
    * @param entity - The constructor used for values in the table
    */
   public async deleteTable<T> (entity: ZeroArgumentsConstructor<T>): Promise<void> {
-    await this.dataMapper.deleteTable(entity);
+    await this.dataMapper.ensureTableNotExists(entity);
+  }
+
+  /**
+   * Finds an item by ID
+   *
+   * @param id - The ID of the item to find
+   * @param entity - Entity
+   *
+   * @returns Retrieved item
+   */
+  public async findOne (id: string, entity: Entity): Promise<Entity> {
+    entity.id = id;
+
+    return this.dataMapper.get<Entity>(entity);
+  }
+
+  /**
+   * Deletes an item
+   *
+   * @param id - The ID of the item to delete
+   * @param entity - Entity
+   *
+   * @returns Deleted item
+   */
+  public async remove (id: string, entity: Entity): Promise<Entity> {
+    entity.id = id;
+
+    return this.dataMapper.delete<Entity>(entity);
   }
 
   /**
