@@ -90,7 +90,7 @@ jobs:
           name: Install MySQL client
       - run:
           command: |
-            mysql -h 127.0.0.1 -u root -ppassword < environments/mysql/predictor-testing.sql
+            cat environments/mysql/*-testing.sql | mysql -h 127.0.0.1 -u root -ppassword
           name: Set up database
       - run:
           command: npm run e2e
