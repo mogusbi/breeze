@@ -6,13 +6,13 @@ attach_workspace: &attach_workspace
 
 generate_cache_key: &generate_cache_key
   run:
-    command: ./scripts/checksum.sh /tmp/cache.txt
+    command: ./scripts/checksum.sh /tmp/checksum.txt
     name: Generate cache key
 
 restore_cache: &restore_cache
   restore_cache:
     keys:
-      - breeze-dependencies-{{ checksum "/tmp/cache.txt" }}
+      - breeze-dependencies-v1-{{ checksum "/tmp/checksum.txt" }}
       - breeze-dependencies-
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
           command: npm run build
           name: Build packages
       - save_cache:
-          key: breeze-dependencies-{{ checksum "/tmp/cache.txt" }}
+          key: breeze-dependencies-v1-{{ checksum "/tmp/checksum.txt" }}
           paths:
             - node_modules
             - packages/article/node_modules
