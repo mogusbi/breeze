@@ -39,16 +39,16 @@ describe('Articles', (): void => {
 
       expect(status).toEqual(200);
       expect(body).toEqual({
-        "alternativeTitle": null,
-        "authorId": "689f9220-9580-4dd8-bbed-fd0c94ffa537",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla venenatis urna ut fringilla.",
-        "createdAt": "2019-02-08T00:00:00.000Z",
-        "id": "38015b30-9194-4957-a3eb-00829c4d52c7",
-        "publishDate": "2019-02-08T00:00:00.000Z",
-        "slug": "2019/2/8/second-article-that-has-been-created",
-        "teaser": null,
-        "title": "Second article that has been created",
-        "updatedAt": "2019-02-08T00:00:00.000Z"
+        alternativeTitle: null,
+        authorId: '689f9220-9580-4dd8-bbed-fd0c94ffa537',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla venenatis urna ut fringilla.',
+        createdAt: '2019-02-08T00:00:00.000Z',
+        id: '38015b30-9194-4957-a3eb-00829c4d52c7',
+        publishDate: '2019-02-08T00:00:00.000Z',
+        slug: '2019/2/8/second-article-that-has-been-created',
+        teaser: null,
+        title: 'Second article that has been created',
+        updatedAt: '2019-02-08T00:00:00.000Z'
       });
     });
 
@@ -59,8 +59,8 @@ describe('Articles', (): void => {
 
       expect(status).toEqual(200);
       expect(body).toEqual({
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla venenatis urna ut fringilla.",
-        "title": "Second article that has been created"
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla venenatis urna ut fringilla.',
+        title: 'Second article that has been created'
       });
     });
 
