@@ -7,17 +7,22 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - run:
+          command: ./scripts/checksum.sh /tmp/checksum.txt
+          name: Generate cache key
       - restore_cache:
           keys:
-            - breeze-dependencies-{{ checksum "package.json" }}
+            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
             - breeze-dependencies-
       - run:
           command: npm i
           name: Install dependencies
       - save_cache:
-          key: breeze-dependencies-{{ checksum "package.json" }}
+          key: breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
           paths:
             - node_modules
+            - ./packages/*/node_modules/*
+            - ./services/*/node_modules/*
       - run:
           command: npm run lint
           name: Lint code
@@ -27,9 +32,7 @@ jobs:
       - persist_to_workspace:
           paths:
             - ./packages/*/lib/*
-            - ./packages/*/node_modules/*
             - ./services/*/lib/*
-            - ./services/*/node_modules/*
           root: .
 
   unit-test:
@@ -40,7 +43,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - breeze-dependencies-{{ checksum "package.json" }}
+            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
             - breeze-dependencies-
       - attach_workspace:
           at: ~/repo
@@ -64,7 +67,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - breeze-dependencies-{{ checksum "package.json" }}
+            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
             - breeze-dependencies-
       - attach_workspace:
           at: ~/repo
@@ -89,7 +92,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - breeze-dependencies-{{ checksum "package.json" }}
+            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
             - breeze-dependencies-
       - attach_workspace:
           at: ~/repo
