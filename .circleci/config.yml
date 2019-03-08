@@ -13,7 +13,7 @@ restore_cache: &restore_cache
   restore_cache:
     keys:
       - breeze-dependencies-v1-{{ checksum "/tmp/checksum.txt" }}
-      - breeze-dependencies-
+      - breeze-dependencies-v1-
 
 jobs:
   build:
