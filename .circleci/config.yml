@@ -1,5 +1,18 @@
 version: 2
 
+attach_workspace: &attach_workspace
+  at: ~/repo
+
+generate_cache_key: &generate_cache_key
+  run:
+    command: ./scripts/checksum.sh /tmp/checksum.txt
+    name: Generate cache key
+
+restore_cache: &restore_cache
+  keys:
+    - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
+    - breeze-dependencies-
+
 jobs:
   build:
     docker:
@@ -7,13 +20,8 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          command: ./scripts/checksum.sh /tmp/checksum.txt
-          name: Generate cache key
-      - restore_cache:
-          keys:
-            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
-            - breeze-dependencies-
+      - <<: *generate-cache-key
+      - <<: *restore_cache
       - run:
           command: npm i
           name: Install dependencies
@@ -41,12 +49,9 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
-            - breeze-dependencies-
-      - attach_workspace:
-          at: ~/repo
+      - <<: *generate-cache-key
+      - <<: *restore_cache
+      - <<: *attach_workspace
       - run:
           command: npm run test
           name: Unit tests
@@ -65,12 +70,9 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
-            - breeze-dependencies-
-      - attach_workspace:
-          at: ~/repo
+      - <<: *generate-cache-key
+      - <<: *restore_cache
+      - <<: *attach_workspace
       - run:
           command: |
             sudo apt-get update
@@ -90,12 +92,9 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
-            - breeze-dependencies-
-      - attach_workspace:
-          at: ~/repo
+      - <<: *generate-cache-key
+      - <<: *restore_cache
+      - <<: *attach_workspace
       - run:
           command: npm run docs
           name: Generate docs
