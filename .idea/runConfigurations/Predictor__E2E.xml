@@ -4,7 +4,7 @@
     <node-interpreter value="project" />
     <node-options value="" />
     <working-dir value="$PROJECT_DIR$/services/predictor" />
-    <jest-options value="--watch" />
+    <jest-options value="--watch --runInBand" />
     <envs />
     <scope-kind value="ALL" />
     <method />

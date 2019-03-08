@@ -12,8 +12,8 @@ generate_cache_key: &generate_cache_key
 restore_cache: &restore_cache
   restore_cache:
     keys:
-      - breeze-dependencies-v1-{{ checksum "/tmp/checksum.txt" }}
-      - breeze-dependencies-v1-
+      - breeze-dependencies-v2-{{ checksum "/tmp/checksum.txt" }}
+      - breeze-dependencies-v2-
 
 jobs:
   build:
@@ -34,7 +34,7 @@ jobs:
           command: npm run build
           name: Build packages
       - save_cache:
-          key: breeze-dependencies-v1-{{ checksum "/tmp/checksum.txt" }}
+          key: breeze-dependencies-v2-{{ checksum "/tmp/checksum.txt" }}
           paths:
             - node_modules
             - packages/article/node_modules
@@ -45,6 +45,7 @@ jobs:
             - packages/season/node_modules
             - packages/sql/node_modules
             - packages/team/node_modules
+            - services/articles/node_modules
             - services/predictor/node_modules
       - persist_to_workspace:
           paths:

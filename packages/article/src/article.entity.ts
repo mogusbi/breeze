@@ -3,14 +3,16 @@
  */
 import {Base} from '@breezejs/sql';
 import slugify from '@sindresorhus/slugify';
-import {Column, Entity} from 'typeorm';
+import {BeforeInsert, Column, Entity} from 'typeorm';
 
 /**
  * Article entity
  */
 @Entity()
 export class Article extends Base {
-  @Column()
+  @Column({
+    nullable: true
+  })
   public alternativeTitle: string;
 
   @Column({
@@ -32,6 +34,13 @@ export class Article extends Base {
   public publishDate: string;
 
   @Column({
+    nullable: false,
+    unique: true
+  })
+  public slug: string;
+
+  @Column({
+    nullable: true,
     type: 'text'
   })
   public teaser: string;
@@ -41,39 +50,17 @@ export class Article extends Base {
   })
   public title: string;
 
-  private _slug: string;
-
-  @Column({
-    nullable: false,
-    unique: true
-  })
-  public get slug (): string {
-    return this._slug;
-  }
-
-  /**
-   * Set the article slug
-   *
-   * @param slug - Article slug
-   */
-  public set slug (slug: string) {
-    if (Boolean(slug)) {
-      this._slug = slug;
-    } else {
-      this._slug = this.createSlug();
-    }
-  }
-
   /**
    * Auto-generates a slug URL
-   *
-   * @returns slug
    */
-  private createSlug (): string {
-    const publishDate: Date = new Date(this.publishDate);
-    const date: string = `${publishDate.getUTCFullYear()}/${publishDate.getUTCMonth() + 1}/${publishDate.getUTCDate()}`;
-    const slug: string = slugify(this.title);
+  @BeforeInsert()
+  public createSlug (): void {
+    if (!Boolean(this.slug)) {
+      const publishDate: Date = new Date(this.publishDate);
+      const date: string = `${publishDate.getUTCFullYear()}/${publishDate.getUTCMonth() + 1}/${publishDate.getUTCDate()}`;
+      const slug: string = slugify(this.title);
 
-    return `${date}/${slug}`;
+      this.slug = `${date}/${slug}`;
+    }
   }
 }
