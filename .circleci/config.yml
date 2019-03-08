@@ -1,7 +1,8 @@
 version: 2
 
 attach_workspace: &attach_workspace
-  at: ~/repo
+  attach_workspace:
+    at: ~/repo
 
 generate_cache_key: &generate_cache_key
   run:
@@ -9,9 +10,10 @@ generate_cache_key: &generate_cache_key
     name: Generate cache key
 
 restore_cache: &restore_cache
-  keys:
-    - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
-    - breeze-dependencies-
+  restore_cache:
+    keys:
+      - breeze-dependencies-{{ checksum "/tmp/checksum.txt" }}
+      - breeze-dependencies-
 
 jobs:
   build:
