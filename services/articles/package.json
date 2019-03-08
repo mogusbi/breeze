@@ -1,0 +1,67 @@
+{
+  "name": "@breezejs/articles",
+  "version": "0.0.0",
+  "description": "Breeze articles API",
+  "author": "Mo Gusbi <me@mogusbi.co.uk>",
+  "homepage": "https://github.com/breezejs/breezejs",
+  "license": "MIT",
+  "main": "lib/main.js",
+  "typings": "lib/main.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/breezejs/breezejs.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "docs": "typedoc --options ../../typedoc.js --out ./docs ./src",
+    "e2e": "jest --config=e2e/jest.config.js --runInBand --forceExit",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.lint.json",
+    "start": "nodemon --exec ts-node src/main.ts",
+    "test": "jest --coverage",
+    "posttest": "codecov"
+  },
+  "dependencies": {
+    "@breezejs/article": "^0.0.0",
+    "@breezejs/bootstrap": "^0.0.0",
+    "@breezejs/request": "^0.0.0",
+    "mysql": "^2.16.0",
+    "typeorm": "^0.2.14"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**/*.ts",
+      "!**/e2e/**/*.ts",
+      "!**/src/**/*.dto.ts",
+      "!**/src/**/*.entity.ts",
+      "!**/src/**/*.model.ts",
+      "!**/src/**/*.module.ts",
+      "!**/src/**/*.providers.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "index.ts",
+      "main.ts",
+      "/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "@breezejs/article": "<rootDir>/node_modules/@breezejs/article/lib/__mocks__"
+    },
+    "testMatch": [
+      "**/+(*.)+(spec|test).+(ts|js)?(x)"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  }
+}

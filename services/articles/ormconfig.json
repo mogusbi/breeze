@@ -1,0 +1,37 @@
+[
+  {
+    "entities": [
+      "node_modules/@breezejs/**/lib/**/*.entity.js"
+    ],
+    "database": "article",
+    "host": "localhost",
+    "logging": true,
+    "migrations": [
+      "src/migrations/**/*.ts"
+    ],
+    "migrationsRun": true,
+    "password": "password",
+    "port": 3306,
+    "synchronize": true,
+    "type": "mysql",
+    "username": "breeze"
+  },
+  {
+    "entities": [
+      "node_modules/@breezejs/**/lib/**/*.entity.js"
+    ],
+    "database": "article_testing",
+    "host": "localhost",
+    "logging": false,
+    "migrations": [
+      "src/migrations/**/*.ts"
+    ],
+    "migrationsRun": true,
+    "name": "test",
+    "password": "password",
+    "port": 3306,
+    "synchronize": true,
+    "type": "mysql",
+    "username": "breeze"
+  }
+]
