@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Media: Test" type="JavaScriptTestRunnerJest" factoryName="Jest">
-    <config-file value="$PROJECT_DIR$/packages/media/package.json" />
+    <config-file value="$PROJECT_DIR$/services/media/package.json" />
     <node-interpreter value="project" />
     <node-options value="" />
     <working-dir value="$PROJECT_DIR$" />

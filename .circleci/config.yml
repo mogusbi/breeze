@@ -46,6 +46,7 @@ jobs:
             - packages/sql/node_modules
             - packages/team/node_modules
             - services/articles/node_modules
+            - services/media/node_modules
             - services/predictor/node_modules
       - persist_to_workspace:
           paths:
