@@ -3,6 +3,7 @@
  */
 import {SqlModule} from '@breezejs/sql';
 import {Module} from '@nestjs/common';
+import {MediaController} from './media.controller';
 import {MediaProviders} from './media.providers';
 import {MediaService} from './media.service';
 
@@ -10,8 +11,8 @@ import {MediaService} from './media.service';
  * Media module
  */
 @Module({
-  exports: [
-    MediaService
+  controllers: [
+    MediaController
   ],
   imports: [
     SqlModule

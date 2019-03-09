@@ -26,6 +26,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/team/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/user/lib" />
       <excludeFolder url="file://$MODULE_DIR$/services/articles/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/services/media/lib" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/docs" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/lib" />

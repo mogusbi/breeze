@@ -1,7 +1,7 @@
 [
   {
     "entities": [
-      "node_modules/@breezejs/**/lib/**/*.entity.js"
+      "src/**/*.entity.ts"
     ],
     "database": "article",
     "host": "localhost",
@@ -18,7 +18,7 @@
   },
   {
     "entities": [
-      "node_modules/@breezejs/**/lib/**/*.entity.js"
+      "src/**/*.entity.ts"
     ],
     "database": "article_testing",
     "host": "localhost",
