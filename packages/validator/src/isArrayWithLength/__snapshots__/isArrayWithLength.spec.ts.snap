@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IsArrayWithLength should fail if min length constraint is not met 1`] = `
+Array [
+  ValidationError {
+    "children": Array [],
+    "constraints": Object {
+      "IsArrayWithLength": "",
+    },
+    "property": "defaultArray",
+    "target": TestDto {
+      "customArray": Array [
+        "test-1",
+        "test-2",
+      ],
+      "defaultArray": Array [],
+    },
+    "value": Array [],
+  },
+  ValidationError {
+    "children": Array [],
+    "constraints": Object {
+      "IsArrayWithLength": "",
+    },
+    "property": "customArray",
+    "target": TestDto {
+      "customArray": Array [
+        "test-1",
+        "test-2",
+      ],
+      "defaultArray": Array [],
+    },
+    "value": Array [
+      "test-1",
+      "test-2",
+    ],
+  },
+]
+`;
+
+exports[`IsArrayWithLength should fail if value is not an array 1`] = `
+Array [
+  ValidationError {
+    "children": Array [],
+    "constraints": Object {
+      "IsArrayWithLength": "",
+    },
+    "property": "customArray",
+    "target": TestDto {
+      "customArray": "test-1",
+      "defaultArray": Array [
+        "test-1",
+      ],
+    },
+    "value": "test-1",
+  },
+]
+`;
+
+exports[`IsArrayWithLength should pass if min length constraint is met 1`] = `Array []`;
