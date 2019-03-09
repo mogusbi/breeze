@@ -22,7 +22,7 @@ export class Media extends Base {
     ({parent}: MediaSource): Media => parent,
     {
       cascade: true,
-      onDelete: 'CASCADE'
+      eager: true
     }
   )
   public source: MediaSource[];

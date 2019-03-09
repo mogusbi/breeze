@@ -1,12 +1,14 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Base} from '@breezejs/sql';
-import {Column, Entity, ManyToOne} from 'typeorm';
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {Media} from '../media.entity';
 
 @Entity()
-export class MediaSource extends Base {
+export class MediaSource {
+  @PrimaryGeneratedColumn('uuid')
+  public id: string;
+
   @Column({
     nullable: false
   })
@@ -16,13 +18,15 @@ export class MediaSource extends Base {
     (): typeof Media => Media,
     ({source}: Media): MediaSource[] => source,
     {
-      eager: true
+      nullable: false,
+      onDelete: 'CASCADE'
     }
   )
   public parent: Media;
 
   @Column({
-    nullable: false
+    nullable: false,
+    unique: true
   })
   public path: string;
 }
