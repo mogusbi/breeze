@@ -1,0 +1,549 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teams [DELETE] /teams/:id should delete a team 1`] = `Object {}`;
+
+exports[`Teams [DELETE] /teams/:id should return not found if team does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Teams [GET] /teams with filtering should list first page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "id": "f3ec4e4b-02bc-4c28-b9ca-ccc6b9f3553d",
+      "name": "AFC Wimbledon",
+    },
+    Object {
+      "id": "07c3eac0-909d-4a1c-9fb5-6a6202c65e34",
+      "name": "Arsenal",
+    },
+    Object {
+      "id": "ebdcacdb-cdd8-4817-b87b-412c3e83ecc0",
+      "name": "Bournemouth",
+    },
+    Object {
+      "id": "47362a27-5245-4492-ab5b-8a2df31eec93",
+      "name": "Chelsea",
+    },
+    Object {
+      "id": "5ff6312e-59d5-462f-bf5e-094834b55e96",
+      "name": "Everton",
+    },
+    Object {
+      "id": "bab0f5a9-d202-49f0-ad49-eb49c0d9b701",
+      "name": "FC Barcelona",
+    },
+    Object {
+      "id": "6d07e93c-2c15-4de8-85b0-a3a2be741897",
+      "name": "Liverpool",
+    },
+    Object {
+      "id": "19d7f679-43d4-4060-b19d-03b30127cf23",
+      "name": "Manchester City",
+    },
+    Object {
+      "id": "97243d37-3330-46d3-96df-9513e35a8cc9",
+      "name": "Manchester United",
+    },
+    Object {
+      "id": "1412d281-06e0-488d-8795-b46ee26daa4e",
+      "name": "Newcastle United",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with filtering should list second page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "id": "cefc7f1b-65ae-44d1-b0a8-79c20b551f41",
+      "name": "Tottenham Hotspur",
+    },
+    Object {
+      "id": "e5f9f49c-bf0e-4505-8b3a-030ae3e5d968",
+      "name": "Watford",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with filtering should return a bad request if filtered field does not exist 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "club column was not found in the Team entity.",
+  "statusCode": 400,
+}
+`;
+
+exports[`Teams [GET] /teams with filtering should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Teams [GET] /teams with limiting should list first page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "07c3eac0-909d-4a1c-9fb5-6a6202c65e34",
+      "name": "Arsenal",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "1412d281-06e0-488d-8795-b46ee26daa4e",
+      "name": "Newcastle United",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "19d7f679-43d4-4060-b19d-03b30127cf23",
+      "name": "Manchester City",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "47362a27-5245-4492-ab5b-8a2df31eec93",
+      "name": "Chelsea",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "5ff6312e-59d5-462f-bf5e-094834b55e96",
+      "name": "Everton",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+  ],
+  "limit": 5,
+  "page": 1,
+  "pages": 3,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with limiting should list second page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "6d07e93c-2c15-4de8-85b0-a3a2be741897",
+      "name": "Liverpool",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "97243d37-3330-46d3-96df-9513e35a8cc9",
+      "name": "Manchester United",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "bab0f5a9-d202-49f0-ad49-eb49c0d9b701",
+      "name": "FC Barcelona",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "cefc7f1b-65ae-44d1-b0a8-79c20b551f41",
+      "name": "Tottenham Hotspur",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "e5f9f49c-bf0e-4505-8b3a-030ae3e5d968",
+      "name": "Watford",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+  ],
+  "limit": 5,
+  "page": 2,
+  "pages": 3,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with limiting should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Teams [GET] /teams with no filtering or sorting should list first page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "07c3eac0-909d-4a1c-9fb5-6a6202c65e34",
+      "name": "Arsenal",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "1412d281-06e0-488d-8795-b46ee26daa4e",
+      "name": "Newcastle United",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "19d7f679-43d4-4060-b19d-03b30127cf23",
+      "name": "Manchester City",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "47362a27-5245-4492-ab5b-8a2df31eec93",
+      "name": "Chelsea",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "5ff6312e-59d5-462f-bf5e-094834b55e96",
+      "name": "Everton",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "6d07e93c-2c15-4de8-85b0-a3a2be741897",
+      "name": "Liverpool",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "97243d37-3330-46d3-96df-9513e35a8cc9",
+      "name": "Manchester United",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "bab0f5a9-d202-49f0-ad49-eb49c0d9b701",
+      "name": "FC Barcelona",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "cefc7f1b-65ae-44d1-b0a8-79c20b551f41",
+      "name": "Tottenham Hotspur",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "e5f9f49c-bf0e-4505-8b3a-030ae3e5d968",
+      "name": "Watford",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with no filtering or sorting should list second page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "ebdcacdb-cdd8-4817-b87b-412c3e83ecc0",
+      "name": "Bournemouth",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "f3ec4e4b-02bc-4c28-b9ca-ccc6b9f3553d",
+      "name": "AFC Wimbledon",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with no filtering or sorting should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Teams [GET] /teams with sorting ascending should list first page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "f3ec4e4b-02bc-4c28-b9ca-ccc6b9f3553d",
+      "name": "AFC Wimbledon",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "07c3eac0-909d-4a1c-9fb5-6a6202c65e34",
+      "name": "Arsenal",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "ebdcacdb-cdd8-4817-b87b-412c3e83ecc0",
+      "name": "Bournemouth",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "47362a27-5245-4492-ab5b-8a2df31eec93",
+      "name": "Chelsea",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "5ff6312e-59d5-462f-bf5e-094834b55e96",
+      "name": "Everton",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "bab0f5a9-d202-49f0-ad49-eb49c0d9b701",
+      "name": "FC Barcelona",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "6d07e93c-2c15-4de8-85b0-a3a2be741897",
+      "name": "Liverpool",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "19d7f679-43d4-4060-b19d-03b30127cf23",
+      "name": "Manchester City",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "97243d37-3330-46d3-96df-9513e35a8cc9",
+      "name": "Manchester United",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "1412d281-06e0-488d-8795-b46ee26daa4e",
+      "name": "Newcastle United",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with sorting ascending should list second page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "cefc7f1b-65ae-44d1-b0a8-79c20b551f41",
+      "name": "Tottenham Hotspur",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "e5f9f49c-bf0e-4505-8b3a-030ae3e5d968",
+      "name": "Watford",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with sorting ascending should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Teams [GET] /teams with sorting descending should list first page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "e5f9f49c-bf0e-4505-8b3a-030ae3e5d968",
+      "name": "Watford",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "cefc7f1b-65ae-44d1-b0a8-79c20b551f41",
+      "name": "Tottenham Hotspur",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "1412d281-06e0-488d-8795-b46ee26daa4e",
+      "name": "Newcastle United",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "97243d37-3330-46d3-96df-9513e35a8cc9",
+      "name": "Manchester United",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "19d7f679-43d4-4060-b19d-03b30127cf23",
+      "name": "Manchester City",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "6d07e93c-2c15-4de8-85b0-a3a2be741897",
+      "name": "Liverpool",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "bab0f5a9-d202-49f0-ad49-eb49c0d9b701",
+      "name": "FC Barcelona",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "5ff6312e-59d5-462f-bf5e-094834b55e96",
+      "name": "Everton",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "47362a27-5245-4492-ab5b-8a2df31eec93",
+      "name": "Chelsea",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "ebdcacdb-cdd8-4817-b87b-412c3e83ecc0",
+      "name": "Bournemouth",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with sorting descending should list second page of teams with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-11-19T00:00:00.000Z",
+      "id": "07c3eac0-909d-4a1c-9fb5-6a6202c65e34",
+      "name": "Arsenal",
+      "updatedAt": "2018-11-19T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-11-18T00:00:00.000Z",
+      "id": "f3ec4e4b-02bc-4c28-b9ca-ccc6b9f3553d",
+      "name": "AFC Wimbledon",
+      "updatedAt": "2018-11-18T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Teams [GET] /teams with sorting descending should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Teams [GET] /teams/:id should return a bad request if filtered field does not exist 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "club column was not found in the Team entity.",
+  "statusCode": 400,
+}
+`;
+
+exports[`Teams [GET] /teams/:id should return a filtered result 1`] = `
+Object {
+  "name": "AFC Wimbledon",
+}
+`;
+
+exports[`Teams [GET] /teams/:id should return a team 1`] = `
+Object {
+  "createdAt": "2018-11-18T00:00:00.000Z",
+  "id": "f3ec4e4b-02bc-4c28-b9ca-ccc6b9f3553d",
+  "name": "AFC Wimbledon",
+  "updatedAt": "2018-11-18T00:00:00.000Z",
+}
+`;
+
+exports[`Teams [GET] /teams/:id should return not found if team does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Teams [PATCH] /teams/:id should return not found if team does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Teams [PATCH] /teams/:id should throw an error if name is not a string 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "isString": "name must be a string",
+    },
+    "property": "name",
+    "target": Object {
+      "name": 99,
+    },
+    "value": 99,
+  },
+]
+`;
+
+exports[`Teams [PATCH] /teams/:id should throw an error of a team is updated with a duplicate name 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "ER_DUP_ENTRY: Duplicate entry 'AFC Wimbledon' for key 'IDX_cf461f5b40cf1a2b8876011e1e'",
+  "statusCode": 400,
+}
+`;
+
+exports[`Teams [PATCH] /teams/:id should update a team 1`] = `Object {}`;
+
+exports[`Teams [POST] /teams should throw an error if a duplicate team is created 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "ER_DUP_ENTRY: Duplicate entry 'Team' for key 'IDX_cf461f5b40cf1a2b8876011e1e'",
+  "statusCode": 400,
+}
+`;
+
+exports[`Teams [POST] /teams should throw an error if name is not a string 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "isString": "name must be a string",
+    },
+    "property": "name",
+    "target": Object {
+      "name": 99,
+    },
+    "value": 99,
+  },
+]
+`;

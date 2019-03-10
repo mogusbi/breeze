@@ -1,0 +1,549 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Competitions [DELETE] /competitions/:id should delete a competition 1`] = `Object {}`;
+
+exports[`Competitions [DELETE] /competitions/:id should return not found if competition does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Competitions [GET] /competitions with filtering should list first page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "id": "3ae6575c-5857-4f5f-a781-7a0cfba6c2a4",
+      "name": "Bundesliga",
+    },
+    Object {
+      "id": "f8a6922f-a7ce-4722-9e67-e5521c219724",
+      "name": "FA Cup",
+    },
+    Object {
+      "id": "66706c18-4daa-49eb-a857-df12b8e98a8e",
+      "name": "Football League 1",
+    },
+    Object {
+      "id": "ceedef18-0344-40ac-994d-748d963b9fc2",
+      "name": "Football League 2",
+    },
+    Object {
+      "id": "c3631875-bad7-4f96-9349-712a89c87f7b",
+      "name": "Football League Championship",
+    },
+    Object {
+      "id": "ed530b00-c9fa-49f2-be90-945fc7ca5eca",
+      "name": "Football League Cup",
+    },
+    Object {
+      "id": "f0439c4f-206a-48ac-9ff7-db8bad77b8bf",
+      "name": "La Liga",
+    },
+    Object {
+      "id": "a6543c15-966a-4d22-85df-edaa11561227",
+      "name": "Premier League",
+    },
+    Object {
+      "id": "3c15960b-c2c7-4719-b5bc-19396d33269e",
+      "name": "Serie A",
+    },
+    Object {
+      "id": "9463a53e-61cd-4521-8390-3dfd5dcd5fa4",
+      "name": "UEFA Champions League",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with filtering should list second page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "id": "5a9e34ef-eae6-417f-b577-0e359eeeeb30",
+      "name": "UEFA Europa League",
+    },
+    Object {
+      "id": "ab48a3c7-befd-4411-9ac4-0bd5116ecd99",
+      "name": "UEFA Nations League",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with filtering should return a bad request if filtered field does not exist 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "club column was not found in the Competition entity.",
+  "statusCode": 400,
+}
+`;
+
+exports[`Competitions [GET] /competitions with filtering should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Competitions [GET] /competitions with limiting should list first page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3ae6575c-5857-4f5f-a781-7a0cfba6c2a4",
+      "name": "Bundesliga",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3c15960b-c2c7-4719-b5bc-19396d33269e",
+      "name": "Serie A",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "5a9e34ef-eae6-417f-b577-0e359eeeeb30",
+      "name": "UEFA Europa League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "66706c18-4daa-49eb-a857-df12b8e98a8e",
+      "name": "Football League 1",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "9463a53e-61cd-4521-8390-3dfd5dcd5fa4",
+      "name": "UEFA Champions League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 5,
+  "page": 1,
+  "pages": 3,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with limiting should list second page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "a6543c15-966a-4d22-85df-edaa11561227",
+      "name": "Premier League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ab48a3c7-befd-4411-9ac4-0bd5116ecd99",
+      "name": "UEFA Nations League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "c3631875-bad7-4f96-9349-712a89c87f7b",
+      "name": "Football League Championship",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ceedef18-0344-40ac-994d-748d963b9fc2",
+      "name": "Football League 2",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ed530b00-c9fa-49f2-be90-945fc7ca5eca",
+      "name": "Football League Cup",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 5,
+  "page": 2,
+  "pages": 3,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with limiting should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Competitions [GET] /competitions with no filtering or sorting should list first page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3ae6575c-5857-4f5f-a781-7a0cfba6c2a4",
+      "name": "Bundesliga",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3c15960b-c2c7-4719-b5bc-19396d33269e",
+      "name": "Serie A",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "5a9e34ef-eae6-417f-b577-0e359eeeeb30",
+      "name": "UEFA Europa League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "66706c18-4daa-49eb-a857-df12b8e98a8e",
+      "name": "Football League 1",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "9463a53e-61cd-4521-8390-3dfd5dcd5fa4",
+      "name": "UEFA Champions League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "a6543c15-966a-4d22-85df-edaa11561227",
+      "name": "Premier League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ab48a3c7-befd-4411-9ac4-0bd5116ecd99",
+      "name": "UEFA Nations League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "c3631875-bad7-4f96-9349-712a89c87f7b",
+      "name": "Football League Championship",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ceedef18-0344-40ac-994d-748d963b9fc2",
+      "name": "Football League 2",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ed530b00-c9fa-49f2-be90-945fc7ca5eca",
+      "name": "Football League Cup",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with no filtering or sorting should list second page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "f0439c4f-206a-48ac-9ff7-db8bad77b8bf",
+      "name": "La Liga",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "f8a6922f-a7ce-4722-9e67-e5521c219724",
+      "name": "FA Cup",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with no filtering or sorting should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Competitions [GET] /competitions with sorting ascending should list first page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3ae6575c-5857-4f5f-a781-7a0cfba6c2a4",
+      "name": "Bundesliga",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "f8a6922f-a7ce-4722-9e67-e5521c219724",
+      "name": "FA Cup",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "66706c18-4daa-49eb-a857-df12b8e98a8e",
+      "name": "Football League 1",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ceedef18-0344-40ac-994d-748d963b9fc2",
+      "name": "Football League 2",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "c3631875-bad7-4f96-9349-712a89c87f7b",
+      "name": "Football League Championship",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ed530b00-c9fa-49f2-be90-945fc7ca5eca",
+      "name": "Football League Cup",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "f0439c4f-206a-48ac-9ff7-db8bad77b8bf",
+      "name": "La Liga",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "a6543c15-966a-4d22-85df-edaa11561227",
+      "name": "Premier League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3c15960b-c2c7-4719-b5bc-19396d33269e",
+      "name": "Serie A",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "9463a53e-61cd-4521-8390-3dfd5dcd5fa4",
+      "name": "UEFA Champions League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with sorting ascending should list second page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "5a9e34ef-eae6-417f-b577-0e359eeeeb30",
+      "name": "UEFA Europa League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ab48a3c7-befd-4411-9ac4-0bd5116ecd99",
+      "name": "UEFA Nations League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with sorting ascending should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Competitions [GET] /competitions with sorting descending should list first page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ab48a3c7-befd-4411-9ac4-0bd5116ecd99",
+      "name": "UEFA Nations League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "5a9e34ef-eae6-417f-b577-0e359eeeeb30",
+      "name": "UEFA Europa League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "9463a53e-61cd-4521-8390-3dfd5dcd5fa4",
+      "name": "UEFA Champions League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3c15960b-c2c7-4719-b5bc-19396d33269e",
+      "name": "Serie A",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "a6543c15-966a-4d22-85df-edaa11561227",
+      "name": "Premier League",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "f0439c4f-206a-48ac-9ff7-db8bad77b8bf",
+      "name": "La Liga",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ed530b00-c9fa-49f2-be90-945fc7ca5eca",
+      "name": "Football League Cup",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "c3631875-bad7-4f96-9349-712a89c87f7b",
+      "name": "Football League Championship",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "ceedef18-0344-40ac-994d-748d963b9fc2",
+      "name": "Football League 2",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "66706c18-4daa-49eb-a857-df12b8e98a8e",
+      "name": "Football League 1",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with sorting descending should list second page of competitions with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "f8a6922f-a7ce-4722-9e67-e5521c219724",
+      "name": "FA Cup",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+    Object {
+      "createdAt": "2018-12-01T00:00:00.000Z",
+      "id": "3ae6575c-5857-4f5f-a781-7a0cfba6c2a4",
+      "name": "Bundesliga",
+      "updatedAt": "2018-12-01T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Competitions [GET] /competitions with sorting descending should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Competitions [GET] /competitions/:id should return a bad request if filtered field does not exist 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "club column was not found in the Competition entity.",
+  "statusCode": 400,
+}
+`;
+
+exports[`Competitions [GET] /competitions/:id should return a competition 1`] = `
+Object {
+  "createdAt": "2018-12-01T00:00:00.000Z",
+  "id": "66706c18-4daa-49eb-a857-df12b8e98a8e",
+  "name": "Football League 1",
+  "updatedAt": "2018-12-01T00:00:00.000Z",
+}
+`;
+
+exports[`Competitions [GET] /competitions/:id should return a filtered result 1`] = `
+Object {
+  "name": "Football League 1",
+}
+`;
+
+exports[`Competitions [GET] /competitions/:id should return not found if competition does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Competitions [PATCH] /competitions/:id should return not found if competition does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Competitions [PATCH] /competitions/:id should throw an error if name is not a string 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "isString": "name must be a string",
+    },
+    "property": "name",
+    "target": Object {
+      "name": 99,
+    },
+    "value": 99,
+  },
+]
+`;
+
+exports[`Competitions [PATCH] /competitions/:id should throw an error of a competition is updated with a duplicate name 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "ER_DUP_ENTRY: Duplicate entry 'UEFA Nations League' for key 'IDX_4235f333ca8098d3693049ab82'",
+  "statusCode": 400,
+}
+`;
+
+exports[`Competitions [PATCH] /competitions/:id should update a competition 1`] = `Object {}`;
+
+exports[`Competitions [POST] /competitions should throw an error if a duplicate competition is created 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "ER_DUP_ENTRY: Duplicate entry 'FIFA World Cup' for key 'IDX_4235f333ca8098d3693049ab82'",
+  "statusCode": 400,
+}
+`;
+
+exports[`Competitions [POST] /competitions should throw an error if name is not a string 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "isString": "name must be a string",
+    },
+    "property": "name",
+    "target": Object {
+      "name": 99,
+    },
+    "value": 99,
+  },
+]
+`;

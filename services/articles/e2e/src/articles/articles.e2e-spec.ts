@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {INestApplication} from '@nestjs/common';
+import {INestApplication, ValidationPipe} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
 import * as supertest from 'supertest';
 import {ArticlesModule} from '../../../src/app/articles';
@@ -21,6 +21,8 @@ describe('Articles', (): void => {
       .compile();
 
     app = testModule.createNestApplication();
+
+    app.useGlobalPipes(new ValidationPipe());
 
     await app.init();
 
