@@ -1,7 +1,7 @@
 {
   "name": "@breezejs/predictor",
   "version": "0.0.0",
-  "description": "Breeze football predictor API",
+  "description": "Breeze football predictor microservice",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://github.com/breezejs/breezejs",
   "license": "MIT",

@@ -4,7 +4,7 @@
 import {bootstrap} from '@breezejs/bootstrap';
 import {AppModule} from './app';
 
-bootstrap(AppModule, 3000).catch(
+bootstrap(AppModule, 3030).catch(
   (err: Error): void => {
     console.error(err.message);
   }

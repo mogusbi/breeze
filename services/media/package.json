@@ -1,7 +1,7 @@
 {
   "name": "@breezejs/media",
   "version": "0.0.0",
-  "description": "Breeze media API",
+  "description": "Breeze media microservice",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://github.com/breezejs/breezejs",
   "license": "MIT",

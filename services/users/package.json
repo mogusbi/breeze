@@ -1,7 +1,7 @@
 {
-  "name": "@breezejs/articles",
+  "name": "@breezejs/user",
   "version": "0.0.0",
-  "description": "Breeze articles microservice",
+  "description": "Breeze user microservice",
   "author": "Mo Gusbi <me@mogusbi.co.uk>",
   "homepage": "https://github.com/breezejs/breezejs",
   "license": "MIT",
@@ -30,7 +30,6 @@
     "@breezejs/bootstrap": "^0.0.0",
     "@breezejs/request": "^0.0.0",
     "@breezejs/sql": "^0.0.0",
-    "@sindresorhus/slugify": "^0.9.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.14"
   },

@@ -10,6 +10,6 @@ RUN npm install --production
 
 COPY lib .
 
-EXPOSE 3020
+EXPOSE 3040
 
 CMD ["node", "main.js"]
