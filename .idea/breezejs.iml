@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/packages/api/coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/article/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/bootstrap/lib" />
@@ -25,6 +26,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/team/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/user/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/validator/lib" />
       <excludeFolder url="file://$MODULE_DIR$/services/articles/lib" />
       <excludeFolder url="file://$MODULE_DIR$/services/media/lib" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/coverage" />

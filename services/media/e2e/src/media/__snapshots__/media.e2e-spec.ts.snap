@@ -1,0 +1,1588 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media [DELETE] /media/:id should delete media 1`] = `Object {}`;
+
+exports[`Media [DELETE] /media/:id should return not found if media does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Media [GET] /media with filtering should list first page of media with selected values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "description": "Image 2",
+      "id": "0870319a-e0f1-4619-ac68-95ac08dae2ad",
+    },
+    Object {
+      "description": "Image 5",
+      "id": "19fe8f11-6c7f-482c-b8ee-cb0c1e07a9f2",
+    },
+    Object {
+      "description": "Image 3",
+      "id": "305a6d3d-3150-4a5d-84fe-08ca62567d7d",
+    },
+    Object {
+      "description": "Image 10",
+      "id": "3a8cc8b6-7080-4a6b-bb08-52822e08bf28",
+    },
+    Object {
+      "description": "Image 1",
+      "id": "6091a1e1-e25a-4362-b296-a7b5016ea2c6",
+    },
+    Object {
+      "description": "Image 12",
+      "id": "6c93a90f-1f28-4b60-81d2-041980cb38c8",
+    },
+    Object {
+      "description": "Image 7",
+      "id": "95fdc3a0-0852-4be3-838f-76e8ab0a39a4",
+    },
+    Object {
+      "description": "Image 6",
+      "id": "99391375-42e1-40fc-affa-3e62bb115043",
+    },
+    Object {
+      "description": "Image 9",
+      "id": "9981cd05-77f1-4c54-8c47-fdc74f77ba42",
+    },
+    Object {
+      "description": "Image 8",
+      "id": "bde936ee-04c6-4912-99e2-aef3135b1c71",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with filtering should list second page of media with selected values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "description": "Image 4",
+      "id": "cfd0b8e5-ddc2-4558-bac6-d316a1044601",
+    },
+    Object {
+      "description": "Image 11",
+      "id": "f5ed1aa8-313c-4afd-9978-f47d81b7d23c",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with filtering should return a bad request if filtered field does not exist 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "name column was not found in the Media entity.",
+  "statusCode": 400,
+}
+`;
+
+exports[`Media [GET] /media with filtering should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Media [GET] /media with limiting should list first page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 2",
+      "id": "0870319a-e0f1-4619-ac68-95ac08dae2ad",
+      "source": Array [
+        Object {
+          "id": "aa165b97-3e66-4ab8-8386-738b1f4507ab",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/EEE/000?text=Placeholder",
+        },
+        Object {
+          "id": "bed8685e-05e8-49d9-bf3c-5af3e988181c",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/EEE/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 5",
+      "id": "19fe8f11-6c7f-482c-b8ee-cb0c1e07a9f2",
+      "source": Array [
+        Object {
+          "id": "17a67765-1da9-41c2-8a59-7c2a6f09006d",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/BBB/000?text=Placeholder",
+        },
+        Object {
+          "id": "b1c58f88-98cd-4fd7-a1cf-705c249bcb26",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/BBB/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 3",
+      "id": "305a6d3d-3150-4a5d-84fe-08ca62567d7d",
+      "source": Array [
+        Object {
+          "id": "01196caa-4c85-4082-b234-5ddc3daac03a",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/DDD/000?text=Placeholder",
+        },
+        Object {
+          "id": "cb615573-4971-4828-ab41-517780231850",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/DDD/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 10",
+      "id": "3a8cc8b6-7080-4a6b-bb08-52822e08bf28",
+      "source": Array [
+        Object {
+          "id": "1906e932-3071-4d46-a9b8-79d229ae9bc4",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/666/000?text=Placeholder",
+        },
+        Object {
+          "id": "22ff995f-8e88-465b-8a56-872db240c365",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/666/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 1",
+      "id": "6091a1e1-e25a-4362-b296-a7b5016ea2c6",
+      "source": Array [
+        Object {
+          "id": "4cfc5255-6a9f-472c-ba2f-e89945cf8ceb",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/FFF/000?text=Placeholder",
+        },
+        Object {
+          "id": "e9b3ccc3-0734-466e-a253-7b4f38b2cfa3",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/FFF/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 5,
+  "page": 1,
+  "pages": 3,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with limiting should list second page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 12",
+      "id": "6c93a90f-1f28-4b60-81d2-041980cb38c8",
+      "source": Array [
+        Object {
+          "id": "ab006301-766e-4009-b53b-d1659613f473",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/444/FFF?text=Placeholder",
+        },
+        Object {
+          "id": "efc510f3-e6f9-4bd1-ac7d-c6287aa84353",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/444/FFF?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 7",
+      "id": "95fdc3a0-0852-4be3-838f-76e8ab0a39a4",
+      "source": Array [
+        Object {
+          "id": "93386811-ba57-43a0-8fb1-9e17c6ff5411",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/999/000?text=Placeholder",
+        },
+        Object {
+          "id": "ee1883f6-224b-4144-adeb-9d743ac446aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/999/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 6",
+      "id": "99391375-42e1-40fc-affa-3e62bb115043",
+      "source": Array [
+        Object {
+          "id": "9bd8fbb0-0ab5-4f73-99f8-9a948a4b10aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/AAA/000?text=Placeholder",
+        },
+        Object {
+          "id": "f4655ccf-9745-4179-86b2-3c59dc0a941b",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/AAA/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 9",
+      "id": "9981cd05-77f1-4c54-8c47-fdc74f77ba42",
+      "source": Array [
+        Object {
+          "id": "25265dfb-9a82-4c55-b706-9902c8d22880",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/777/000?text=Placeholder",
+        },
+        Object {
+          "id": "b313e2f2-d085-43c8-9700-98f538cd1486",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/777/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 8",
+      "id": "bde936ee-04c6-4912-99e2-aef3135b1c71",
+      "source": Array [
+        Object {
+          "id": "94daaf29-96e0-4641-b930-c500e70aa20a",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/888/000?text=Placeholder",
+        },
+        Object {
+          "id": "c373c4e5-9b53-4cc7-82e2-d0b9357b982b",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/888/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 5,
+  "page": 2,
+  "pages": 3,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with limiting should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Media [GET] /media with no filtering or sorting should list first page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 2",
+      "id": "0870319a-e0f1-4619-ac68-95ac08dae2ad",
+      "source": Array [
+        Object {
+          "id": "aa165b97-3e66-4ab8-8386-738b1f4507ab",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/EEE/000?text=Placeholder",
+        },
+        Object {
+          "id": "bed8685e-05e8-49d9-bf3c-5af3e988181c",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/EEE/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 5",
+      "id": "19fe8f11-6c7f-482c-b8ee-cb0c1e07a9f2",
+      "source": Array [
+        Object {
+          "id": "17a67765-1da9-41c2-8a59-7c2a6f09006d",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/BBB/000?text=Placeholder",
+        },
+        Object {
+          "id": "b1c58f88-98cd-4fd7-a1cf-705c249bcb26",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/BBB/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 3",
+      "id": "305a6d3d-3150-4a5d-84fe-08ca62567d7d",
+      "source": Array [
+        Object {
+          "id": "01196caa-4c85-4082-b234-5ddc3daac03a",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/DDD/000?text=Placeholder",
+        },
+        Object {
+          "id": "cb615573-4971-4828-ab41-517780231850",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/DDD/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 10",
+      "id": "3a8cc8b6-7080-4a6b-bb08-52822e08bf28",
+      "source": Array [
+        Object {
+          "id": "1906e932-3071-4d46-a9b8-79d229ae9bc4",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/666/000?text=Placeholder",
+        },
+        Object {
+          "id": "22ff995f-8e88-465b-8a56-872db240c365",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/666/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 1",
+      "id": "6091a1e1-e25a-4362-b296-a7b5016ea2c6",
+      "source": Array [
+        Object {
+          "id": "4cfc5255-6a9f-472c-ba2f-e89945cf8ceb",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/FFF/000?text=Placeholder",
+        },
+        Object {
+          "id": "e9b3ccc3-0734-466e-a253-7b4f38b2cfa3",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/FFF/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 12",
+      "id": "6c93a90f-1f28-4b60-81d2-041980cb38c8",
+      "source": Array [
+        Object {
+          "id": "ab006301-766e-4009-b53b-d1659613f473",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/444/FFF?text=Placeholder",
+        },
+        Object {
+          "id": "efc510f3-e6f9-4bd1-ac7d-c6287aa84353",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/444/FFF?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 7",
+      "id": "95fdc3a0-0852-4be3-838f-76e8ab0a39a4",
+      "source": Array [
+        Object {
+          "id": "93386811-ba57-43a0-8fb1-9e17c6ff5411",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/999/000?text=Placeholder",
+        },
+        Object {
+          "id": "ee1883f6-224b-4144-adeb-9d743ac446aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/999/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 6",
+      "id": "99391375-42e1-40fc-affa-3e62bb115043",
+      "source": Array [
+        Object {
+          "id": "9bd8fbb0-0ab5-4f73-99f8-9a948a4b10aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/AAA/000?text=Placeholder",
+        },
+        Object {
+          "id": "f4655ccf-9745-4179-86b2-3c59dc0a941b",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/AAA/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 9",
+      "id": "9981cd05-77f1-4c54-8c47-fdc74f77ba42",
+      "source": Array [
+        Object {
+          "id": "25265dfb-9a82-4c55-b706-9902c8d22880",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/777/000?text=Placeholder",
+        },
+        Object {
+          "id": "b313e2f2-d085-43c8-9700-98f538cd1486",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/777/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 8",
+      "id": "bde936ee-04c6-4912-99e2-aef3135b1c71",
+      "source": Array [
+        Object {
+          "id": "94daaf29-96e0-4641-b930-c500e70aa20a",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/888/000?text=Placeholder",
+        },
+        Object {
+          "id": "c373c4e5-9b53-4cc7-82e2-d0b9357b982b",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/888/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with no filtering or sorting should list second page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 4",
+      "id": "cfd0b8e5-ddc2-4558-bac6-d316a1044601",
+      "source": Array [
+        Object {
+          "id": "43662f90-0e0b-4ce9-ba47-27a0cfcbd3fb",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/CCC/000?text=Placeholder",
+        },
+        Object {
+          "id": "b4d4bff6-4956-4458-86a1-3c42bb4d5109",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/CCC/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 11",
+      "id": "f5ed1aa8-313c-4afd-9978-f47d81b7d23c",
+      "source": Array [
+        Object {
+          "id": "00117b67-e296-47ac-8676-27a519de373d",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/555/FFF?text=Placeholder",
+        },
+        Object {
+          "id": "dac73a4e-6fb6-4daa-8cb2-0b0b1b9ecb10",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/555/FFF?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with no filtering or sorting should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Media [GET] /media with sorting ascending should list first page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 1",
+      "id": "6091a1e1-e25a-4362-b296-a7b5016ea2c6",
+      "source": Array [
+        Object {
+          "id": "4cfc5255-6a9f-472c-ba2f-e89945cf8ceb",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/FFF/000?text=Placeholder",
+        },
+        Object {
+          "id": "e9b3ccc3-0734-466e-a253-7b4f38b2cfa3",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/FFF/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 10",
+      "id": "3a8cc8b6-7080-4a6b-bb08-52822e08bf28",
+      "source": Array [
+        Object {
+          "id": "1906e932-3071-4d46-a9b8-79d229ae9bc4",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/666/000?text=Placeholder",
+        },
+        Object {
+          "id": "22ff995f-8e88-465b-8a56-872db240c365",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/666/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 11",
+      "id": "f5ed1aa8-313c-4afd-9978-f47d81b7d23c",
+      "source": Array [
+        Object {
+          "id": "00117b67-e296-47ac-8676-27a519de373d",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/555/FFF?text=Placeholder",
+        },
+        Object {
+          "id": "dac73a4e-6fb6-4daa-8cb2-0b0b1b9ecb10",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/555/FFF?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 12",
+      "id": "6c93a90f-1f28-4b60-81d2-041980cb38c8",
+      "source": Array [
+        Object {
+          "id": "ab006301-766e-4009-b53b-d1659613f473",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/444/FFF?text=Placeholder",
+        },
+        Object {
+          "id": "efc510f3-e6f9-4bd1-ac7d-c6287aa84353",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/444/FFF?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 2",
+      "id": "0870319a-e0f1-4619-ac68-95ac08dae2ad",
+      "source": Array [
+        Object {
+          "id": "aa165b97-3e66-4ab8-8386-738b1f4507ab",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/EEE/000?text=Placeholder",
+        },
+        Object {
+          "id": "bed8685e-05e8-49d9-bf3c-5af3e988181c",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/EEE/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 3",
+      "id": "305a6d3d-3150-4a5d-84fe-08ca62567d7d",
+      "source": Array [
+        Object {
+          "id": "01196caa-4c85-4082-b234-5ddc3daac03a",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/DDD/000?text=Placeholder",
+        },
+        Object {
+          "id": "cb615573-4971-4828-ab41-517780231850",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/DDD/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 4",
+      "id": "cfd0b8e5-ddc2-4558-bac6-d316a1044601",
+      "source": Array [
+        Object {
+          "id": "43662f90-0e0b-4ce9-ba47-27a0cfcbd3fb",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/CCC/000?text=Placeholder",
+        },
+        Object {
+          "id": "b4d4bff6-4956-4458-86a1-3c42bb4d5109",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/CCC/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 5",
+      "id": "19fe8f11-6c7f-482c-b8ee-cb0c1e07a9f2",
+      "source": Array [
+        Object {
+          "id": "17a67765-1da9-41c2-8a59-7c2a6f09006d",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/BBB/000?text=Placeholder",
+        },
+        Object {
+          "id": "b1c58f88-98cd-4fd7-a1cf-705c249bcb26",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/BBB/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 6",
+      "id": "99391375-42e1-40fc-affa-3e62bb115043",
+      "source": Array [
+        Object {
+          "id": "9bd8fbb0-0ab5-4f73-99f8-9a948a4b10aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/AAA/000?text=Placeholder",
+        },
+        Object {
+          "id": "f4655ccf-9745-4179-86b2-3c59dc0a941b",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/AAA/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 7",
+      "id": "95fdc3a0-0852-4be3-838f-76e8ab0a39a4",
+      "source": Array [
+        Object {
+          "id": "93386811-ba57-43a0-8fb1-9e17c6ff5411",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/999/000?text=Placeholder",
+        },
+        Object {
+          "id": "ee1883f6-224b-4144-adeb-9d743ac446aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/999/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with sorting ascending should list second page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 8",
+      "id": "bde936ee-04c6-4912-99e2-aef3135b1c71",
+      "source": Array [
+        Object {
+          "id": "94daaf29-96e0-4641-b930-c500e70aa20a",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/888/000?text=Placeholder",
+        },
+        Object {
+          "id": "c373c4e5-9b53-4cc7-82e2-d0b9357b982b",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/888/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 9",
+      "id": "9981cd05-77f1-4c54-8c47-fdc74f77ba42",
+      "source": Array [
+        Object {
+          "id": "25265dfb-9a82-4c55-b706-9902c8d22880",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/777/000?text=Placeholder",
+        },
+        Object {
+          "id": "b313e2f2-d085-43c8-9700-98f538cd1486",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/777/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with sorting ascending should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Media [GET] /media with sorting descending should list first page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 9",
+      "id": "9981cd05-77f1-4c54-8c47-fdc74f77ba42",
+      "source": Array [
+        Object {
+          "id": "25265dfb-9a82-4c55-b706-9902c8d22880",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/777/000?text=Placeholder",
+        },
+        Object {
+          "id": "b313e2f2-d085-43c8-9700-98f538cd1486",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/777/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 8",
+      "id": "bde936ee-04c6-4912-99e2-aef3135b1c71",
+      "source": Array [
+        Object {
+          "id": "94daaf29-96e0-4641-b930-c500e70aa20a",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/888/000?text=Placeholder",
+        },
+        Object {
+          "id": "c373c4e5-9b53-4cc7-82e2-d0b9357b982b",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/888/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 7",
+      "id": "95fdc3a0-0852-4be3-838f-76e8ab0a39a4",
+      "source": Array [
+        Object {
+          "id": "93386811-ba57-43a0-8fb1-9e17c6ff5411",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/999/000?text=Placeholder",
+        },
+        Object {
+          "id": "ee1883f6-224b-4144-adeb-9d743ac446aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/999/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 6",
+      "id": "99391375-42e1-40fc-affa-3e62bb115043",
+      "source": Array [
+        Object {
+          "id": "9bd8fbb0-0ab5-4f73-99f8-9a948a4b10aa",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/AAA/000?text=Placeholder",
+        },
+        Object {
+          "id": "f4655ccf-9745-4179-86b2-3c59dc0a941b",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/AAA/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 5",
+      "id": "19fe8f11-6c7f-482c-b8ee-cb0c1e07a9f2",
+      "source": Array [
+        Object {
+          "id": "17a67765-1da9-41c2-8a59-7c2a6f09006d",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/BBB/000?text=Placeholder",
+        },
+        Object {
+          "id": "b1c58f88-98cd-4fd7-a1cf-705c249bcb26",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/BBB/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 4",
+      "id": "cfd0b8e5-ddc2-4558-bac6-d316a1044601",
+      "source": Array [
+        Object {
+          "id": "43662f90-0e0b-4ce9-ba47-27a0cfcbd3fb",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/CCC/000?text=Placeholder",
+        },
+        Object {
+          "id": "b4d4bff6-4956-4458-86a1-3c42bb4d5109",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/CCC/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 3",
+      "id": "305a6d3d-3150-4a5d-84fe-08ca62567d7d",
+      "source": Array [
+        Object {
+          "id": "01196caa-4c85-4082-b234-5ddc3daac03a",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/DDD/000?text=Placeholder",
+        },
+        Object {
+          "id": "cb615573-4971-4828-ab41-517780231850",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/DDD/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 2",
+      "id": "0870319a-e0f1-4619-ac68-95ac08dae2ad",
+      "source": Array [
+        Object {
+          "id": "aa165b97-3e66-4ab8-8386-738b1f4507ab",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/EEE/000?text=Placeholder",
+        },
+        Object {
+          "id": "bed8685e-05e8-49d9-bf3c-5af3e988181c",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/EEE/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 12",
+      "id": "6c93a90f-1f28-4b60-81d2-041980cb38c8",
+      "source": Array [
+        Object {
+          "id": "ab006301-766e-4009-b53b-d1659613f473",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/444/FFF?text=Placeholder",
+        },
+        Object {
+          "id": "efc510f3-e6f9-4bd1-ac7d-c6287aa84353",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/444/FFF?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 11",
+      "id": "f5ed1aa8-313c-4afd-9978-f47d81b7d23c",
+      "source": Array [
+        Object {
+          "id": "00117b67-e296-47ac-8676-27a519de373d",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/555/FFF?text=Placeholder",
+        },
+        Object {
+          "id": "dac73a4e-6fb6-4daa-8cb2-0b0b1b9ecb10",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/555/FFF?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with sorting descending should list second page of media with all values 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 10",
+      "id": "3a8cc8b6-7080-4a6b-bb08-52822e08bf28",
+      "source": Array [
+        Object {
+          "id": "1906e932-3071-4d46-a9b8-79d229ae9bc4",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/666/000?text=Placeholder",
+        },
+        Object {
+          "id": "22ff995f-8e88-465b-8a56-872db240c365",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/666/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+    Object {
+      "copyright": null,
+      "createdAt": "2019-02-09T00:00:00.000Z",
+      "description": "Image 1",
+      "id": "6091a1e1-e25a-4362-b296-a7b5016ea2c6",
+      "source": Array [
+        Object {
+          "id": "4cfc5255-6a9f-472c-ba2f-e89945cf8ceb",
+          "name": "thumbnail",
+          "path": "https://via.placeholder.com/480x380/FFF/000?text=Placeholder",
+        },
+        Object {
+          "id": "e9b3ccc3-0734-466e-a253-7b4f38b2cfa3",
+          "name": "main",
+          "path": "https://via.placeholder.com/1200x630/FFF/000?text=Placeholder",
+        },
+      ],
+      "updatedAt": "2019-02-09T00:00:00.000Z",
+    },
+  ],
+  "limit": 10,
+  "page": 2,
+  "pages": 2,
+  "total": 12,
+}
+`;
+
+exports[`Media [GET] /media with sorting descending should return no content if out of bounds 1`] = `Object {}`;
+
+exports[`Media [GET] /media/:id should return a bad request if filtered field does not exist 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "name column was not found in the Media entity.",
+  "statusCode": 400,
+}
+`;
+
+exports[`Media [GET] /media/:id should return a filtered result 1`] = `
+Object {
+  "description": "Image 4",
+  "id": "cfd0b8e5-ddc2-4558-bac6-d316a1044601",
+}
+`;
+
+exports[`Media [GET] /media/:id should return media item 1`] = `
+Object {
+  "copyright": null,
+  "createdAt": "2019-02-09T00:00:00.000Z",
+  "description": "Image 4",
+  "id": "cfd0b8e5-ddc2-4558-bac6-d316a1044601",
+  "source": Array [
+    Object {
+      "id": "43662f90-0e0b-4ce9-ba47-27a0cfcbd3fb",
+      "name": "thumbnail",
+      "path": "https://via.placeholder.com/480x380/CCC/000?text=Placeholder",
+    },
+    Object {
+      "id": "b4d4bff6-4956-4458-86a1-3c42bb4d5109",
+      "name": "main",
+      "path": "https://via.placeholder.com/1200x630/CCC/000?text=Placeholder",
+    },
+  ],
+  "updatedAt": "2019-02-09T00:00:00.000Z",
+}
+`;
+
+exports[`Media [GET] /media/:id should return not found if fixture does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Media [PATCH] /media/:id should throw an error if a field is the wrong format 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "isString": "description must be a string",
+    },
+    "property": "description",
+    "target": Object {
+      "description": Array [
+        Object {
+          "name": "thumbnail",
+          "path": "https://www.website.com/path/to/another/thumbnail.jpg",
+        },
+        Object {
+          "name": "large",
+          "path": "https://www.website.com/path/to/another/large.jpg",
+        },
+      ],
+      "source": Array [
+        Object {
+          "name": "thumbnail",
+          "path": "https://www.website.com/path/to/another/thumbnail.jpg",
+        },
+        Object {
+          "name": "large",
+          "path": "https://www.website.com/path/to/another/large.jpg",
+        },
+      ],
+    },
+    "value": Array [
+      Object {
+        "name": "thumbnail",
+        "path": "https://www.website.com/path/to/another/thumbnail.jpg",
+      },
+      Object {
+        "name": "large",
+        "path": "https://www.website.com/path/to/another/large.jpg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Media [PATCH] /media/:id should throw an error if a nested field is the wrong format 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "constraints": Object {
+              "isUrl": "path must be an URL address",
+            },
+            "property": "path",
+            "target": Object {
+              "name": "thumbnail",
+              "path": Array [
+                "https://www.website.com/path/to/another/thumbnail.jpg",
+              ],
+            },
+            "value": Array [
+              "https://www.website.com/path/to/another/thumbnail.jpg",
+            ],
+          },
+        ],
+        "property": "0",
+        "target": Array [
+          Object {
+            "name": "thumbnail",
+            "path": Array [
+              "https://www.website.com/path/to/another/thumbnail.jpg",
+            ],
+          },
+          Object {
+            "name": "large",
+            "path": "path/to/another/large.jpg",
+          },
+        ],
+        "value": Object {
+          "name": "thumbnail",
+          "path": Array [
+            "https://www.website.com/path/to/another/thumbnail.jpg",
+          ],
+        },
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "constraints": Object {
+              "isUrl": "path must be an URL address",
+            },
+            "property": "path",
+            "target": Object {
+              "name": "large",
+              "path": "path/to/another/large.jpg",
+            },
+            "value": "path/to/another/large.jpg",
+          },
+        ],
+        "property": "1",
+        "target": Array [
+          Object {
+            "name": "thumbnail",
+            "path": Array [
+              "https://www.website.com/path/to/another/thumbnail.jpg",
+            ],
+          },
+          Object {
+            "name": "large",
+            "path": "path/to/another/large.jpg",
+          },
+        ],
+        "value": Object {
+          "name": "large",
+          "path": "path/to/another/large.jpg",
+        },
+      },
+    ],
+    "property": "source",
+    "target": Object {
+      "description": "Description",
+      "source": Array [
+        Object {
+          "name": "thumbnail",
+          "path": Array [
+            "https://www.website.com/path/to/another/thumbnail.jpg",
+          ],
+        },
+        Object {
+          "name": "large",
+          "path": "path/to/another/large.jpg",
+        },
+      ],
+    },
+    "value": Array [
+      Object {
+        "name": "thumbnail",
+        "path": Array [
+          "https://www.website.com/path/to/another/thumbnail.jpg",
+        ],
+      },
+      Object {
+        "name": "large",
+        "path": "path/to/another/large.jpg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Media [PATCH] /media/:id should throw an error if a nested required field is missing 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "constraints": Object {
+              "isNotEmpty": "path should not be empty",
+              "isUrl": "path must be an URL address",
+            },
+            "property": "path",
+            "target": Object {
+              "name": "thumbnail",
+            },
+          },
+        ],
+        "property": "0",
+        "target": Array [
+          Object {
+            "name": "thumbnail",
+          },
+          Object {
+            "name": "large",
+            "path": "https://www.website.com/path/to/another/large.jpg",
+          },
+        ],
+        "value": Object {
+          "name": "thumbnail",
+        },
+      },
+    ],
+    "property": "source",
+    "target": Object {
+      "description": "Description",
+      "source": Array [
+        Object {
+          "name": "thumbnail",
+        },
+        Object {
+          "name": "large",
+          "path": "https://www.website.com/path/to/another/large.jpg",
+        },
+      ],
+    },
+    "value": Array [
+      Object {
+        "name": "thumbnail",
+      },
+      Object {
+        "name": "large",
+        "path": "https://www.website.com/path/to/another/large.jpg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Media [PATCH] /media/:id should throw an error if a required field is missing 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "IsArrayWithLength": "",
+    },
+    "property": "source",
+    "target": Object {
+      "description": "Description",
+    },
+  },
+]
+`;
+
+exports[`Media [POST] /media should create a new media item 1`] = `
+Object {
+  "copyright": null,
+  "createdAt": "2019-03-09T23:56:42.557Z",
+  "description": "Description",
+  "id": "30700e17-4ba2-4b21-b5d1-540936217eac",
+  "source": Array [
+    Object {
+      "id": "6eae6bce-8669-4269-9e64-137a004aa70d",
+      "name": "thumbnail",
+      "path": "path/to/thumbnail.jpg",
+    },
+    Object {
+      "id": "b37ea150-fcd1-4355-a6ea-46add9b9e47e",
+      "name": "large",
+      "path": "path/to/large.jpg",
+    },
+  ],
+  "updatedAt": "2019-03-09T23:56:42.557Z",
+}
+`;
+
+exports[`Media [POST] /media should throw an error if a duplicate media item is created 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": "ER_DUP_ENTRY: Duplicate entry 'https://www.website.com/path/to/thumbnail.jpg' for key 'IDX_84d7b1eadf15e2ef1e4e9986ee'",
+  "statusCode": 400,
+}
+`;
+
+exports[`Media [POST] /media should throw an error if a field is the wrong format 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "isString": "description must be a string",
+    },
+    "property": "description",
+    "target": Object {
+      "description": Array [
+        Object {
+          "name": "thumbnail",
+          "path": "https://www.website.com/path/to/another/thumbnail.jpg",
+        },
+        Object {
+          "name": "large",
+          "path": "https://www.website.com/path/to/another/large.jpg",
+        },
+      ],
+      "source": Array [
+        Object {
+          "name": "thumbnail",
+          "path": "https://www.website.com/path/to/another/thumbnail.jpg",
+        },
+        Object {
+          "name": "large",
+          "path": "https://www.website.com/path/to/another/large.jpg",
+        },
+      ],
+    },
+    "value": Array [
+      Object {
+        "name": "thumbnail",
+        "path": "https://www.website.com/path/to/another/thumbnail.jpg",
+      },
+      Object {
+        "name": "large",
+        "path": "https://www.website.com/path/to/another/large.jpg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Media [POST] /media should throw an error if a nested field is the wrong format 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "constraints": Object {
+              "isUrl": "path must be an URL address",
+            },
+            "property": "path",
+            "target": Object {
+              "name": "thumbnail",
+              "path": Array [
+                "https://www.website.com/path/to/another/thumbnail.jpg",
+              ],
+            },
+            "value": Array [
+              "https://www.website.com/path/to/another/thumbnail.jpg",
+            ],
+          },
+        ],
+        "property": "0",
+        "target": Array [
+          Object {
+            "name": "thumbnail",
+            "path": Array [
+              "https://www.website.com/path/to/another/thumbnail.jpg",
+            ],
+          },
+          Object {
+            "name": "large",
+            "path": "path/to/another/large.jpg",
+          },
+        ],
+        "value": Object {
+          "name": "thumbnail",
+          "path": Array [
+            "https://www.website.com/path/to/another/thumbnail.jpg",
+          ],
+        },
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "constraints": Object {
+              "isUrl": "path must be an URL address",
+            },
+            "property": "path",
+            "target": Object {
+              "name": "large",
+              "path": "path/to/another/large.jpg",
+            },
+            "value": "path/to/another/large.jpg",
+          },
+        ],
+        "property": "1",
+        "target": Array [
+          Object {
+            "name": "thumbnail",
+            "path": Array [
+              "https://www.website.com/path/to/another/thumbnail.jpg",
+            ],
+          },
+          Object {
+            "name": "large",
+            "path": "path/to/another/large.jpg",
+          },
+        ],
+        "value": Object {
+          "name": "large",
+          "path": "path/to/another/large.jpg",
+        },
+      },
+    ],
+    "property": "source",
+    "target": Object {
+      "description": "Description",
+      "source": Array [
+        Object {
+          "name": "thumbnail",
+          "path": Array [
+            "https://www.website.com/path/to/another/thumbnail.jpg",
+          ],
+        },
+        Object {
+          "name": "large",
+          "path": "path/to/another/large.jpg",
+        },
+      ],
+    },
+    "value": Array [
+      Object {
+        "name": "thumbnail",
+        "path": Array [
+          "https://www.website.com/path/to/another/thumbnail.jpg",
+        ],
+      },
+      Object {
+        "name": "large",
+        "path": "path/to/another/large.jpg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Media [POST] /media should throw an error if a nested required field is missing 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "constraints": Object {
+              "isNotEmpty": "path should not be empty",
+              "isUrl": "path must be an URL address",
+            },
+            "property": "path",
+            "target": Object {
+              "name": "thumbnail",
+            },
+          },
+        ],
+        "property": "0",
+        "target": Array [
+          Object {
+            "name": "thumbnail",
+          },
+          Object {
+            "name": "large",
+            "path": "https://www.website.com/path/to/another/large.jpg",
+          },
+        ],
+        "value": Object {
+          "name": "thumbnail",
+        },
+      },
+    ],
+    "property": "source",
+    "target": Object {
+      "description": "Description",
+      "source": Array [
+        Object {
+          "name": "thumbnail",
+        },
+        Object {
+          "name": "large",
+          "path": "https://www.website.com/path/to/another/large.jpg",
+        },
+      ],
+    },
+    "value": Array [
+      Object {
+        "name": "thumbnail",
+      },
+      Object {
+        "name": "large",
+        "path": "https://www.website.com/path/to/another/large.jpg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Media [POST] /media should throw an error if a required field is missing 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "constraints": Object {
+      "IsArrayWithLength": "",
+    },
+    "property": "source",
+    "target": Object {
+      "description": "Description",
+    },
+  },
+]
+`;
