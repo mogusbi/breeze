@@ -1,7 +1,6 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Article, ArticleService} from '@breezejs/article';
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
 import {
   BadRequestException,
@@ -17,7 +16,7 @@ import {
   Post,
   UseInterceptors
 } from '@nestjs/common';
-import {ArticleDto} from '../shared';
+import {Article, ArticleDto, ArticleService} from '../shared';
 
 /**
  * Controller for /articles endpoints

@@ -4,6 +4,9 @@
 import {Module} from '@nestjs/common';
 import {MediaModule} from './media';
 
+/**
+ * App module for media service
+ */
 @Module({
   imports: [
     MediaModule

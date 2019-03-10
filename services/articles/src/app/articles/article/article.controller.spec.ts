@@ -1,10 +1,12 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Article, ArticleService} from '@breezejs/article';
 import {BadRequestException, NotFoundException} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
+import {Article, ArticleService} from '../shared';
 import {ArticleController} from './article.controller';
+
+jest.mock('../shared/article.service');
 
 describe('ArticleController', (): void => {
   let articleController: ArticleController;

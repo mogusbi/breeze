@@ -37,7 +37,6 @@ jobs:
           key: breeze-dependencies-v2-{{ checksum "/tmp/checksum.txt" }}
           paths:
             - node_modules
-            - packages/article/node_modules
             - packages/bootstrap/node_modules
             - packages/competition/node_modules
             - packages/fixture/node_modules

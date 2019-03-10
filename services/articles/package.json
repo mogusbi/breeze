@@ -27,9 +27,9 @@
     "posttest": "codecov"
   },
   "dependencies": {
-    "@breezejs/article": "^0.0.0",
     "@breezejs/bootstrap": "^0.0.0",
     "@breezejs/request": "^0.0.0",
+    "@breezejs/sql": "^0.0.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.14"
   },
@@ -54,9 +54,6 @@
       "json",
       "node"
     ],
-    "moduleNameMapper": {
-      "@breezejs/article": "<rootDir>/node_modules/@breezejs/article/lib/__mocks__"
-    },
     "testMatch": [
       "**/+(*.)+(spec|test).+(ts|js)?(x)"
     ],
