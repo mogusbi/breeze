@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Article} from '@breezejs/article';
 import {MigrationInterface, QueryRunner} from 'typeorm';
+import {Article} from '../app/articles/shared';
 
 export class Articles1552085260782 implements MigrationInterface {
   private table: string = 'article';
