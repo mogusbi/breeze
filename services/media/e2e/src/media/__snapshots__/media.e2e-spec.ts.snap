@@ -1330,28 +1330,6 @@ Array [
 ]
 `;
 
-exports[`Media [POST] /media should create a new media item 1`] = `
-Object {
-  "copyright": null,
-  "createdAt": "2019-03-09T23:56:42.557Z",
-  "description": "Description",
-  "id": "30700e17-4ba2-4b21-b5d1-540936217eac",
-  "source": Array [
-    Object {
-      "id": "6eae6bce-8669-4269-9e64-137a004aa70d",
-      "name": "thumbnail",
-      "path": "path/to/thumbnail.jpg",
-    },
-    Object {
-      "id": "b37ea150-fcd1-4355-a6ea-46add9b9e47e",
-      "name": "large",
-      "path": "path/to/large.jpg",
-    },
-  ],
-  "updatedAt": "2019-03-09T23:56:42.557Z",
-}
-`;
-
 exports[`Media [POST] /media should throw an error if a duplicate media item is created 1`] = `
 Object {
   "error": "Bad Request",

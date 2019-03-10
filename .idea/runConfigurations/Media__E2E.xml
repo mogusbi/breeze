@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Media: E2E" type="JavaScriptTestRunnerJest" factoryName="Jest">
+    <config-file value="$PROJECT_DIR$/services/media/e2e/jest.config.js" />
+    <node-interpreter value="project" />
+    <node-options value="" />
+    <working-dir value="$PROJECT_DIR$/services/media" />
+    <jest-options value="--watch --runInBand" />
+    <envs />
+    <scope-kind value="ALL" />
+    <method />
+  </configuration>
+</component>
