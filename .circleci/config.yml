@@ -91,7 +91,7 @@ jobs:
           name: Install MySQL client
       - run:
           command: |
-            cat environments/mysql/*-testing.sql | mysql -h 127.0.0.1 -u root -ppassword
+            mysql -h 127.0.0.1 -u root -ppassword < environments/mysql/testing.sql
           name: Set up database
       - run:
           command: npm run e2e

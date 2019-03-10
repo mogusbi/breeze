@@ -3,7 +3,7 @@
     "entities": [
       "node_modules/@breezejs/**/lib/**/*.entity.js"
     ],
-    "database": "predictor",
+    "database": "development",
     "host": "localhost",
     "logging": true,
     "migrations": [
@@ -20,7 +20,7 @@
     "entities": [
       "node_modules/@breezejs/**/lib/**/*.entity.js"
     ],
-    "database": "predictor_testing",
+    "database": "testing",
     "host": "localhost",
     "logging": false,
     "migrations": [

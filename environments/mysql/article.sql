@@ -1,2 +1,0 @@
-CREATE DATABASE IF NOT EXISTS article;
-GRANT ALL PRIVILEGES ON article.* TO 'breeze'@'%';
