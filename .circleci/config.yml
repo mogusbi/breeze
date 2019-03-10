@@ -48,6 +48,7 @@ jobs:
             - services/articles/node_modules
             - services/media/node_modules
             - services/predictor/node_modules
+            - services/users/node_modules
       - persist_to_workspace:
           paths:
             - ./packages/*/lib/*
