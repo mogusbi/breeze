@@ -2,7 +2,8 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
-import {Team, TeamService} from '@breezejs/team';
+import {Team} from '@breezejs/sql';
+import {TeamService} from '@breezejs/team';
 import {
   BadRequestException,
   Body,
@@ -76,7 +77,7 @@ export class TeamController {
   @Get()
   @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions<Team>
+    @Pagination() options: PaginationOptions
   ): Promise<[Team[], number]> {
     try {
       return await this.teamService.listAll(options);
@@ -96,7 +97,7 @@ export class TeamController {
   @Get(':id')
   public async getTeam (
     @Param('id') id: string,
-    @Filter() options: FilterOptions<Team>
+    @Filter() options: FilterOptions
   ): Promise<Team> {
     try {
       const team: Team = await this.teamService.findOne(id, options);

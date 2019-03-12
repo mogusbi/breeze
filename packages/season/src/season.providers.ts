@@ -1,10 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {SqlEnum} from '@breezejs/sql';
+import {Season, SqlEnum} from '@breezejs/sql';
 import {Provider} from '@nestjs/common';
 import {Connection, Repository} from 'typeorm';
-import {Season} from './season.entity';
 import {SeasonEnum} from './season.enum';
 
 export const SeasonProviders: Provider[] = [

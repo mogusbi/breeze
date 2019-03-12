@@ -64,7 +64,7 @@ describe('Users', (): void => {
     describe('with filtering', (): void => {
       it('should list first page of users with selected values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/users').query({
-          fields: 'id,forename,surname'
+          fields: 'user.id,user.forename,user.surname'
         });
 
         expect(status).toEqual(200);
@@ -73,7 +73,7 @@ describe('Users', (): void => {
 
       it('should list second page of users with selected values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/users').query({
-          fields: 'id,forename,surname',
+          fields: 'user.id,user.forename,user.surname',
           page: 2
         });
 
@@ -83,7 +83,7 @@ describe('Users', (): void => {
 
       it('should return no content if out of bounds', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/users').query({
-          fields: 'id,forename,surname',
+          fields: 'user.id,user.forename,user.surname',
           page: 3
         });
 
@@ -93,7 +93,7 @@ describe('Users', (): void => {
 
       it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/users').query({
-          fields: 'id,name,surname'
+          fields: 'user.id,user.name,user.surname'
         });
 
         expect(status).toEqual(400);
@@ -213,7 +213,7 @@ describe('Users', (): void => {
 
     it('should return a filtered result', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/users/f07a1ccb-f3bf-4ac8-beab-c740668674c4').query({
-        fields: 'id,emailAddress'
+        fields: 'user.id,user.emailAddress'
       });
 
       expect(status).toEqual(200);
@@ -222,14 +222,14 @@ describe('Users', (): void => {
 
     it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/users/f07a1ccb-f3bf-4ac8-beab-c740668674c4').query({
-        fields: 'id,name'
+        fields: 'user.id,user.name'
       });
 
       expect(status).toEqual(400);
       expect(body).toMatchSnapshot();
     });
 
-    it('should return not found if fixture does not exist', async (): Promise<void> => {
+    it('should return not found if user does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/users/f07a1ccb-f3bf-4ac8-beab-c740668674c9');
 
       expect(status).toEqual(404);

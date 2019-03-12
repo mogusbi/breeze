@@ -18,7 +18,7 @@ export class PaginationResult<R> {
 /**
  * Paginated request options
  */
-export class PaginationOptions<R> extends FilterOptions<R> {
+export class PaginationOptions extends FilterOptions {
   public readonly order: IPaginationOrder;
   public readonly page: number;
   public readonly take: number;

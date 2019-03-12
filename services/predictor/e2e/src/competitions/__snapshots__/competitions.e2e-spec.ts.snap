@@ -82,7 +82,7 @@ Object {
 exports[`Competitions [GET] /competitions with filtering should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "club column was not found in the Competition entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'competition.club' in 'field list'",
   "statusCode": 400,
 }
 `;
@@ -464,7 +464,7 @@ exports[`Competitions [GET] /competitions with sorting descending should return 
 exports[`Competitions [GET] /competitions/:id should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "club column was not found in the Competition entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'competition.club' in 'field list'",
   "statusCode": 400,
 }
 `;

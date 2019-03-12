@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Base} from '@breezejs/sql';
 import {Column, Entity, OneToMany} from 'typeorm';
+import {Base} from '../../base';
 import {MediaSource} from './media-source';
 
 @Entity()

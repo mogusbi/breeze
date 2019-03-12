@@ -47,11 +47,8 @@
     ]
   },
   "dependencies": {
-    "@breezejs/competition": "^0.0.0",
     "@breezejs/request": "^0.0.0",
-    "@breezejs/season": "^0.0.0",
     "@breezejs/sql": "^0.0.0",
-    "@breezejs/team": "^0.0.0",
     "typeorm": "^0.2.14"
   }
 }

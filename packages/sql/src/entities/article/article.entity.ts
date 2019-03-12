@@ -1,9 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Base} from '@breezejs/sql';
 import slugify from '@sindresorhus/slugify';
-import {BeforeInsert, Column, Entity} from 'typeorm';
+import {BeforeInsert, Column, Entity, ManyToOne} from 'typeorm';
+import {Base} from '../../base';
+import {Media} from '../media';
+import {User} from '../user';
 
 /**
  * Article entity
@@ -15,17 +17,17 @@ export class Article extends Base {
   })
   public alternativeTitle: string;
 
-  @Column({
-    nullable: false,
-    type: 'uuid'
-  })
-  public authorId: string;
+  @ManyToOne((): typeof User => User)
+  public author: User;
 
   @Column({
     nullable: false,
     type: 'text'
   })
   public content: string;
+
+  @ManyToOne((): typeof Media => Media)
+  public media: Media;
 
   @Column({
     nullable: false,

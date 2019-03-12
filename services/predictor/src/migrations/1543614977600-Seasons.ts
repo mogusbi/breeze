@@ -1,7 +1,7 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Season} from '@breezejs/season';
+import {Season} from '@breezejs/sql';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
 export class Seasons1543614977600 implements MigrationInterface {

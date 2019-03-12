@@ -64,7 +64,7 @@ describe('Seasons', (): void => {
     describe('with filtering', (): void => {
       it('should list first page of seasons with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/seasons').query({
-          fields: 'id,name'
+          fields: 'season.id,season.name'
         });
 
         expect(status).toEqual(200);
@@ -73,7 +73,7 @@ describe('Seasons', (): void => {
 
       it('should list second page of seasons with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/seasons').query({
-          fields: 'id,name',
+          fields: 'season.id,season.name',
           page: 2
         });
 
@@ -83,7 +83,7 @@ describe('Seasons', (): void => {
 
       it('should return no content if out of bounds', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/seasons').query({
-          fields: 'id,name',
+          fields: 'season.id,season.name',
           page: 3
         });
 
@@ -93,7 +93,7 @@ describe('Seasons', (): void => {
 
       it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/seasons').query({
-          fields: 'club'
+          fields: 'season.club'
         });
 
         expect(status).toEqual(400);
@@ -105,7 +105,7 @@ describe('Seasons', (): void => {
       describe('ascending', (): void => {
         it('should list first page of seasons with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/seasons').query({
-            sort: 'name'
+            sort: 'season.name'
           });
 
           expect(status).toEqual(200);
@@ -115,7 +115,7 @@ describe('Seasons', (): void => {
         it('should list second page of seasons with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/seasons').query({
             page: 2,
-            sort: 'name'
+            sort: 'season.name'
           });
 
           expect(status).toEqual(200);
@@ -125,7 +125,7 @@ describe('Seasons', (): void => {
         it('should return no content if out of bounds', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/seasons').query({
             page: 3,
-            sort: 'name'
+            sort: 'season.name'
           });
 
           expect(status).toEqual(204);
@@ -137,7 +137,7 @@ describe('Seasons', (): void => {
         it('should list first page of seasons with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/seasons').query({
             dir: 'desc',
-            sort: 'name'
+            sort: 'season.name'
           });
 
           expect(status).toEqual(200);
@@ -148,7 +148,7 @@ describe('Seasons', (): void => {
           const {body, status}: supertest.Response = await request.get('/seasons').query({
             dir: 'desc',
             page: 2,
-            sort: 'name'
+            sort: 'season.name'
           });
 
           expect(status).toEqual(200);
@@ -159,7 +159,7 @@ describe('Seasons', (): void => {
           const {body, status}: supertest.Response = await request.get('/seasons').query({
             dir: 'desc',
             page: 3,
-            sort: 'name'
+            sort: 'season.name'
           });
 
           expect(status).toEqual(204);
@@ -210,7 +210,7 @@ describe('Seasons', (): void => {
 
     it('should return a filtered result', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/seasons/1d89fd93-85f6-4f79-8d92-01cebedc35fc').query({
-        fields: 'name'
+        fields: 'season.name'
       });
 
       expect(status).toEqual(200);
@@ -219,7 +219,7 @@ describe('Seasons', (): void => {
 
     it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/seasons/1d89fd93-85f6-4f79-8d92-01cebedc35fc').query({
-        fields: 'club'
+        fields: 'season.club'
       });
 
       expect(status).toEqual(400);

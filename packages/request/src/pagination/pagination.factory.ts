@@ -15,7 +15,7 @@ import {PaginationOrderType} from './pagination.type';
  *
  * @returns Pagination options object
  */
-export function PaginationFactory<T = unknown> (_: string, request: Request): PaginationOptions<T> {
+export function PaginationFactory (_: string, request: Request): PaginationOptions {
   const {query}: Request = request;
 
   let dir: PaginationOrderType = query.dir;
@@ -40,10 +40,10 @@ export function PaginationFactory<T = unknown> (_: string, request: Request): Pa
     take = PaginationEnum.min;
   }
 
-  const select: FilterOptions<T> = FilterFactory(_, request);
+  const select: FilterOptions = FilterFactory(_, request);
   const sort: string = query.sort;
   const skip: number = take * (page - 1);
-  const result: PaginationOptions<T> = {
+  const result: PaginationOptions = {
     ...select,
     order: {},
     page,

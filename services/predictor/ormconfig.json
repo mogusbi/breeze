@@ -1,7 +1,10 @@
 [
   {
     "entities": [
-      "node_modules/@breezejs/**/lib/**/*.entity.js"
+      "node_modules/@breezejs/sql/lib/entities/competition/competition.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/fixture/fixture.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/season/season.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/team/team.entity.js"
     ],
     "database": "development",
     "host": "localhost",
@@ -18,7 +21,10 @@
   },
   {
     "entities": [
-      "node_modules/@breezejs/**/lib/**/*.entity.js"
+      "node_modules/@breezejs/sql/lib/entities/competition/competition.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/fixture/fixture.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/season/season.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/team/team.entity.js"
     ],
     "database": "testing",
     "host": "localhost",

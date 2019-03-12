@@ -64,7 +64,7 @@ describe('Fixtures', (): void => {
     describe('with filtering', (): void => {
       it('should list first page of fixtures with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/fixtures').query({
-          fields: 'id,awayScore,homeScore'
+          fields: 'fixture.id,fixture.awayScore,fixture.homeScore'
         });
 
         expect(status).toEqual(200);
@@ -73,7 +73,7 @@ describe('Fixtures', (): void => {
 
       it('should list second page of fixtures with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/fixtures').query({
-          fields: 'id,awayScore,homeScore',
+          fields: 'fixture.id,fixture.awayScore,fixture.homeScore',
           page: 2
         });
 
@@ -83,7 +83,7 @@ describe('Fixtures', (): void => {
 
       it('should return no content if out of bounds', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/fixtures').query({
-          fields: 'id,awayScore,homeScore',
+          fields: 'fixture.id,fixture.awayScore,fixture.homeScore',
           page: 3
         });
 
@@ -93,7 +93,7 @@ describe('Fixtures', (): void => {
 
       it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/fixtures').query({
-          fields: 'id,name',
+          fields: 'fixture.id,fixture.name',
           page: 3
         });
 
@@ -106,7 +106,7 @@ describe('Fixtures', (): void => {
     describe.skip('with filtering on joins', (): void => {
       it('should list first page of fixtures with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/fixtures').query({
-          fields: 'id,home.name,homeScore,away.name,awayScore'
+          fields: 'fixture.id,home.name,fixture.homeScore,away.name,fixture.awayScore'
         });
 
         expect(status).toEqual(200);
@@ -299,7 +299,7 @@ describe('Fixtures', (): void => {
       describe('ascending', (): void => {
         it('should list first page of fixtures with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/fixtures').query({
-            sort: 'date'
+            sort: 'fixture.date'
           });
 
           expect(status).toEqual(200);
@@ -309,7 +309,7 @@ describe('Fixtures', (): void => {
         it('should list second page of fixtures with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/fixtures').query({
             page: 2,
-            sort: 'date'
+            sort: 'fixture.date'
           });
 
           expect(status).toEqual(200);
@@ -319,7 +319,7 @@ describe('Fixtures', (): void => {
         it('should return no content if out of bounds', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/fixtures').query({
             page: 3,
-            sort: 'date'
+            sort: 'fixture.date'
           });
 
           expect(status).toEqual(204);
@@ -331,7 +331,7 @@ describe('Fixtures', (): void => {
         it('should list first page of fixtures with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/fixtures').query({
             dir: 'desc',
-            sort: 'date'
+            sort: 'fixture.date'
           });
 
           expect(status).toEqual(200);
@@ -342,7 +342,7 @@ describe('Fixtures', (): void => {
           const {body, status}: supertest.Response = await request.get('/fixtures').query({
             dir: 'desc',
             page: 2,
-            sort: 'date'
+            sort: 'fixture.date'
           });
 
           expect(status).toEqual(200);
@@ -353,7 +353,7 @@ describe('Fixtures', (): void => {
           const {body, status}: supertest.Response = await request.get('/fixtures').query({
             dir: 'desc',
             page: 3,
-            sort: 'date'
+            sort: 'fixture.date'
           });
 
           expect(status).toEqual(204);
@@ -404,36 +404,25 @@ describe('Fixtures', (): void => {
 
     it('should return a filtered result', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/fixtures/a32e5fa2-1bf1-4188-86d7-50d74cfea6b9').query({
-        fields: 'id,homeScore,awayScore'
+        fields: 'fixture.id,fixture.homeScore,fixture.awayScore'
       });
 
       expect(status).toEqual(200);
       expect(body).toMatchSnapshot();
     });
 
-    // TODO: Await TypeORM fix for join filtering
-    it.skip('should return a filtered result on join', async (): Promise<void> => {
+    it('should return a filtered result on join', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/fixtures/a32e5fa2-1bf1-4188-86d7-50d74cfea6b9').query({
-        fields: 'id,home.name,homeScore,away.name,awayScore'
+        fields: 'fixture.id,home.name,fixture.homeScore,away.name,fixture.awayScore'
       });
 
       expect(status).toEqual(200);
-      expect(body).toEqual({
-        away: {
-          name: 'Arsenal'
-        },
-        awayScore: 2,
-        home: {
-          name: 'Bournemouth'
-        },
-        homeScore: 1,
-        id: 'a32e5fa2-1bf1-4188-86d7-50d74cfea6b9'
-      });
+      expect(body).toMatchSnapshot();
     });
 
     it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/fixtures/a32e5fa2-1bf1-4188-86d7-50d74cfea6b9').query({
-        fields: 'id,aggregate'
+        fields: 'fixture.id,fixture.aggregate'
       });
 
       expect(status).toEqual(400);

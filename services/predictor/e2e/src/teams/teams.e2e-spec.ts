@@ -64,7 +64,7 @@ describe('Teams', (): void => {
     describe('with filtering', (): void => {
       it('should list first page of teams with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/teams').query({
-          fields: 'id,name'
+          fields: 'team.id,team.name'
         });
 
         expect(status).toEqual(200);
@@ -73,7 +73,7 @@ describe('Teams', (): void => {
 
       it('should list second page of teams with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/teams').query({
-          fields: 'id,name',
+          fields: 'team.id,team.name',
           page: 2
         });
 
@@ -83,7 +83,7 @@ describe('Teams', (): void => {
 
       it('should return no content if out of bounds', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/teams').query({
-          fields: 'id,name',
+          fields: 'team.id,team.name',
           page: 3
         });
 
@@ -93,7 +93,7 @@ describe('Teams', (): void => {
 
       it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/teams').query({
-          fields: 'club'
+          fields: 'team.club'
         });
 
         expect(status).toEqual(400);
@@ -105,7 +105,7 @@ describe('Teams', (): void => {
       describe('ascending', (): void => {
         it('should list first page of teams with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/teams').query({
-            sort: 'name'
+            sort: 'team.name'
           });
 
           expect(status).toEqual(200);
@@ -115,7 +115,7 @@ describe('Teams', (): void => {
         it('should list second page of teams with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/teams').query({
             page: 2,
-            sort: 'name'
+            sort: 'team.name'
           });
 
           expect(status).toEqual(200);
@@ -125,7 +125,7 @@ describe('Teams', (): void => {
         it('should return no content if out of bounds', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/teams').query({
             page: 3,
-            sort: 'name'
+            sort: 'team.name'
           });
 
           expect(status).toEqual(204);
@@ -137,7 +137,7 @@ describe('Teams', (): void => {
         it('should list first page of teams with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/teams').query({
             dir: 'desc',
-            sort: 'name'
+            sort: 'team.name'
           });
 
           expect(status).toEqual(200);
@@ -148,7 +148,7 @@ describe('Teams', (): void => {
           const {body, status}: supertest.Response = await request.get('/teams').query({
             dir: 'desc',
             page: 2,
-            sort: 'name'
+            sort: 'team.name'
           });
 
           expect(status).toEqual(200);
@@ -159,7 +159,7 @@ describe('Teams', (): void => {
           const {body, status}: supertest.Response = await request.get('/teams').query({
             dir: 'desc',
             page: 3,
-            sort: 'name'
+            sort: 'team.name'
           });
 
           expect(status).toEqual(204);
@@ -210,7 +210,7 @@ describe('Teams', (): void => {
 
     it('should return a filtered result', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/teams/f3ec4e4b-02bc-4c28-b9ca-ccc6b9f3553d').query({
-        fields: 'name'
+        fields: 'team.name'
       });
 
       expect(status).toEqual(200);
@@ -219,7 +219,7 @@ describe('Teams', (): void => {
 
     it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/teams/f3ec4e4b-02bc-4c28-b9ca-ccc6b9f3553d').query({
-        fields: 'club'
+        fields: 'team.club'
       });
 
       expect(status).toEqual(400);

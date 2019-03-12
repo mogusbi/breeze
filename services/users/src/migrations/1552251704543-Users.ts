@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {User} from '@breezejs/sql';
 import {MigrationInterface, QueryRunner} from 'typeorm';
-import {User} from '../app/users/shared';
 
 export class Users1552251704543 implements MigrationInterface {
   private values: User[] = [

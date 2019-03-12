@@ -1,14 +1,14 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Base} from '@breezejs/sql';
 import {Column, Entity} from 'typeorm';
+import {Base} from '../../base';
 
 /**
- * Team entity
+ * Competition entity
  */
 @Entity()
-export class Team extends Base {
+export class Competition extends Base {
   @Column({
     unique: true
   })

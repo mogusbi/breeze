@@ -2,7 +2,8 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
-import {Season, SeasonService} from '@breezejs/season';
+import {SeasonService} from '@breezejs/season';
+import {Season} from '@breezejs/sql';
 import {
   BadRequestException,
   Body,
@@ -76,7 +77,7 @@ export class SeasonController {
   @Get()
   @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions<Season>
+    @Pagination() options: PaginationOptions
   ): Promise<[Season[], number]> {
     try {
       return await this.seasonService.listAll(options);
@@ -96,7 +97,7 @@ export class SeasonController {
   @Get(':id')
   public async getSeason (
     @Param('id') id: string,
-    @Filter() options: FilterOptions<Season>
+    @Filter() options: FilterOptions
   ): Promise<Season> {
     try {
       const season: Season = await this.seasonService.findOne(id, options);

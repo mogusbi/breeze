@@ -2,6 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
+import {Media} from '@breezejs/sql';
 import {
   BadRequestException,
   Body,
@@ -17,7 +18,6 @@ import {
   UseInterceptors
 } from '@nestjs/common';
 import {MediaDto} from './media.dto';
-import {Media} from './media.entity';
 import {MediaService} from './media.service';
 
 /**
@@ -73,7 +73,7 @@ export class MediaController {
   @Get()
   @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions<Media>
+    @Pagination() options: PaginationOptions
   ): Promise<[Media[], number]> {
     try {
       return await this.mediaService.listAll(options);
@@ -93,7 +93,7 @@ export class MediaController {
   @Get(':id')
   public async getMedia (
     @Param('id') id: string,
-    @Filter() options: FilterOptions<Media>
+    @Filter() options: FilterOptions
   ): Promise<Media> {
     try {
       const media: Media = await this.mediaService.findOne(id, options);

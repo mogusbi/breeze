@@ -2,9 +2,9 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {FilterOptions, PaginationOptions} from '@breezejs/request';
+import {Competition} from '@breezejs/sql';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
-import {Competition} from './competition.entity';
 import {CompetitionEnum} from './competition.enum';
 
 /**
@@ -40,8 +40,14 @@ export class CompetitionService {
    *
    * @return Competition entity
    */
-  public async findOne (id: string, options: FilterOptions<Competition>): Promise<Competition> {
-    return this.competition.findOne(id, options);
+  public async findOne (id: string, options: FilterOptions): Promise<Competition> {
+    return this.competition
+      .createQueryBuilder('competition')
+      .select(options.select)
+      .where('competition.id = :id', {
+        id
+      })
+      .getOne();
   }
 
   /**
@@ -51,8 +57,14 @@ export class CompetitionService {
    *
    * @returns A paginated list of competitions and the total number of entities in the database
    */
-  public async listAll (options: PaginationOptions<Competition>): Promise<[Competition[], number]> {
-    return this.competition.findAndCount(options);
+  public async listAll (options: PaginationOptions): Promise<[Competition[], number]> {
+    return this.competition
+      .createQueryBuilder('competition')
+      .select(options.select)
+      .skip(options.skip)
+      .take(options.take)
+      .orderBy(options.order)
+      .getManyAndCount();
   }
 
   /**

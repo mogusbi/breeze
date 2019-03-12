@@ -32,6 +32,7 @@
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/coverage" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/docs" />
       <excludeFolder url="file://$MODULE_DIR$/services/predictor/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/services/users/lib" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>

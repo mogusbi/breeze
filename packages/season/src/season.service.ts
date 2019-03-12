@@ -2,9 +2,9 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {FilterOptions, PaginationOptions} from '@breezejs/request';
+import {Season} from '@breezejs/sql';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
-import {Season} from './season.entity';
 import {SeasonEnum} from './season.enum';
 
 /**
@@ -40,8 +40,14 @@ export class SeasonService {
    *
    * @return Season entity
    */
-  public async findOne (id: string, options: FilterOptions<Season>): Promise<Season> {
-    return this.season.findOne(id, options);
+  public async findOne (id: string, options: FilterOptions): Promise<Season> {
+    return this.season
+      .createQueryBuilder('season')
+      .select(options.select)
+      .where('season.id = :id', {
+        id
+      })
+      .getOne();
   }
 
   /**
@@ -51,8 +57,14 @@ export class SeasonService {
    *
    * @returns A paginated list of seasons and the total number of entities in the database
    */
-  public async listAll (options: PaginationOptions<Season>): Promise<[Season[], number]> {
-    return this.season.findAndCount(options);
+  public async listAll (options: PaginationOptions): Promise<[Season[], number]> {
+    return this.season
+      .createQueryBuilder('season')
+      .select(options.select)
+      .skip(options.skip)
+      .take(options.take)
+      .orderBy(options.order)
+      .getManyAndCount();
   }
 
   /**

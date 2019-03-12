@@ -13,7 +13,6 @@ describe('FilterFactory', (): void => {
     };
 
     expect(FilterFactory(null, request)).toEqual({
-      relations: [],
       select: [
         'id',
         'name',
@@ -30,7 +29,6 @@ describe('FilterFactory', (): void => {
     };
 
     expect(FilterFactory(null, request)).toEqual({
-      relations: [],
       select: null
     });
   });
@@ -43,14 +41,12 @@ describe('FilterFactory', (): void => {
     };
 
     expect(FilterFactory(null, request)).toEqual({
-      relations: [
-        'related.id',
-        'related.name'
-      ],
       select: [
         'id',
         'name',
-        'createdAt'
+        'createdAt',
+        'related.id',
+        'related.name'
       ]
     });
   });
@@ -63,11 +59,10 @@ describe('FilterFactory', (): void => {
     };
 
     expect(FilterFactory(null, request)).toEqual({
-      relations: [
+      select: [
         'related.id',
         'related.name'
-      ],
-      select: null
+      ]
     });
   });
 });

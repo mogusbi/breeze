@@ -2,9 +2,9 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {FilterOptions, PaginationOptions} from '@breezejs/request';
+import {User} from '@breezejs/sql';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
-import {User} from './user.entity';
 import {UserEnum} from './user.enum';
 
 /**
@@ -40,8 +40,14 @@ export class UserService {
    *
    * @return User entity
    */
-  public async findOne (id: string, options: FilterOptions<User>): Promise<User> {
-    return this.user.findOne(id, options);
+  public async findOne (id: string, options: FilterOptions): Promise<User> {
+    return this.user
+      .createQueryBuilder('user')
+      .select(options.select)
+      .where('user.id = :id', {
+        id
+      })
+      .getOne();
   }
 
   /**
@@ -51,8 +57,14 @@ export class UserService {
    *
    * @returns A paginated list of users and the total number of entities in the database
    */
-  public async listAll (options: PaginationOptions<User>): Promise<[User[], number]> {
-    return this.user.findAndCount(options);
+  public async listAll (options: PaginationOptions): Promise<[User[], number]> {
+    return this.user
+      .createQueryBuilder('user')
+      .select(options.select)
+      .skip(options.skip)
+      .take(options.take)
+      .orderBy(options.order)
+      .getManyAndCount();
   }
 
   /**

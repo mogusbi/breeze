@@ -1,10 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {SqlEnum} from '@breezejs/sql';
+import {Fixture, SqlEnum} from '@breezejs/sql';
 import {Provider} from '@nestjs/common';
 import {Connection, Repository} from 'typeorm';
-import {Fixture} from './fixture.entity';
 import {FixtureEnum} from './fixture.enum';
 
 export const FixtureProviders: Provider[] = [

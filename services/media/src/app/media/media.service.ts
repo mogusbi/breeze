@@ -2,9 +2,9 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {FilterOptions, PaginationOptions} from '@breezejs/request';
+import {Media} from '@breezejs/sql';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
-import {Media} from './media.entity';
 import {MediaEnum} from './media.enum';
 
 /**
@@ -40,8 +40,15 @@ export class MediaService {
    *
    * @return Media entity
    */
-  public async findOne (id: string, options: FilterOptions<Media>): Promise<Media> {
-    return this.media.findOne(id, options);
+  public async findOne (id: string, options: FilterOptions): Promise<Media> {
+    return this.media
+      .createQueryBuilder('media')
+      .innerJoinAndSelect('media.source', 'media_source')
+      .select(options.select)
+      .where('media.id = :id', {
+        id
+      })
+      .getOne();
   }
 
   /**
@@ -51,8 +58,15 @@ export class MediaService {
    *
    * @returns A paginated list of media and the total number of entities in the database
    */
-  public async listAll (options: PaginationOptions<Media>): Promise<[Media[], number]> {
-    return this.media.findAndCount(options);
+  public async listAll (options: PaginationOptions): Promise<[Media[], number]> {
+    return this.media
+      .createQueryBuilder('media')
+      .innerJoinAndSelect('media.source', 'media_source')
+      .select(options.select)
+      .skip(options.skip)
+      .take(options.take)
+      .orderBy(options.order)
+      .getManyAndCount();
   }
 
   /**

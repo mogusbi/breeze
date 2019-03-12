@@ -2,6 +2,7 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
+import {Article} from '@breezejs/sql';
 import {
   BadRequestException,
   Body,
@@ -16,7 +17,7 @@ import {
   Post,
   UseInterceptors
 } from '@nestjs/common';
-import {Article, ArticleDto, ArticleService} from '../shared';
+import {ArticleDto, ArticleService} from '../shared';
 
 /**
  * Controller for /articles endpoints
@@ -71,7 +72,7 @@ export class ArticleController {
   @Get()
   @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions<Article>
+    @Pagination() options: PaginationOptions
   ): Promise<[Article[], number]> {
     try {
       return await this.articleService.listAll(options);
@@ -91,7 +92,7 @@ export class ArticleController {
   @Get(':id')
   public async getArticle (
     @Param('id') id: string,
-    @Filter() options: FilterOptions<Article>
+    @Filter() options: FilterOptions
   ): Promise<Article> {
     try {
       const article: Article = await this.articleService.findOne(id, options);

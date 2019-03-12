@@ -1,8 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition, CompetitionService} from '@breezejs/competition';
+import {CompetitionService} from '@breezejs/competition';
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
+import {Competition} from '@breezejs/sql';
 import {
   BadRequestException,
   Body,
@@ -76,7 +77,7 @@ export class CompetitionController {
   @Get()
   @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions<Competition>
+    @Pagination() options: PaginationOptions
   ): Promise<[Competition[], number]> {
     try {
       return await this.competitionService.listAll(options);
@@ -96,7 +97,7 @@ export class CompetitionController {
   @Get(':id')
   public async getCompetition (
     @Param('id') id: string,
-    @Filter() options: FilterOptions<Competition>
+    @Filter() options: FilterOptions
   ): Promise<Competition> {
     try {
       const competition: Competition = await this.competitionService.findOne(id, options);

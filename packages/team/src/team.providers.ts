@@ -1,10 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {SqlEnum} from '@breezejs/sql';
+import {SqlEnum, Team} from '@breezejs/sql';
 import {Provider} from '@nestjs/common';
 import {Connection, Repository} from 'typeorm';
-import {Team} from './team.entity';
 import {TeamEnum} from './team.enum';
 
 export const TeamProviders: Provider[] = [

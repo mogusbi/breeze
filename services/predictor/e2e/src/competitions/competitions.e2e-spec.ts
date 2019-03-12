@@ -64,7 +64,7 @@ describe('Competitions', (): void => {
     describe('with filtering', (): void => {
       it('should list first page of competitions with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/competitions').query({
-          fields: 'id,name'
+          fields: 'competition.id,competition.name'
         });
 
         expect(status).toEqual(200);
@@ -73,7 +73,7 @@ describe('Competitions', (): void => {
 
       it('should list second page of competitions with all values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/competitions').query({
-          fields: 'id,name',
+          fields: 'competition.id,competition.name',
           page: 2
         });
 
@@ -83,7 +83,7 @@ describe('Competitions', (): void => {
 
       it('should return no content if out of bounds', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/competitions').query({
-          fields: 'id,name',
+          fields: 'competition.id,competition.name',
           page: 3
         });
 
@@ -93,7 +93,7 @@ describe('Competitions', (): void => {
 
       it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/competitions').query({
-          fields: 'club'
+          fields: 'competition.club'
         });
 
         expect(status).toEqual(400);
@@ -105,7 +105,7 @@ describe('Competitions', (): void => {
       describe('ascending', (): void => {
         it('should list first page of competitions with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/competitions').query({
-            sort: 'name'
+            sort: 'competition.name'
           });
 
           expect(status).toEqual(200);
@@ -115,7 +115,7 @@ describe('Competitions', (): void => {
         it('should list second page of competitions with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/competitions').query({
             page: 2,
-            sort: 'name'
+            sort: 'competition.name'
           });
 
           expect(status).toEqual(200);
@@ -125,7 +125,7 @@ describe('Competitions', (): void => {
         it('should return no content if out of bounds', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/competitions').query({
             page: 3,
-            sort: 'name'
+            sort: 'competition.name'
           });
 
           expect(status).toEqual(204);
@@ -137,7 +137,7 @@ describe('Competitions', (): void => {
         it('should list first page of competitions with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/competitions').query({
             dir: 'desc',
-            sort: 'name'
+            sort: 'competition.name'
           });
 
           expect(status).toEqual(200);
@@ -148,7 +148,7 @@ describe('Competitions', (): void => {
           const {body, status}: supertest.Response = await request.get('/competitions').query({
             dir: 'desc',
             page: 2,
-            sort: 'name'
+            sort: 'competition.name'
           });
 
           expect(status).toEqual(200);
@@ -159,7 +159,7 @@ describe('Competitions', (): void => {
           const {body, status}: supertest.Response = await request.get('/competitions').query({
             dir: 'desc',
             page: 3,
-            sort: 'name'
+            sort: 'competition.name'
           });
 
           expect(status).toEqual(204);
@@ -210,7 +210,7 @@ describe('Competitions', (): void => {
 
     it('should return a filtered result', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/competitions/66706c18-4daa-49eb-a857-df12b8e98a8e').query({
-        fields: 'name'
+        fields: 'competition.name'
       });
 
       expect(status).toEqual(200);
@@ -219,7 +219,7 @@ describe('Competitions', (): void => {
 
     it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/competitions/66706c18-4daa-49eb-a857-df12b8e98a8e').query({
-        fields: 'club'
+        fields: 'competition.club'
       });
 
       expect(status).toEqual(400);

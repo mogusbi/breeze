@@ -82,7 +82,7 @@ Object {
 exports[`Teams [GET] /teams with filtering should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "club column was not found in the Team entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'team.club' in 'field list'",
   "statusCode": 400,
 }
 `;
@@ -464,7 +464,7 @@ exports[`Teams [GET] /teams with sorting descending should return no content if 
 exports[`Teams [GET] /teams/:id should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "club column was not found in the Team entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'team.club' in 'field list'",
   "statusCode": 400,
 }
 `;

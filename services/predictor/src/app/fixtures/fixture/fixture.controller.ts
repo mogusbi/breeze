@@ -1,11 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breezejs/competition';
-import {Fixture, FixtureService} from '@breezejs/fixture';
+import {FixtureService} from '@breezejs/fixture';
 import {Filter, FilterOptions, Pagination, PaginationInterceptor, PaginationOptions} from '@breezejs/request';
-import {Season} from '@breezejs/season';
-import {Team} from '@breezejs/team';
+import {Competition, Fixture, Season, Team} from '@breezejs/sql';
 import {
   BadRequestException,
   Body,
@@ -91,7 +89,7 @@ export class FixtureController {
   @Get()
   @UseInterceptors(PaginationInterceptor)
   public async listAll (
-    @Pagination() options: PaginationOptions<Fixture>
+    @Pagination() options: PaginationOptions
   ): Promise<[Fixture[], number]> {
     try {
       return await this.fixtureService.listAll(options);
@@ -111,7 +109,7 @@ export class FixtureController {
   @Get(':id')
   public async getFixture (
     @Param('id') id: string,
-    @Filter() options: FilterOptions<Fixture>
+    @Filter() options: FilterOptions
   ): Promise<Fixture> {
     try {
       const fixture: Fixture = await this.fixtureService.findOne(id, options);

@@ -1,10 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {SqlEnum} from '@breezejs/sql';
+import {Article, SqlEnum} from '@breezejs/sql';
 import {Provider} from '@nestjs/common';
 import {Connection, Repository} from 'typeorm';
-import {Article} from './article.entity';
 import {ArticleEnum} from './article.enum';
 
 export const ArticleProviders: Provider[] = [

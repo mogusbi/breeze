@@ -2,9 +2,9 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {FilterOptions, PaginationOptions} from '@breezejs/request';
+import {Fixture} from '@breezejs/sql';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
-import {Fixture} from './fixture.entity';
 import {FixtureEnum} from './fixture.enum';
 
 /**
@@ -40,8 +40,18 @@ export class FixtureService {
    *
    * @return Fixture entity
    */
-  public async findOne (id: string, options: FilterOptions<Fixture>): Promise<Fixture> {
-    return this.fixture.findOne(id, options);
+  public async findOne (id: string, options: FilterOptions): Promise<Fixture> {
+    return this.fixture
+      .createQueryBuilder('fixture')
+      .innerJoinAndSelect('fixture.away', 'away')
+      .innerJoinAndSelect('fixture.competition', 'competition')
+      .innerJoinAndSelect('fixture.home', 'home')
+      .innerJoinAndSelect('fixture.season', 'season')
+      .select(options.select)
+      .where('fixture.id = :id', {
+        id
+      })
+      .getOne();
   }
 
   /**
@@ -51,8 +61,18 @@ export class FixtureService {
    *
    * @returns A paginated list of fixtures and the total number of entities in the database
    */
-  public async listAll (options: PaginationOptions<Fixture>): Promise<[Fixture[], number]> {
-    return this.fixture.findAndCount(options);
+  public async listAll (options: PaginationOptions): Promise<[Fixture[], number]> {
+    return this.fixture
+      .createQueryBuilder('fixture')
+      .innerJoinAndSelect('fixture.away', 'away')
+      .innerJoinAndSelect('fixture.competition', 'competition')
+      .innerJoinAndSelect('fixture.home', 'home')
+      .innerJoinAndSelect('fixture.season', 'season')
+      .select(options.select)
+      .skip(options.skip)
+      .take(options.take)
+      .orderBy(options.order)
+      .getManyAndCount();
   }
 
   /**

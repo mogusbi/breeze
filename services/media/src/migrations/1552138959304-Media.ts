@@ -1,8 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Media} from '@breezejs/sql';
 import {MigrationInterface, QueryRunner} from 'typeorm';
-import {Media} from '../app/media';
 
 export class Media1552138959304 implements MigrationInterface {
   private values: Media[] = [

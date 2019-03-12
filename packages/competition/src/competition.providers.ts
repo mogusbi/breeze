@@ -1,10 +1,9 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {SqlEnum} from '@breezejs/sql';
+import {Competition, SqlEnum} from '@breezejs/sql';
 import {Provider} from '@nestjs/common';
 import {Connection, Repository} from 'typeorm';
-import {Competition} from './competition.entity';
 import {CompetitionEnum} from './competition.enum';
 
 export const CompetitionProviders: Provider[] = [

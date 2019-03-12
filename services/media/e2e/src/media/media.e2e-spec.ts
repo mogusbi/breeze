@@ -64,7 +64,7 @@ describe('Media', (): void => {
     describe('with filtering', (): void => {
       it('should list first page of media with selected values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/media').query({
-          fields: 'id,description'
+          fields: 'media.id,media.description'
         });
 
         expect(status).toEqual(200);
@@ -73,7 +73,7 @@ describe('Media', (): void => {
 
       it('should list second page of media with selected values', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/media').query({
-          fields: 'id,description',
+          fields: 'media.id,media.description',
           page: 2
         });
 
@@ -83,7 +83,7 @@ describe('Media', (): void => {
 
       it('should return no content if out of bounds', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/media').query({
-          fields: 'id,description',
+          fields: 'media.id,media.description',
           page: 3
         });
 
@@ -93,7 +93,7 @@ describe('Media', (): void => {
 
       it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
         const {body, status}: supertest.Response = await request.get('/media').query({
-          fields: 'id,name'
+          fields: 'media.id,media.name'
         });
 
         expect(status).toEqual(400);
@@ -138,7 +138,7 @@ describe('Media', (): void => {
         it('should list first page of media with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/media').query({
             dir: 'asc',
-            sort: 'description'
+            sort: 'media.description'
           });
 
           expect(status).toEqual(200);
@@ -149,7 +149,7 @@ describe('Media', (): void => {
           const {body, status}: supertest.Response = await request.get('/media').query({
             dir: 'asc',
             page: 2,
-            sort: 'description'
+            sort: 'media.description'
           });
 
           expect(status).toEqual(200);
@@ -160,7 +160,7 @@ describe('Media', (): void => {
           const {body, status}: supertest.Response = await request.get('/media').query({
             dir: 'asc',
             page: 3,
-            sort: 'description'
+            sort: 'media.description'
           });
 
           expect(status).toEqual(204);
@@ -172,7 +172,7 @@ describe('Media', (): void => {
         it('should list first page of media with all values', async (): Promise<void> => {
           const {body, status}: supertest.Response = await request.get('/media').query({
             dir: 'desc',
-            sort: 'description'
+            sort: 'media.description'
           });
 
           expect(status).toEqual(200);
@@ -183,7 +183,7 @@ describe('Media', (): void => {
           const {body, status}: supertest.Response = await request.get('/media').query({
             dir: 'desc',
             page: 2,
-            sort: 'description'
+            sort: 'media.description'
           });
 
           expect(status).toEqual(200);
@@ -194,7 +194,7 @@ describe('Media', (): void => {
           const {body, status}: supertest.Response = await request.get('/media').query({
             dir: 'desc',
             page: 3,
-            sort: 'description'
+            sort: 'media.description'
           });
 
           expect(status).toEqual(204);
@@ -245,7 +245,7 @@ describe('Media', (): void => {
 
     it('should return a filtered result', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/media/cfd0b8e5-ddc2-4558-bac6-d316a1044601').query({
-        fields: 'id,description'
+        fields: 'media.id,media.description'
       });
 
       expect(status).toEqual(200);
@@ -255,7 +255,7 @@ describe('Media', (): void => {
     // TODO: Await TypeORM fix for join filtering
     it.skip('should return a filtered result on join', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/media/cfd0b8e5-ddc2-4558-bac6-d316a1044601').query({
-        fields: 'id,source'
+        fields: 'media.id,media.source'
       });
 
       expect(status).toEqual(200);
@@ -264,7 +264,7 @@ describe('Media', (): void => {
 
     it('should return a bad request if filtered field does not exist', async (): Promise<void> => {
       const {body, status}: supertest.Response = await request.get('/media/cfd0b8e5-ddc2-4558-bac6-d316a1044601').query({
-        fields: 'id,name'
+        fields: 'media.id,media.name'
       });
 
       expect(status).toEqual(400);

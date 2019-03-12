@@ -1,7 +1,9 @@
 [
   {
     "entities": [
-      "src/**/*.entity.ts"
+      "node_modules/@breezejs/sql/lib/entities/article/article.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/media/**/*.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/user/user.entity.js"
     ],
     "database": "development",
     "host": "localhost",
@@ -18,7 +20,8 @@
   },
   {
     "entities": [
-      "src/**/*.entity.ts"
+      "node_modules/@breezejs/sql/lib/entities/article/article.entity.js",
+      "node_modules/@breezejs/sql/lib/entities/user/user.entity.js"
     ],
     "database": "testing",
     "host": "localhost",

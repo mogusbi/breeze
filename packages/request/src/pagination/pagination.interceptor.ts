@@ -30,7 +30,7 @@ export class PaginationInterceptor<T> implements NestInterceptor<[T[], number], 
 
           if (items.length > 0) {
             const request: Request = http.getRequest();
-            const {page, take: limit}: PaginationOptions<T> = PaginationFactory(null, request);
+            const {page, take: limit}: PaginationOptions = PaginationFactory(null, request);
             const pages: number = total > 0 ? Math.ceil(total / limit) : 0;
 
             return {

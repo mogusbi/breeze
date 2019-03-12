@@ -23,6 +23,7 @@
     "lint": "tslint -c ../../tslint.json -p tsconfig.json"
   },
   "dependencies": {
+    "@sindresorhus/slugify": "^0.9.0",
     "typeorm": "^0.2.14"
   }
 }

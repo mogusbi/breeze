@@ -13,22 +13,12 @@ import {FilterOptions} from './filter.model';
  *
  * @return Filter options object
  */
-export function FilterFactory<T = unknown> (_: string, {query}: Request): FilterOptions<T> {
-  const split: RegExp = /\./;
-
-  let select: (keyof T)[] = query.fields ? query.fields
-    .split(',')
-    .filter((field: keyof T): boolean => !split.test(<string>field)) : [];
+export function FilterFactory (_: string, {query}: Request): FilterOptions {
+  let select: string[] = query.fields ? query.fields.split(',') : [];
 
   select = select.length === 0 ? null : select;
 
-  const relations: string[] = query.fields ? query.fields
-    .split(',')
-    .filter((field: keyof T): boolean => split.test(<string>field))
-    .map((field: keyof T): string => <string>field) : [];
-
   return {
-    relations,
     select
   };
 }

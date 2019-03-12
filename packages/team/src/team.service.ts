@@ -2,9 +2,9 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {FilterOptions, PaginationOptions} from '@breezejs/request';
+import {Team} from '@breezejs/sql';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
-import {Team} from './team.entity';
 import {TeamEnum} from './team.enum';
 
 /**
@@ -40,8 +40,14 @@ export class TeamService {
    *
    * @return Team entity
    */
-  public async findOne (id: string, options: FilterOptions<Team>): Promise<Team> {
-    return this.team.findOne(id, options);
+  public async findOne (id: string, options: FilterOptions): Promise<Team> {
+    return this.team
+      .createQueryBuilder('team')
+      .select(options.select)
+      .where('team.id = :id', {
+        id
+      })
+      .getOne();
   }
 
   /**
@@ -51,8 +57,14 @@ export class TeamService {
    *
    * @returns A paginated list of teams and the total number of entities in the database
    */
-  public async listAll (options: PaginationOptions<Team>): Promise<[Team[], number]> {
-    return this.team.findAndCount(options);
+  public async listAll (options: PaginationOptions): Promise<[Team[], number]> {
+    return this.team
+      .createQueryBuilder('team')
+      .select(options.select)
+      .skip(options.skip)
+      .take(options.take)
+      .orderBy(options.order)
+      .getManyAndCount();
   }
 
   /**

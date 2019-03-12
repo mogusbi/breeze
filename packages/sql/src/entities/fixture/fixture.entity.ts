@@ -1,11 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breezejs/competition';
-import {Season} from '@breezejs/season';
-import {Base} from '@breezejs/sql';
-import {Team} from '@breezejs/team';
 import {Column, Entity, JoinColumn, ManyToOne} from 'typeorm';
+import {Base} from '../../base';
+import {Competition} from '../competition';
+import {Season} from '../season';
+import {Team} from '../team';
 
 /**
  * Fixture entity

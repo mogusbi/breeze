@@ -94,7 +94,7 @@ Object {
 exports[`Fixtures [GET] /fixtures with filtering should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "name column was not found in the Fixture entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'fixture.name' in 'field list'",
   "statusCode": 400,
 }
 `;
@@ -1672,7 +1672,7 @@ exports[`Fixtures [GET] /fixtures with sorting descending should return no conte
 exports[`Fixtures [GET] /fixtures/:id should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "aggregate column was not found in the Fixture entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'fixture.aggregate' in 'field list'",
   "statusCode": 400,
 }
 `;
@@ -1680,6 +1680,20 @@ Object {
 exports[`Fixtures [GET] /fixtures/:id should return a filtered result 1`] = `
 Object {
   "awayScore": 2,
+  "homeScore": 1,
+  "id": "a32e5fa2-1bf1-4188-86d7-50d74cfea6b9",
+}
+`;
+
+exports[`Fixtures [GET] /fixtures/:id should return a filtered result on join 1`] = `
+Object {
+  "away": Object {
+    "name": "Arsenal",
+  },
+  "awayScore": 2,
+  "home": Object {
+    "name": "Bournemouth",
+  },
   "homeScore": 1,
   "id": "a32e5fa2-1bf1-4188-86d7-50d74cfea6b9",
 }

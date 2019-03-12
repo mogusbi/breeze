@@ -82,7 +82,7 @@ Object {
 exports[`Media [GET] /media with filtering should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "name column was not found in the Media entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'media.name' in 'field list'",
   "statusCode": 400,
 }
 `;
@@ -1062,7 +1062,7 @@ exports[`Media [GET] /media with sorting descending should return no content if 
 exports[`Media [GET] /media/:id should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "name column was not found in the Media entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'media.name' in 'field list'",
   "statusCode": 400,
 }
 `;

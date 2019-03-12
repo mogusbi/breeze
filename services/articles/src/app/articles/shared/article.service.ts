@@ -2,9 +2,9 @@
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
 import {FilterOptions, PaginationOptions} from '@breezejs/request';
+import {Article} from '@breezejs/sql';
 import {Inject, Injectable} from '@nestjs/common';
 import {DeleteResult, Repository, UpdateResult} from 'typeorm';
-import {Article} from './article.entity';
 import {ArticleEnum} from './article.enum';
 
 /**
@@ -40,8 +40,17 @@ export class ArticleService {
    *
    * @return Article entity
    */
-  public async findOne (id: string, options: FilterOptions<Article>): Promise<Article> {
-    return this.article.findOne(id, options);
+  public async findOne (id: string, options: FilterOptions): Promise<Article> {
+    return this.article
+      .createQueryBuilder('article')
+      .innerJoinAndSelect('article.author', 'user')
+      .innerJoinAndSelect('article.media', 'media')
+      .innerJoinAndSelect('media.source', 'media_source')
+      .select(options.select)
+      .where('article.id = :id', {
+        id
+      })
+      .getOne();
   }
 
   /**
@@ -51,8 +60,17 @@ export class ArticleService {
    *
    * @returns A paginated list of articles and the total number of entities in the database
    */
-  public async listAll (options: PaginationOptions<Article>): Promise<[Article[], number]> {
-    return this.article.findAndCount(options);
+  public async listAll (options: PaginationOptions): Promise<[Article[], number]> {
+    return this.article
+      .createQueryBuilder('article')
+      .innerJoinAndSelect('article.author', 'user')
+      .innerJoinAndSelect('article.media', 'media')
+      .innerJoinAndSelect('media.source', 'media_source')
+      .select(options.select)
+      .skip(options.skip)
+      .take(options.take)
+      .orderBy(options.order)
+      .getManyAndCount();
   }
 
   /**

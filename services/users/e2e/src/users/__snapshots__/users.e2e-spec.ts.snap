@@ -94,7 +94,7 @@ Object {
 exports[`Users [GET] /users with filtering should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "name column was not found in the User entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'user.name' in 'field list'",
   "statusCode": 400,
 }
 `;
@@ -568,7 +568,7 @@ exports[`Users [GET] /users with sorting descending should return no content if 
 exports[`Users [GET] /users/:id should return a bad request if filtered field does not exist 1`] = `
 Object {
   "error": "Bad Request",
-  "message": "name column was not found in the User entity.",
+  "message": "ER_BAD_FIELD_ERROR: Unknown column 'user.name' in 'field list'",
   "statusCode": 400,
 }
 `;
@@ -581,6 +581,13 @@ Object {
 `;
 
 exports[`Users [GET] /users/:id should return not found if fixture does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Users [GET] /users/:id should return not found if user does not exist 1`] = `
 Object {
   "error": "Not Found",
   "statusCode": 404,
