@@ -1,11 +1,15 @@
 [
   {
     "entities": [
-      "node_modules/@breezejs/sql/lib/entities/media/**/*.entity.js"
+      "node_modules/@breezejs/sql/lib/entities/**/*.entity.js"
     ],
     "database": "development",
     "host": "localhost",
     "logging": true,
+    "migrations": [
+      "lib/migrations/**/*.js"
+    ],
+    "migrationsRun": true,
     "password": "password",
     "port": 3306,
     "synchronize": true,
@@ -14,11 +18,15 @@
   },
   {
     "entities": [
-      "node_modules/@breezejs/testing/lib/migrations/**/*.js"
+      "node_modules/@breezejs/sql/lib/entities/**/*.entity.js"
     ],
     "database": "testing",
     "host": "localhost",
     "logging": false,
+    "migrations": [
+      "lib/migrations/**/*.js"
+    ],
+    "migrationsRun": true,
     "name": "test",
     "password": "password",
     "port": 3306,

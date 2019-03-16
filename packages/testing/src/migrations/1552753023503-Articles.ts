@@ -4,8 +4,7 @@
 import {Article} from '@breezejs/sql';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
-export class Articles1552085260782 implements MigrationInterface {
-  private table: string = 'article';
+export class Articles1552753023503 implements MigrationInterface {
   private values: Article[] = [
     Object.assign(new Article(), {
       alternativeTitle: null,
@@ -206,7 +205,7 @@ export class Articles1552085260782 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .delete()
-      .from(this.table)
+      .from(Article)
       .whereInIds(this.values.map(({id}: Article): string => id))
       .execute();
   }
@@ -216,7 +215,7 @@ export class Articles1552085260782 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .insert()
-      .into(this.table)
+      .into(Article)
       .values(this.values)
       .execute();
   }

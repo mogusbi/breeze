@@ -25,6 +25,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/docs" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sql/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/team/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/testing/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/user/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/validator/lib" />
       <excludeFolder url="file://$MODULE_DIR$/services/articles/lib" />

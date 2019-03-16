@@ -34,6 +34,7 @@
     "@breezejs/season": "^0.0.0",
     "@breezejs/sql": "^0.0.0",
     "@breezejs/team": "^0.0.0",
+    "@breezejs/testing": "^0.0.0",
     "mysql": "^2.16.0",
     "typeorm": "^0.2.14"
   },

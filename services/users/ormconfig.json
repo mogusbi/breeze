@@ -6,10 +6,6 @@
     "database": "development",
     "host": "localhost",
     "logging": true,
-    "migrations": [
-      "src/migrations/**/*.ts"
-    ],
-    "migrationsRun": true,
     "password": "password",
     "port": 3306,
     "synchronize": true,
@@ -23,10 +19,6 @@
     "database": "testing",
     "host": "localhost",
     "logging": false,
-    "migrations": [
-      "src/migrations/**/*.ts"
-    ],
-    "migrationsRun": true,
     "name": "test",
     "password": "password",
     "port": 3306,

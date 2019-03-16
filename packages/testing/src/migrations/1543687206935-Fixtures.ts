@@ -5,7 +5,6 @@ import {Competition, Fixture, Season, Team} from '@breezejs/sql';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
 export class Fixtures1543687206935 implements MigrationInterface {
-  private table: string = 'fixture';
   private values: Fixture[] = [
     {
       away: this.team('07c3eac0-909d-4a1c-9fb5-6a6202c65e34'),
@@ -158,7 +157,7 @@ export class Fixtures1543687206935 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .delete()
-      .from(this.table)
+      .from(Fixture)
       .whereInIds(this.values.map(({id}: Fixture): string => id))
       .execute();
   }
@@ -168,7 +167,7 @@ export class Fixtures1543687206935 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .insert()
-      .into(this.table)
+      .into(Fixture)
       .values(this.values)
       .execute();
   }

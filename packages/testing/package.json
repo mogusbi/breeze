@@ -1,0 +1,52 @@
+{
+  "name": "@breezejs/testing",
+  "version": "0.0.0",
+  "description": "Breeze testing lib",
+  "author": "Mo Gusbi <me@mogusbi.co.uk>",
+  "homepage": "https://github.com/breezejs/breezejs",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/breezejs/breezejs.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
+    "seed:e2e": "typeorm schema:sync -c test && typeorm migration:run -c test",
+    "seed:start": "typeorm schema:sync && typeorm migration:run"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**/*.ts",
+      "!**/src/*.module.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "index.ts",
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/+(*.)+(spec|test).+(ts|js)?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ]
+  },
+  "dependencies": {
+    "@breezejs/sql": "^0.0.0",
+    "typeorm": "^0.2.14"
+  }
+}

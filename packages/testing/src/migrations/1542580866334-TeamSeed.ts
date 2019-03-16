@@ -5,7 +5,6 @@ import {Team} from '@breezejs/sql';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
 export class TeamSeed1542580866334 implements MigrationInterface {
-  private table: string = 'team';
   private values: Team[] = [
     {
       createdAt: '2018-11-18',
@@ -38,7 +37,7 @@ export class TeamSeed1542580866334 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .delete()
-      .from(this.table)
+      .from(Team)
       .whereInIds(this.values.map(({id}: Team): string => id))
       .execute();
   }
@@ -48,7 +47,7 @@ export class TeamSeed1542580866334 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .insert()
-      .into(this.table)
+      .into(Team)
       .values(this.values)
       .execute();
   }

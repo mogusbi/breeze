@@ -44,6 +44,7 @@ jobs:
             - packages/season/node_modules
             - packages/sql/node_modules
             - packages/team/node_modules
+            - packages/testing/node_modules
             - packages/validator/node_modules
             - services/articles/node_modules
             - services/media/node_modules

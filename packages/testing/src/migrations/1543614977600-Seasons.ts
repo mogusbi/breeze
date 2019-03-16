@@ -1,82 +1,81 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breezejs/sql';
+import {Season} from '@breezejs/sql';
 import {MigrationInterface, QueryRunner} from 'typeorm';
 
-export class Competitions1543680216224 implements MigrationInterface {
-  private table: string = 'competition';
-  private values: Competition[] = [
+export class Seasons1543614977600 implements MigrationInterface {
+  private values: Season[] = [
     {
       createdAt: '2018-12-01',
-      id: 'a6543c15-966a-4d22-85df-edaa11561227',
-      name: 'Premier League',
+      id: 'a526739f-15ba-4ee4-b30f-188bd11078ed',
+      name: '2016/17',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: 'c3631875-bad7-4f96-9349-712a89c87f7b',
-      name: 'Football League Championship',
+      id: '81f81292-1e0c-4f94-94a0-d164466a62c2',
+      name: '2017/18',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: '66706c18-4daa-49eb-a857-df12b8e98a8e',
-      name: 'Football League 1',
+      id: '913d0a60-b388-4101-b5cf-95167c4f35cb',
+      name: '2018/19',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: 'ceedef18-0344-40ac-994d-748d963b9fc2',
-      name: 'Football League 2',
+      id: '2860e0d0-1ecf-47e3-82ce-0b3400eacd95',
+      name: '2019/20',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: 'f0439c4f-206a-48ac-9ff7-db8bad77b8bf',
-      name: 'La Liga',
+      id: '9527f678-47c1-4c14-8de7-4deb26172bde',
+      name: '2020/21',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: '3ae6575c-5857-4f5f-a781-7a0cfba6c2a4',
-      name: 'Bundesliga',
+      id: '4aac4f01-0545-4e32-b2cd-c78e7687239b',
+      name: '2021/22',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: '3c15960b-c2c7-4719-b5bc-19396d33269e',
-      name: 'Serie A',
+      id: '6342404f-08ea-448b-9c1c-8acdcd97acbf',
+      name: '2022/23',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: '9463a53e-61cd-4521-8390-3dfd5dcd5fa4',
-      name: 'UEFA Champions League',
+      id: '1d89fd93-85f6-4f79-8d92-01cebedc35fc',
+      name: '2023/24',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: '5a9e34ef-eae6-417f-b577-0e359eeeeb30',
-      name: 'UEFA Europa League',
+      id: 'eae9b1f4-bacd-4bff-ade6-5abe2bfa0ffb',
+      name: '2024/25',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: 'f8a6922f-a7ce-4722-9e67-e5521c219724',
-      name: 'FA Cup',
+      id: '309ef708-50b4-49b6-9689-538aaa9c1218',
+      name: '2025/26',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: 'ed530b00-c9fa-49f2-be90-945fc7ca5eca',
-      name: 'Football League Cup',
+      id: '048c3964-5290-41da-a531-2d83c95eeb1a',
+      name: '2026/27',
       updatedAt: '2018-12-01'
     },
     {
       createdAt: '2018-12-01',
-      id: 'ab48a3c7-befd-4411-9ac4-0bd5116ecd99',
-      name: 'UEFA Nations League',
+      id: '5419df62-155b-42e2-9514-13ff488e75be',
+      name: '2027/28',
       updatedAt: '2018-12-01'
     }
   ];
@@ -86,8 +85,8 @@ export class Competitions1543680216224 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .delete()
-      .from(this.table)
-      .whereInIds(this.values.map(({id}: Competition): string => id))
+      .from(Season)
+      .whereInIds(this.values.map(({id}: Season): string => id))
       .execute();
   }
 
@@ -96,7 +95,7 @@ export class Competitions1543680216224 implements MigrationInterface {
       .manager
       .createQueryBuilder()
       .insert()
-      .into(this.table)
+      .into(Season)
       .values(this.values)
       .execute();
   }

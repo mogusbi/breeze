@@ -18,6 +18,8 @@
     "lint": "lerna run lint",
     "ls": "lerna ls",
     "postinstall": "lerna bootstrap",
+    "pree2e": "lerna run seed:e2e",
+    "prestart": "lerna run seed:start",
     "start": "lerna run start --stream",
     "test": "lerna run test"
   },
