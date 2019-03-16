@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@breezejs/sql": "^0.0.0",
+    "mysql": "^2.16.0",
     "typeorm": "^0.2.14"
   }
 }
