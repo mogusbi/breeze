@@ -580,13 +580,6 @@ Object {
 }
 `;
 
-exports[`Users [GET] /users/:id should return not found if fixture does not exist 1`] = `
-Object {
-  "error": "Not Found",
-  "statusCode": 404,
-}
-`;
-
 exports[`Users [GET] /users/:id should return not found if user does not exist 1`] = `
 Object {
   "error": "Not Found",
