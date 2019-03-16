@@ -1,9 +1,10 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {User} from '@breezejs/sql';
 import {BadRequestException, NotFoundException} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
-import {User, UserService} from '../shared';
+import {UserService} from '../shared';
 import {UserController} from './user.controller';
 
 jest.mock('../shared/user.service');

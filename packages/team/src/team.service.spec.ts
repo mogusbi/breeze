@@ -1,13 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Team} from '@breezejs/sql';
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
-import {Team} from './team.entity';
 import {TeamEnum} from './team.enum';
 import {TeamService} from './team.service';
-
-jest.mock('./team.entity');
 
 describe('TeamService', (): void => {
   let team: jest.Mocked<Repository<Team>>;
@@ -60,9 +58,12 @@ describe('TeamService', (): void => {
         select: null
       });
 
-      expect(team.findOne).toHaveBeenCalledWith('team-id', {
-        select: null
+      expect(team.createQueryBuilder).toHaveBeenCalledWith('team');
+      expect(team.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(team.createQueryBuilder().where).toHaveBeenCalledWith('team.id = :id', {
+        id: 'team-id'
       });
+      expect(team.createQueryBuilder().getOne).toHaveBeenCalledWith();
     });
   });
 
@@ -76,13 +77,12 @@ describe('TeamService', (): void => {
         take: 10
       });
 
-      expect(team.findAndCount).toHaveBeenCalledWith({
-        order: {},
-        page: 1,
-        select: null,
-        skip: 0,
-        take: 10
-      });
+      expect(team.createQueryBuilder).toHaveBeenCalledWith('team');
+      expect(team.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(team.createQueryBuilder().skip).toHaveBeenCalledWith(0);
+      expect(team.createQueryBuilder().take).toHaveBeenCalledWith(10);
+      expect(team.createQueryBuilder().orderBy).toHaveBeenCalledWith({});
+      expect(team.createQueryBuilder().getManyAndCount).toHaveBeenCalledWith();
     });
   });
 

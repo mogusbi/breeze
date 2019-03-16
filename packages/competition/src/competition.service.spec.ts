@@ -1,13 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Competition} from '@breezejs/sql';
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
-import {Competition} from './competition.entity';
 import {CompetitionEnum} from './competition.enum';
 import {CompetitionService} from './competition.service';
-
-jest.mock('./competition.entity');
 
 describe('CompetitionService', (): void => {
   let competition: jest.Mocked<Repository<Competition>>;
@@ -60,9 +58,12 @@ describe('CompetitionService', (): void => {
         select: null
       });
 
-      expect(competition.findOne).toHaveBeenCalledWith('competition-id', {
-        select: null
+      expect(competition.createQueryBuilder).toHaveBeenCalledWith('competition');
+      expect(competition.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(competition.createQueryBuilder().where).toHaveBeenCalledWith('competition.id = :id', {
+        id: 'competition-id'
       });
+      expect(competition.createQueryBuilder().getOne).toHaveBeenCalledWith();
     });
   });
 
@@ -76,13 +77,12 @@ describe('CompetitionService', (): void => {
         take: 10
       });
 
-      expect(competition.findAndCount).toHaveBeenCalledWith({
-        order: {},
-        page: 1,
-        select: null,
-        skip: 0,
-        take: 10
-      });
+      expect(competition.createQueryBuilder).toHaveBeenCalledWith('competition');
+      expect(competition.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(competition.createQueryBuilder().skip).toHaveBeenCalledWith(0);
+      expect(competition.createQueryBuilder().take).toHaveBeenCalledWith(10);
+      expect(competition.createQueryBuilder().orderBy).toHaveBeenCalledWith({});
+      expect(competition.createQueryBuilder().getManyAndCount).toHaveBeenCalledWith();
     });
   });
 

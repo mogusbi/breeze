@@ -1,14 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Media, MediaSource} from '@breezejs/sql';
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
-import {MediaSource} from './media-source';
-import {Media} from './media.entity';
 import {MediaEnum} from './media.enum';
 import {MediaService} from './media.service';
-
-jest.mock('./media.entity');
 
 describe('MediaService', (): void => {
   let media: jest.Mocked<Repository<Media>>;
@@ -79,9 +76,13 @@ describe('MediaService', (): void => {
         select: null
       });
 
-      expect(media.findOne).toHaveBeenCalledWith('media-id', {
-        select: null
+      expect(media.createQueryBuilder).toHaveBeenCalledWith('media');
+      expect(media.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('media.source', 'media_source');
+      expect(media.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(media.createQueryBuilder().where).toHaveBeenCalledWith('media.id = :id', {
+        id: 'media-id'
       });
+      expect(media.createQueryBuilder().getOne).toHaveBeenCalledWith();
     });
   });
 
@@ -95,13 +96,13 @@ describe('MediaService', (): void => {
         take: 10
       });
 
-      expect(media.findAndCount).toHaveBeenCalledWith({
-        order: {},
-        page: 1,
-        select: null,
-        skip: 0,
-        take: 10
-      });
+      expect(media.createQueryBuilder).toHaveBeenCalledWith('media');
+      expect(media.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('media.source', 'media_source');
+      expect(media.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(media.createQueryBuilder().skip).toHaveBeenCalledWith(0);
+      expect(media.createQueryBuilder().take).toHaveBeenCalledWith(10);
+      expect(media.createQueryBuilder().orderBy).toHaveBeenCalledWith({});
+      expect(media.createQueryBuilder().getManyAndCount).toHaveBeenCalledWith();
     });
   });
 

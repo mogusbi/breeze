@@ -1,7 +1,8 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Team, TeamService} from '@breezejs/team';
+import {Team} from '@breezejs/sql';
+import {TeamService} from '@breezejs/team';
 import {BadRequestException, NotFoundException} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
 import {TeamController} from './team.controller';

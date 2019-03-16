@@ -1,13 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Season} from '@breezejs/sql';
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
-import {Season} from './season.entity';
 import {SeasonEnum} from './season.enum';
 import {SeasonService} from './season.service';
-
-jest.mock('./season.entity');
 
 describe('SeasonService', (): void => {
   let season: jest.Mocked<Repository<Season>>;
@@ -60,9 +58,12 @@ describe('SeasonService', (): void => {
         select: null
       });
 
-      expect(season.findOne).toHaveBeenCalledWith('season-id', {
-        select: null
+      expect(season.createQueryBuilder).toHaveBeenCalledWith('season');
+      expect(season.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(season.createQueryBuilder().where).toHaveBeenCalledWith('season.id = :id', {
+        id: 'season-id'
       });
+      expect(season.createQueryBuilder().getOne).toHaveBeenCalledWith();
     });
   });
 
@@ -76,13 +77,12 @@ describe('SeasonService', (): void => {
         take: 10
       });
 
-      expect(season.findAndCount).toHaveBeenCalledWith({
-        order: {},
-        page: 1,
-        select: null,
-        skip: 0,
-        take: 10
-      });
+      expect(season.createQueryBuilder).toHaveBeenCalledWith('season');
+      expect(season.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(season.createQueryBuilder().skip).toHaveBeenCalledWith(0);
+      expect(season.createQueryBuilder().take).toHaveBeenCalledWith(10);
+      expect(season.createQueryBuilder().orderBy).toHaveBeenCalledWith({});
+      expect(season.createQueryBuilder().getManyAndCount).toHaveBeenCalledWith();
     });
   });
 

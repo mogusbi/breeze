@@ -1,16 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
-import {Competition} from '@breezejs/competition';
-import {Season} from '@breezejs/season';
-import {Team} from '@breezejs/team';
+import {Competition, Fixture, Season, Team} from '@breezejs/sql';
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
-import {Fixture} from './fixture.entity';
 import {FixtureEnum} from './fixture.enum';
 import {FixtureService} from './fixture.service';
-
-jest.mock('./fixture.entity');
 
 describe('FixtureService', (): void => {
   let fixture: jest.Mocked<Repository<Fixture>>;
@@ -91,9 +86,16 @@ describe('FixtureService', (): void => {
         select: null
       });
 
-      expect(fixture.findOne).toHaveBeenCalledWith('fixture-id', {
-        select: null
+      expect(fixture.createQueryBuilder).toHaveBeenCalledWith('fixture');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.away', 'away');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.competition', 'competition');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.home', 'home');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.season', 'season');
+      expect(fixture.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(fixture.createQueryBuilder().where).toHaveBeenCalledWith('fixture.id = :id', {
+        id: 'fixture-id'
       });
+      expect(fixture.createQueryBuilder().getOne).toHaveBeenCalledWith();
     });
   });
 
@@ -107,13 +109,16 @@ describe('FixtureService', (): void => {
         take: 10
       });
 
-      expect(fixture.findAndCount).toHaveBeenCalledWith({
-        order: {},
-        page: 1,
-        select: null,
-        skip: 0,
-        take: 10
-      });
+      expect(fixture.createQueryBuilder).toHaveBeenCalledWith('fixture');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.away', 'away');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.competition', 'competition');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.home', 'home');
+      expect(fixture.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('fixture.season', 'season');
+      expect(fixture.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(fixture.createQueryBuilder().skip).toHaveBeenCalledWith(0);
+      expect(fixture.createQueryBuilder().take).toHaveBeenCalledWith(10);
+      expect(fixture.createQueryBuilder().orderBy).toHaveBeenCalledWith({});
+      expect(fixture.createQueryBuilder().getManyAndCount).toHaveBeenCalledWith();
     });
   });
 

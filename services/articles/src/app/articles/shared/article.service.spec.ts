@@ -1,13 +1,11 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Article} from '@breezejs/sql';
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
-import {Article} from './article.entity';
 import {ArticleEnum} from './article.enum';
 import {ArticleService} from './article.service';
-
-jest.mock('./article.entity');
 
 describe('ArticleService', (): void => {
   let article: jest.Mocked<Repository<Article>>;
@@ -60,9 +58,15 @@ describe('ArticleService', (): void => {
         select: null
       });
 
-      expect(article.findOne).toHaveBeenCalledWith('article-id', {
-        select: null
+      expect(article.createQueryBuilder).toHaveBeenCalledWith('article');
+      expect(article.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('article.author', 'user');
+      expect(article.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('article.media', 'media');
+      expect(article.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('media.source', 'media_source');
+      expect(article.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(article.createQueryBuilder().where).toHaveBeenCalledWith('article.id = :id', {
+        id: 'article-id'
       });
+      expect(article.createQueryBuilder().getOne).toHaveBeenCalledWith();
     });
   });
 
@@ -76,13 +80,15 @@ describe('ArticleService', (): void => {
         take: 10
       });
 
-      expect(article.findAndCount).toHaveBeenCalledWith({
-        order: {},
-        page: 1,
-        select: null,
-        skip: 0,
-        take: 10
-      });
+      expect(article.createQueryBuilder).toHaveBeenCalledWith('article');
+      expect(article.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('article.author', 'user');
+      expect(article.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('article.media', 'media');
+      expect(article.createQueryBuilder().innerJoinAndSelect).toHaveBeenCalledWith('media.source', 'media_source');
+      expect(article.createQueryBuilder().select).toHaveBeenCalledWith(null);
+      expect(article.createQueryBuilder().skip).toHaveBeenCalledWith(0);
+      expect(article.createQueryBuilder().take).toHaveBeenCalledWith(10);
+      expect(article.createQueryBuilder().orderBy).toHaveBeenCalledWith({});
+      expect(article.createQueryBuilder().getManyAndCount).toHaveBeenCalledWith();
     });
   });
 

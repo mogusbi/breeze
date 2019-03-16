@@ -1,10 +1,10 @@
 /**
  * @author Mo Gusbi <me@mogusbi.co.uk>
  */
+import {Media} from '@breezejs/sql';
 import {BadRequestException, NotFoundException} from '@nestjs/common';
 import {Test, TestingModule} from '@nestjs/testing';
 import {MediaController} from './media.controller';
-import {Media} from './media.entity';
 import {MediaService} from './media.service';
 
 jest.mock('./media.service');
