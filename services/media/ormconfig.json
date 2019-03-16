@@ -14,7 +14,7 @@
   },
   {
     "entities": [
-      "node_modules/@breezejs/testing/lib/migrations/**/*.js"
+      "node_modules/@breezejs/sql/lib/entities/media/**/*.entity.js"
     ],
     "database": "testing",
     "host": "localhost",
