@@ -12,7 +12,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '6091a1e1-e25a-4362-b296-a7b5016ea2c6'
       },
-      path: 'https://via.placeholder.com/480x380/FFF/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/FFF/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'e9b3ccc3-0734-466e-a253-7b4f38b2cfa3',
@@ -28,7 +28,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '0870319a-e0f1-4619-ac68-95ac08dae2ad'
       },
-      path: 'https://via.placeholder.com/480x380/EEE/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/EEE/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'aa165b97-3e66-4ab8-8386-738b1f4507ab',
@@ -44,7 +44,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '305a6d3d-3150-4a5d-84fe-08ca62567d7d'
       },
-      path: 'https://via.placeholder.com/480x380/DDD/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/DDD/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'cb615573-4971-4828-ab41-517780231850',
@@ -60,7 +60,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: 'cfd0b8e5-ddc2-4558-bac6-d316a1044601'
       },
-      path: 'https://via.placeholder.com/480x380/CCC/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/CCC/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'b4d4bff6-4956-4458-86a1-3c42bb4d5109',
@@ -76,7 +76,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '19fe8f11-6c7f-482c-b8ee-cb0c1e07a9f2'
       },
-      path: 'https://via.placeholder.com/480x380/BBB/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/BBB/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'b1c58f88-98cd-4fd7-a1cf-705c249bcb26',
@@ -92,7 +92,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '99391375-42e1-40fc-affa-3e62bb115043'
       },
-      path: 'https://via.placeholder.com/480x380/AAA/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/AAA/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'f4655ccf-9745-4179-86b2-3c59dc0a941b',
@@ -108,7 +108,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '95fdc3a0-0852-4be3-838f-76e8ab0a39a4'
       },
-      path: 'https://via.placeholder.com/480x380/999/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/999/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: '93386811-ba57-43a0-8fb1-9e17c6ff5411',
@@ -124,7 +124,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: 'bde936ee-04c6-4912-99e2-aef3135b1c71'
       },
-      path: 'https://via.placeholder.com/480x380/888/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/888/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: '94daaf29-96e0-4641-b930-c500e70aa20a',
@@ -140,7 +140,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '9981cd05-77f1-4c54-8c47-fdc74f77ba42'
       },
-      path: 'https://via.placeholder.com/480x380/777/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/777/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: '25265dfb-9a82-4c55-b706-9902c8d22880',
@@ -156,7 +156,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '3a8cc8b6-7080-4a6b-bb08-52822e08bf28'
       },
-      path: 'https://via.placeholder.com/480x380/666/000?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/666/000?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: '1906e932-3071-4d46-a9b8-79d229ae9bc4',
@@ -172,7 +172,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: 'f5ed1aa8-313c-4afd-9978-f47d81b7d23c'
       },
-      path: 'https://via.placeholder.com/480x380/555/FFF?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/555/FFF?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'dac73a4e-6fb6-4daa-8cb2-0b0b1b9ecb10',
@@ -188,7 +188,7 @@ export class MediaSource1552163182669 implements MigrationInterface {
       parent: {
         id: '6c93a90f-1f28-4b60-81d2-041980cb38c8'
       },
-      path: 'https://via.placeholder.com/480x380/444/FFF?text=Placeholder'
+      path: 'https://via.placeholder.com/480x480/444/FFF?text=Placeholder'
     }),
     Object.assign(new MediaSource(), {
       id: 'efc510f3-e6f9-4bd1-ac7d-c6287aa84353',
